@@ -2,19 +2,16 @@
 
 # ===FreeBSD===
 #
-#	while true; do
-#		# Get capacitya and status from apm
-#		capacity=$( apm | sed -n 5p | sed "s/Remaining battery life: //;s/%//" ) || exit
-#		status=$( apm | sed -n 6p | sed "s/Remaining battery time: //" )
+#	# Get capacitya and status from apm
+#	capacity=$( apm | sed -n 5p | sed "s/Remaining battery life: //;s/%//" ) || exit
+#	status=$( apm | sed -n 6p | sed "s/Remaining battery time: //" )
 #
-#		# Warn at 15%
-#		[ "$status" = "Discharging" ] && [ "$capacity" -le 15 ] && warn="â—"
+#	# Warn at 15%
+#	[ "$status" = "Discharging" ] && [ "$capacity" -le 15 ] && warn="â—"
 #
-#		printf "%s%s%s\n" "$(echo "$status" | sed "s/unknown/â/;s/[0-9]:[0-9][0-9]:[0-9][0-9]/ğ/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
-#		unset warn
-#		
-#	done
-
+#	printf "%s%s%s\n" "$(echo "$status" | sed "s/unknown/â/;s/[0-9]:[0-9][0-9]:[0-9][0-9]/ğ/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+#	unset warn
+		
 
 # ===GNU/Linux===
 
