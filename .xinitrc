@@ -2,8 +2,8 @@
 
 # ===Monitor Fix===
 
-	xrandr --output DVI-D-0 --left-of HDMI-A-0 ;
-	xrandr --output DVI-D-1 --right-of HDMI-A-0 ;
+	#xrandr --output DVI-D-0 --left-of HDMI-A-0 ;
+	#xrandr --output DVI-D-1 --right-of HDMI-A-0 ;
 
 
 # ===DWM STATUS BAR===
