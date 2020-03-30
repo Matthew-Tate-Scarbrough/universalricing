@@ -2,14 +2,15 @@
 
 # ===FreeBSD===
 #
-#	# Get capacitya and status from apm
+#	# Get capacity and status from apm
+#	# with my Compaq tc4400, when I plug in the charger, apm says "unknown"
 #	capacity=$( apm | sed -n 5p | sed "s/Remaining battery life: //;s/%//" ) || exit
 #	status=$( apm | sed -n 6p | sed "s/Remaining battery time: //" )
 #
 #	# Warn at 15%
 #	[ "$status" = "Discharging" ] && [ "$capacity" -le 15 ] && warn="❗"
 #
-#	printf "%s%s%s\n" "$(echo "$status" | sed "s/unknown/⚡/;s/[0-9]:[0-9][0-9]:[0-9][0-9]/🔋/;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+#	printf "%s%s%s\n" "$(echo "$status" | sed "s/unknown/⚡/;s/[0-9]:[0-9][0-9]:[0-9][0-9]/🔋/;s/ //;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
 #	unset warn
 		
 
