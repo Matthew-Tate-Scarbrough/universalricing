@@ -1,10 +1,15 @@
 #!/bin/sh
 
+# ===Monitor Fix===
+
+	xrandr --output DVI-D-0 --left-of HDMI-A-0 ;
+	xrandr --output DVI-D-1 --right-of HDMI-A-0 ;
+
 
 # ===DWM STATUS BAR===
 
 	while true; do
-		xsetroot -name "[$( date "+🌎%m-%d-%y | 🕓%H:%M" )]"
+		xsetroot -name "[$( date "+🌎%m-%d-%y | 🕓%I:%M%p" )]"
 		sleep 60
 	done &
 
@@ -12,7 +17,7 @@
 # ===DWM BACKGROUND===
 
 	while true; do
-		feh --bg-fill --randomize ~/Pictures/Wallpapers/*
+		feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg
 		sleep 900							# Sleep 15min (900 sec's)
 	done &
 
@@ -25,7 +30,7 @@
 
 # ===KEYBOARD===
 
-	setxkbmap dvorak
+	setxkbmap dvorak &
 
 
 # ===DWM===

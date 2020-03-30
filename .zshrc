@@ -15,9 +15,32 @@
 	PROMPT="%B%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f%F{red}|%f%F{white}%t%f%F{red}]%f%F{white}:%f%F{red}%~%f%F{white}%%%f %b"
 
 
+# ===NEO FETCH G*YNESS, CAUSE MEME===
+
+	neofetch
+
 
 # ===VIM MODE===
-	bindkey -v
+#	bindkey -v
+
+
+
+# ===PATHS, ETC.===
+
+	# For Go
+	export PATH=$PATH:/usr/local/go/bin
+	export GOPATH=$HOME/Documents/Go
+
+	# For NEOVIM
+	export NEOVIM=$HOME/.neovim
+
+	# For NeoVim and Vim
+	export PATH=$PATH:$HOME/.bin/tools
+
+
+# ===ALIASES===
+
+	source ~/.aliases
 
 
 
