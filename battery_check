@@ -1,6 +1,22 @@
 #!/bin/sh
 
-# ===POWER===
+# ===FreeBSD===
+#
+#	while true; do
+#		# Get capacitya and status from apm
+#		capacity=$( apm | sed -n 5p | sed "s/Remaining battery life: //;s/%//" ) || exit
+#		status=$( apm | sed -n 6p | sed "s/Remaining battery time: //" )
+#
+#		# Warn at 15%
+#		[ "$status" = "Discharging" ] && [ "$capacity" -le 15 ] && warn="‚ùó"
+#
+#		printf "%s%s%s\n" "$(echo "$status" | sed "s/unknown/‚/;s/[0-9]:[0-9][0-9]:[0-9][0-9]//;s/ 0*/ /g;s/ :/ /g")" "$warn" "$(echo "$capacity" | sed -e 's/$/%/')"
+#		unset warn
+#		
+#	done
+
+
+# ===GNU/Linux===
 
 	for battery in /sys/class/power_supply/BAT?
 	do
