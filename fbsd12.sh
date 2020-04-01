@@ -2,7 +2,7 @@
 
 sudo pkg install -y sudo git pkgconf xorg-minimal xsetroot setxkbmap xrandr xcompmgr feh neofetch \
 	gtk3 adwaita-icon-theme adwaita-qt5 \
-	gmake cmake gcc py27-pynvim py3-pynvim libtool sha automake unzip wget gettext \
+	gmake cmake gcc py27-pynvim py37-pynvim libtool sha automake unzip wget gettext \
 	zsh vim fira lxappearance lumina-screenshot thunar ImageMagick7 &&
 mkdir -p ~/Documents \
 	 ~/Downloads/.src/suckless \
