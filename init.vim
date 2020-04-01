@@ -12,25 +12,25 @@
 
 	let mapleader =";"
 
-	" toggle goyo -- the logic is that it mimics ctrl+e for centerline
-		
-		map <leader>e :Goyo \| set linebreak<CR>
-
-	" Shell Scripts
-
-		map <leader>s :!clear && shellcheck %<CR>
+"	" toggle goyo -- the logic is that it mimics ctrl+e for centerline
+"		
+"		map <leader>e :Goyo \| set linebreak<CR>
+"
+"	" Shell Scripts
+"
+"		map <leader>s :!clear && shellcheck %<CR>
 
 
 " ===PLUGINS===
 
-	call plug#begin('~/.config/nvim/plugged')
-
-		Plug 'junegunn/goyo.vim'
-
-		Plug 'LaTeX-Box-Team/LaTeX-Box'
-
-		Plug 'vimwiki/vimwiki'
-	call plug#end()
+"	call plug#begin('~/.config/nvim/plugged')
+"
+"		Plug 'junegunn/goyo.vim'
+"
+"		Plug 'LaTeX-Box-Team/LaTeX-Box'
+"
+"		Plug 'vimwiki/vimwiki'
+"	call plug#end()
 
 
 " ===UNIVERSAL CONFIGS===
@@ -74,7 +74,7 @@
 	" Compiling, etc.
 
 		map <leader>c :w! \| !compiler <c-r>%<CR><CR>
-		map <leader>p :!pdf <c-r>%<CR><CR>
+"		map <leader>p :!pdf <c-r>%<CR><CR>
 
 
 " ===FILETYPES===
