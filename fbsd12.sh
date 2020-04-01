@@ -20,9 +20,9 @@ curl -L "https://3.bp.blogspot.com/-rwFob3FPfgs/TpkoM21yKKI/AAAAAAAAAR4/mLywk8n2
 convert ~/Downloads/crystalised_blood.png ~/Pictures/Wallpapers/crystalised_blood.jpg &&
 convert ~/Downloads/free_blood.png ~/Pictures/Wallpapers/free_blood.jpg &&
 
-git clone https://Matthew-Tate-Scarbrough/betterdwm.git ~/Downloads/.src/suckless/betterdwm &&
-git clone https://Matthew-Tate-Scarbrough/betterst.git ~/Downloads/.src &&
-git clone https://Matthew-Tate-Scarbrough/universalricing.git ~/Downloads/.src/uricing &&
+git clone https://github.com/Matthew-Tate-Scarbrough/betterdwm.git ~/Downloads/.src/suckless/betterdwm &&
+git clone https://github.com/Matthew-Tate-Scarbrough/betterst.git ~/Downloads/.src &&
+git clone https://github.com/Matthew-Tate-Scarbrough/universalricing.git ~/Downloads/.src/uricing &&
 git clone https://github.com/neovim/neovim.git ~/Downloads/.src/neovim &&
 
 cd ~/Downloads/.src/suckless/betterdwm && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
