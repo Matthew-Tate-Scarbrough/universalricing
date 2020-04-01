@@ -26,7 +26,7 @@ git clone https://github.com/Matthew-Tate-Scarbrough/universalricing.git ~/Downl
 git clone https://github.com/neovim/neovim.git ~/Downloads/.src/neovim &&
 
 cd ~/Downloads/.src/suckless/betterdwm && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
-cd ~/Downloads/.src/suckless/betterst && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
+cd ~/Downloads/.src/suckless/betterst && rm -f config.h && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
 cd ~/Downloads/.src/neovim && gmake CMAKE_BUILD_TYPE=RelWithDebInfo && sudo gmake install &&
 cd ~/Downloads/.src/uricing && cp -f init.vim ~/.config/nvim/ && \
 	cp -f .xinitrc ~/.xinitrc && \
