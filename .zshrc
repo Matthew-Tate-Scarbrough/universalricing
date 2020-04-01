@@ -37,7 +37,7 @@
 
 # ===ALIASES===
 
-	source ~/.aliases
+	#source ~/.aliases
 
 
 
