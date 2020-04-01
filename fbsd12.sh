@@ -21,7 +21,7 @@ convert ~/Downloads/crystalised_blood.png ~/Pictures/Wallpapers/crystalised_bloo
 convert ~/Downloads/free_blood.png ~/Pictures/Wallpapers/free_blood.jpg &&
 
 git clone https://github.com/Matthew-Tate-Scarbrough/betterdwm.git ~/Downloads/.src/suckless/betterdwm &&
-git clone https://github.com/Matthew-Tate-Scarbrough/betterst.git ~/Downloads/.src &&
+git clone https://github.com/Matthew-Tate-Scarbrough/betterst.git ~/Downloads/.src/suckless/betterst &&
 git clone https://github.com/Matthew-Tate-Scarbrough/universalricing.git ~/Downloads/.src/uricing &&
 git clone https://github.com/neovim/neovim.git ~/Downloads/.src/neovim &&
 
