@@ -3,7 +3,7 @@
 sudo pkg install -y sudo git pkgconf xorg-minimal xsetroot setxkbmap xrandr xcompmgr feh neofetch \
 	gtk3 adwaita-icon-theme adwaita-qt5 \
 	gmake cmake gcc py27-pynvim py37-pynvim libtool sha automake unzip wget gettext \
-	zsh vim fira lxappearance lumina-screenshot thunar ImageMagick7 &&
+	zsh vim fira freefont-ttf lxappearance lumina-screenshot thunar ImageMagick7 &&
 mkdir -p ~/Documents \
 	 ~/Downloads/.src/suckless \
 	 ~/Pictures/Wallpapers \
@@ -32,4 +32,4 @@ cd ~/Downloads/.src/uricing && cp -f init.vim ~/.config/nvim/ && \
 	cp -f .xinitrc ~/.xinitrc && \
 	mkdir -p ~/.config/zsh && cp -f .zshrc ~/.config/zsh/ && cp -f .zshrc ~/ &&
 
-cd && startx
+sudo chsh -s /usr/local/bin/zsh && cd && startx
