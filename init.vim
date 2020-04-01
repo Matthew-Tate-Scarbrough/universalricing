@@ -48,7 +48,7 @@
 
 	" Columns and Wrapping
 
-		set colorcolumn=113
+		set colorcolumn=114
 	
 		set wrap
 		set linebreak
