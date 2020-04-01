@@ -31,11 +31,8 @@
 	export PATH=$PATH:/usr/local/go/bin
 	export GOPATH=$HOME/Documents/Go
 
-	# For NEOVIM
-	export NEOVIM=$HOME/.neovim
-
-	# For NeoVim and Vim
-	export PATH=$PATH:$HOME/.bin/tools
+	export PATH=$PATH:$HOME/.local/bin
+	export PATH=$PATH:$HOME/.local/bin/tools
 
 
 # ===ALIASES===
