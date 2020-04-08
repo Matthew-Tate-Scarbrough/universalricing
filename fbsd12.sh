@@ -28,8 +28,9 @@ git clone https://github.com/neovim/neovim.git ~/Downloads/.src/neovim &&
 cd ~/Downloads/.src/suckless/betterdwm && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
 cd ~/Downloads/.src/suckless/betterst && rm -f config.h && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
 cd ~/Downloads/.src/neovim && gmake CMAKE_BUILD_TYPE=RelWithDebInfo && sudo gmake install &&
-cd ~/Downloads/.src/uricing && cp -f init.vim ~/.config/nvim/ && \
-	cp -f .xinitrc ~/.xinitrc && \
-	mkdir -p ~/.config/zsh && cp -f .zshrc ~/.config/zsh/ && cp -f .zshrc ~/ &&
+cd ~/Downloads/.src/uricing && cp -f .config/nvim/init.vim ~/.config/nvim/ && \
+	cp -f .config/sx/sxrc ~/.xinitrc && \
+	cp -f .zshenv ~/.zshenv && \
+	mkdir -p ~/.config/zsh && cp -f .config/zsh/.zshrc ~/.config/zsh/ &&
 
-sudo chsh -s /usr/local/bin/zsh && cd && startx
+sudo chsh "$USER" -s /usr/local/bin/zsh && cd && startx
