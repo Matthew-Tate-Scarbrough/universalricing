@@ -33,7 +33,6 @@ Incomplete, rough Guide:
      |
      |---/.bash_profile    #sources from $HOME/.config/bash/.bashrc
      |
-     |
      |---/.config
      |     |
      |     |---+/nvim
