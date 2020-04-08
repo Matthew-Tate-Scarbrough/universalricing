@@ -1,67 +1,47 @@
-#      _____    ___    ____   _   _   _____    _____
-#     |  _  \  / _ \  /  __| | | | | |  _  \  /  _  \
-#     | |_) / | | | | | |__  | |_| | | |_)  ) | | |_|
-#     |  _  \ | |_| | \__  \ |  _  | |  _  /  | |  _
-#  _  | |_) | |  _  |  __| | | | | | | | \ \  | |_| |
-# |_| |_____/ |_| |_| |____/ |_| |_| |_|  \_\ \_____/
-#
+#      ____     ___    ____   _   _   _____    _____
+#     |  _ \   / _ \  /  __| | | | | |  _  \  /  _  \
+#     | |_) ) | | | | | |__  | |_| | | |_)  ) | | |_|
+#     |  _ <  | |_| | \__  \ |  _  | |  _  /  | |  _
+#  _  | | ) ) |  _  |  __| | | | | | | | \ \  | |_| |
+# |_| |____/  |_| |_| |____/ |_| |_| |_|  \_\ \_____/
+# 
 # - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 #
-# ===COMMAND PROMPT=====================
+# ===INTERACTIVE===
 
-	# Rainbow, thanks to kirsle.net/wizards/ps1.html
-	export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h\[$(tput setaf 1)\]|\[$(tput setaf 7)\]\@\[$(tput setaf 1)\]]\[$(tput setaf 7)\]:\[$(tput setaf 1)\]\w\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
-
-
-
-# ===ALIASES============================
-
-	# For ls
-	alias ll='ls -alF'
-	alias la='ls -A'
-	alias l='ls -CF'
-
-	# For apt, even though I will never use them
-	alias update='sudo apt update'
-	alias upgrade='apt upgrade -y'
-	alias autoclean='sudo apt autoclean'
-	alias autoremove='sudo apt autoremove'
-	alias purge='sudo apt purge -y'
+	# Positive this is 100% Unnecessary, but is default
+	[[ $- != *i* ]] && return
 
 
+# ===PROMPT===
 
-# ===COMMAND HISTORY====================
-
-	HISTCONTROL=ignoreboth		# This tells it to not archive duplicate lines and empty lines in history
-	HISTSIZE=1000
-	HISTFILESIZE=5000
-	shopt -s histappend		# Append to history file, do not overwrite
+	# [name@host|hh:MM AM]:~$ _
+	PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 3)\]\u\[$(tput setaf 2)\]@\[$(tput setaf 4)\]\h \[$(tput setaf 1)\]|\[$(tput setaf 7)\]\@\[$(tput setaf 1)\]]\[$(tput setaf 7)\]:\[$(tput setaf 1)\]\~\[$(tput setaf 7)\]\\$ \[$(tput sgr0)\]"
 
 
+# ===NEO FETCH G*YNESS, CAUSE MEME===
 
-# ===VISUALS===========================
-
-	shopt -s checkwinsize		# This automatically adjusts the contents of the terminal to fit it's physical size
-
-	# Sets "fancy colour" for prompt?
-	case "$TERM" in
-		xterm-color|*-256color) color_prompt=yes;;
-	esac
-
-	force_color_prompt=yes
-	
+	# Writes two blank lines, then prints neofetch
+	echo -e "\r\r" && neofetch
 
 
+# ===VI MODE===
 
-# ===HANDLING INTERACTIVE PROMPTS======
-
-	case $- in
-		*i*) ;;
-		  *) return;;
-	esac
+	set -o vi
 
 
+# ===ALIASES===
 
-# ===ADDITIONAL JUNK, IDK WHAT IT IS===
+	source $HOME/.local/profile/aliases
 
-	[ -x /usr/bin/lesspipe ] && eval "$(SHELL=/bin/sh lesspipe)"		# Makes "less" user-friendly. | see "lesspipe(1)"
+
+# ===HISTORY===
+
+	# The history file itself
+	HISTSIZE=2000
+	SAVEHIST=4000
+	HISTFILE=$HOME/.cache/bash/history
+
+	# Ignore blanklines and duplicate commands &
+	## delete duplicate commands from history
+	HISTCONTROL=ignoreboth:erasedups

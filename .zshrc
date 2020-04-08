@@ -7,67 +7,36 @@
 #
 # - - - - - - - - - - - - - - - - - - - - - - - -
 #
-# ===Set up the prompt===
+# ===PROMPT===
 
-	autoload -Uz promptinit
-	promptinit
-	#prompt adam1
+	# [name@host|hh:MM AM]:~% _
 	PROMPT="%B%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f%F{red}|%f%F{white}%t%f%F{red}]%f%F{white}:%f%F{red}%~%f%F{white}%%%f %b"
 
 
 # ===NEO FETCH G*YNESS, CAUSE MEME===
 
-	neofetch
+	echo -e "\r\r" && neofetch
 
 
 # ===VIM MODE===
-#	bindkey -v
 
-
-
-# ===PATHS, ETC.===
-
-	# For Go
-	export PATH=$PATH:/usr/local/go/bin
-	export GOPATH=$HOME/Documents/Go
-
-	export PATH=$PATH:$HOME/.local/bin
-	export PATH=$PATH:$HOME/.local/bin/tools
+	bindkey -v
 
 
 # ===ALIASES===
 
-	#source ~/.aliases
+	source $HOME/.local/profile/aliases
 
 
+# ===HISTORY===
 
-# Keep 1000 lines of history within the shell and save it to ~/.zsh_history:
-	HISTSIZE=1000
-	SAVEHIST=2000
-	HISTFILE=~/.cache/zsh/history
+	HISTSIZE=2000
+	SAVEHIST=4000
+	HISTFILE=$HOME/.cache/zsh/history
 
-	setopt histignorealldups sharehistory
-
+	setopt histignorealldups histignorespace sharehistory
 
 
-# Use modern completion system
+# ===ZSH'S DEFAULT BUILT-IN AUTOCOMPLETE===
 	autoload -Uz compinit
 	compinit
-
-	zstyle ':completion:*' auto-description 'specify: %d'
-	zstyle ':completion:*' completer _expand _complete _correct _approximate
-	zstyle ':completion:*' format 'Completing %d'
-	zstyle ':completion:*' group-name ''
-	zstyle ':completion:*' menu select=2
-#	eval "$(dircolors -b)"
-	zstyle ':completion:*:default' list-colors ${(s.:.)LS_COLORS}
-	zstyle ':completion:*' list-colors ''
-	zstyle ':completion:*' list-prompt %SAt %p: Hit TAB for more, or the character to insert%s
-	zstyle ':completion:*' matcher-list '' 'm:{a-z}={A-Z}' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=* l:|=*'
-	zstyle ':completion:*' menu select=long
-	zstyle ':completion:*' select-prompt %SScrolling active: current selection at %p%s
-	zstyle ':completion:*' use-compctl false
-	zstyle ':completion:*' verbose true
-
-	zstyle ':completion:*:*:kill:*:processes' list-colors '=(#b) #([0-9]#)*=0=01;31'
-	zstyle ':completion:*:kill:*' command 'ps -u $USER -o pid,%cpu,tty,cputime,cmd'
