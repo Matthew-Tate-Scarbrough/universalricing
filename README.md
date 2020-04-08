@@ -17,9 +17,9 @@ Layout
 
 In short, I am trying to follow the UNIX philosophy as closely as possible in the layout--for
 instance, cleaning out the `/home` directory.
-
-Because of this, I am also moving to other programs that respect the [XDG Base Directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
-So, instead of `xorg-xinit` (*'startx'*) I am using.
+Because of this, I am also moving to other programs that respect the
+[XDG Base Directory specification](https://specifications.freedesktop.org/basedir-spec/basedir-spec-latest.html).
+So, instead of `xorg-xinit` (*'startx'*,) I am using `sx`.
 Vim--nvim.
 Bash--zsh.
 Etc.
