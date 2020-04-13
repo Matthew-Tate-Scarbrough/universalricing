@@ -17,7 +17,7 @@
 # ===DWM BACKGROUND===
 
 	while true; do
-		feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg:*.png
+		feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg
 		sleep 900							# Sleep 15min (900 sec's)
 	done &
 

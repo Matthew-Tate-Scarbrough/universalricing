@@ -41,11 +41,14 @@ cd ~/Downloads/.src/suckless/betterdwm && chmod +x freebsd.sh && ./freebsd.sh &&
 cd ~/Downloads/.src/suckless/betterst && rm -f config.h && chmod +x freebsd.sh && ./freebsd.sh && sudo make install &&
 cd ~/Downloads/.src/neovim && gmake CMAKE_BUILD_TYPE=RelWithDebInfo && sudo gmake install &&
 cd ~/Downloads/.src/uricing && cp -f .config/nvim/init.vim ~/.config/nvim/ && \
-	# xinit
-	mkdir -p ~/.config/xinit && cp -f .config/sx/sxrc ~/.config/xinit/.xinitrc && \
+	# xinit -- export XINITRC=... doesn't work?
+	cp -f .config/sx/sxrc ~/.xinitrc && \
 	# zsh stuffs
 	cp -f .zshenv ~/ && mkdir -p ~/.config/zsh && cp -f .config/zsh/.zshrc ~/.config/zsh/ && \
-	cp -f .config/zsh/.zprofile ~/.config/zsh/ &&
+	cp -f .config/zsh/.zprofile ~/.config/zsh/ && \
+	cp -rf .local/profile ~/.local/profile && \
+	cp -rf .local/bin/battery_check ~/.local/bin/ && \
+	cp -rf .local/bin/compiler ~/.local/bin/ &&
 
 
 sudo chsh "$USER" -s /usr/local/bin/zsh && cd && startx
