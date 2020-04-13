@@ -1,0 +1,29 @@
+#!/bin/sh
+
+#===INDEPENDENT===
+
+	export BROWSER=firefox
+	export EDITOR=nvim
+	export FILE=thunar
+	export PATH=$PATH:$HOME/.local/bin
+	export PAGER=less
+	export READER=zathura
+	export TERM=st-256color
+
+# ===SHELL STUFFS===
+
+	# ZSH
+	export ZDOTDIR=$HOME/.config/zsh
+
+	# Bash
+	export BASHDOTDIR=$HOME/.config/bash	# Custom Variable
+
+
+# ===GO LANG===
+
+	export PATH=$PATH:/usr/local/go/bin
+	export GOPATH=$HOME/Documents/Go
+
+# ===GIT STUFFS===
+
+	export GIT_EDITOR=nvim
