@@ -27,3 +27,8 @@
 # ===GIT STUFFS===
 
 	export GIT_EDITOR=nvim
+
+
+# ===XINIT STUFFS===
+
+	export XINITRC=$HOME/.config/xinit
