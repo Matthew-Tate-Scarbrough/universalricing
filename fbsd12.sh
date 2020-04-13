@@ -44,6 +44,8 @@ cd ~/Downloads/.src/uricing && cp -f .config/nvim/init.vim ~/.config/nvim/ && \
 	# xinit
 	mkdir -p ~/.config/xinit && cp -f .config/sx/sxrc ~/.config/xinit/.xinitrc && \
 	# zsh stuffs
-	cp -f .zshenv ~/ && mkdir -p ~/.config/zsh && cp -f .config/zsh/* ~/.config/zsh/ &&
+	cp -f .zshenv ~/ && mkdir -p ~/.config/zsh && cp -f .config/zsh/.zshrc ~/.config/zsh/ && \
+	cp -f .config/zsh/.zprofile ~/.config/zsh/ &&
+
 
 sudo chsh "$USER" -s /usr/local/bin/zsh && cd && startx
