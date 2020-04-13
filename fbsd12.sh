@@ -6,7 +6,7 @@ sudo pkg install -y sudo git pkgconf xorg-minimal xsetroot setxkbmap xrandr xcom
 	gmake cmake gcc py27-pynvim py37-pynvim libtool sha automake unzip wget gettext \
 	zsh vim fira freefont-ttf lxappearance lumina-screenshot ImageMagick7 \
 	thunar thunar-archive-plugin thunar-media-tags-plugin thunar-vcs-plugin \
-	gvfs &&
+	gvfs lf &&
 
 # Make base home directories
 mkdir -p ~/Documents/Go \
