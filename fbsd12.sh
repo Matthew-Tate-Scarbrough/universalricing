@@ -47,8 +47,9 @@ cd ~/Downloads/.src/uricing && cp -f .config/nvim/init.vim ~/.config/nvim/ && \
 	cp -f .zshenv ~/ && mkdir -p ~/.config/zsh && cp -f .config/zsh/.zshrc ~/.config/zsh/ && \
 	cp -f .config/zsh/.zprofile ~/.config/zsh/ && \
 	cp -rf .local/profile ~/.local/profile && \
-	cp -rf .local/bin/battery_check ~/.local/bin/ && \
-	cp -rf .local/bin/compiler ~/.local/bin/ &&
+	cp -f .local/bin/battery_check ~/.local/bin/ && \
+	cp -f .local/bin/compiler ~/.local/bin/ &&
 
 
-sudo chsh "$USER" -s /usr/local/bin/zsh && cd && startx
+sudo chsh "$USER" -s /usr/local/bin/zsh && cd && \
+	echo -n "[1mYou need to manually edit [4m~/.config/zsh/.zprofile[0;1m to use [4mstartx[0;1m and fix [4m~/.local/bin/battery_check[0;1m for FreeBSD -- or -- edit [4m~/.xinitrc[0;1m and remove the battery_check clause, before starting x.[0m"
