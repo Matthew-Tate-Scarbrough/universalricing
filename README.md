@@ -69,7 +69,7 @@ Arch Example:
 
     sudo cp ~/universalricing/keyboards/lingdvorak /usr/share/X11/xkb/symbols/
 
-Then you must add the following to `prefix/X11/xkb/rules/evdev.xml` after the tag `<layoutList>`, then reboot or perform `sudo dpkg-reconfigure xkb-data
+Then you must add the following to `prefix/X11/xkb/rules/evdev.xml` after the tag `<layoutList>`, then reboot or perform `sudo dpkg-reconfigure xkb-data:
 
     <layout>
       <configItem>
