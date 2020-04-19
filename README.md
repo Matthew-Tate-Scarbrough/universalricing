@@ -53,7 +53,7 @@ Incomplete, rough Guide:
 -------------------
 
 Now, this one is rather interesting.
-I have always made my own keyboard layouts, ande htis is no exception.
+I have always made my own keyboard layouts, and this is no exception.
 I recently switched to Dvorak and am doing things my own way, as the usual US international layout and its Dvorak counterpart are backward.
 To mediate, rather than modifying the existing `prefix/X11/xkb/symbols/us` layout, then modifying the `/../rules/evdev.xml` on every system, I am opting rather to maintain my own, proper layout, that I can extend,
 and it will never change, unlike the base XKB files might, therefore creating conflict.
