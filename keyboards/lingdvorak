@@ -1,0 +1,167 @@
+// Add the following blob te /X11/xkb/rules/evdev.xml and maybe to base.xml
+// then perform % sudo dpkg-reconfigure xkb-data
+//
+//    <layout>
+//      <configItem>
+//        <name>lingdvorak</name>
+//        <!-- Keyboard indicator for English layouts -->
+//        <shortDescription>lingdv</shortDescription>
+//        <description>Linguist's Dvorak (US)</description>
+//        <languageList>
+//          <iso639Id>eng</iso639Id>
+//        </languageList>
+//      </configItem>
+//      <variantList>
+//	<variant>
+//          <configItem>
+//	    <name>alt</name>
+//	    <!-- Keyboard Indicator for Southern Altai layouts -->
+//	    <shortDescription>dv(alt)</shortDescription>
+//	    <description>Southern Altai (Dvorak)</description>
+//	    <languageList>
+//	      <iso639Id>alt</iso639Id>
+//	    </languageList>
+//	  </configItem>
+//	</variant>
+//      </variantList>
+//    </layout>
+//
+// Use this to switch:
+//	setxkbmap -layout lingdvorak,lingdvorak -variant ,alt -option 'grp:alt_caps_toggle','lv3:ralt_switch'
+//
+//
+//
+//
+// Linguist's Dvorak v1.00
+//
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
+// │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// ┃Tab    ┃ " o̅ │ < ‘ │ > ’ │ P   │ Y   │ F   │ G   │ C ¢ │ R ¶ │ L   │ ?   │ + ⁓ ┃ |     ┃
+// ┃ ↹     ┃ ' ó │ , “ │ . ” │   þ │     │     │   ȝ │   © │   ® │   → │ /   │ = ‡ ┃ \     ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┻━━━━━━━┫
+// ┃Caps    ┃ A   │ O   │ E   │ U   │ I   │ D   │ H ⇄ │ T † │ N   │ S § │ _ — ┃ ⏎          ┃
+// ┃Lock  ⇬ ┃   æ │   œ │     │     │   ı │   ð │   ← │   ™ │     │   ſ │ - – ┃ Enter      ┃
+// ┣━━━━━━━━┻━━━┱─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┻━━━━━━━━━━━━┫
+// ┃Shift       ┃ : ö │ Q   │ J   │ K   │ X   │ B   │ M   │ W   │ V   │ Z   ┃Shift         ┃
+// ┃ ⇧          ┃ ; ȯ │     │   ↓ │   ↑ │     │     │     │   ƿ │     │     ┃ ⇧            ┃
+// ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━┳┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
+// ┃Ctrl   ┃ Meta  ┃Alt    ┃                                   ┃AltGr ┃ R    ┃ Ctxt ┃ Ctrl ┃
+// ┃       ┃       ┃       ┃                                   ┃      ┃ Meta ┃ Menu ┃      ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
+
+default partial alphanumeric_keys
+xkb_symbols "basic" {
+
+    name[Group1]= "Linguist's Dvorak (US)";
+
+    key <TLDE> {	[	 grave,	     asciitilde,	dead_grave,	 dead_macron	]	};
+    key <AE01> {	[	     1,	         exclam,	     U203D			]	};
+    key <AE02> {	[	     2,	             at						]	};
+    key <AE03> {	[	     3,	     numbersign,	   section,	      ssharp	]	};
+    key <AE04> {	[	     4,	         dollar						]	};
+    key <AE05> {	[	     5,	        percent						]	};
+    key <AE06> {	[	     6,	dead_circumflex,	asciicircum			]	};
+    key <AE07> {	[	     7,	      ampersand						]	};
+    key <AE08> {	[	     8,	       asterisk						]	};
+    key <AE09> {	[	     9,	      parenleft,	     U2329			]	};
+    key <AE10> {	[	     0,	     parenright,	     U232A,   dead_abovering	]	};
+    key <AE11> {	[  bracketleft,	      braceleft						]	};
+    key <AE12> {	[ bracketright,	     braceright,       dead_cedilla,	 dead_ogonek	]	};
+
+    key <AD01> {	[   apostrophe,	       quotedbl,	dead_acute,	       U0305	]	};
+    key <AD02> {	[	 comma,	           less,   leftdoublequotemark,  leftsinglequotemark	]	};
+    key <AD03> {	[       period,	        greater,  rightdoublequotemark, rightsinglequotemark	]	};
+    key <AD04> {	[	     p,	              P,	     thorn,	       THORN	]	};
+    key <AD05> {	[	     y,	              Y						]	};
+    key <AD06> {	[	     f,	              F						]	};
+    key <AD07> {	[	     g,	              G,	    U021D 			]	};
+    key <AD08> {	[	     c,	              C,	copyright,              cent	]	};
+    key <AD09> {	[	     r,	              R,       registered,	   paragraph	]	};
+    key <AD10> {	[	     l,	              L,	    U2192			]	};
+    key <AD11> {	[	 slash,	       question						]	};
+    key <AD12> {	[	 equal,	           plus,     doubledagger,	       U2053	]	};
+
+    key <AC01> {	[	     a,	              A,	       ae,                AE	]	};
+    key <AC02> {	[	     o,	              O,	       oe,                OE	]	};
+    key <AC03> {	[	     e,	              E						]	};
+    key <AC04> {	[	     u,	              U						]	};
+    key <AC05> {	[	     i,	              I,	 idotless			]	};
+    key <AC06> {	[	     d,	              D,	      eth,               ETH	]	};
+    key <AC07> {	[	     h,	              H,	    U2190,	       U21C4	]	};
+    key <AC08> {	[	     t,	              T,	trademark,	      dagger	]	};
+    key <AC09> {	[	     n,	              N						]	};
+    key <AC10> {	[	     s,	              S,	    U017F,	     section	]	};
+    key <AC11> {	[	 minus,	     underscore,	   endash,	      emdash	]	};
+
+    key <AB01> {	[    semicolon,	          colon,    dead_abovedot,    dead_diaeresis	]	};
+    key <AB02> {	[	     q,	              Q						]	};
+    key <AB03> {	[	     j,	              J,	    U2193			]	};
+    key <AB04> {	[	     k,	              K,	    U2191			]	};
+    key <AB05> {	[	     x,	              X						]	};
+    key <AB06> {	[	     b,	              B						]	};
+    key <AB07> {	[	     m,	              M						]	};
+    key <AB08> {	[	     w,	              W,	    U01BF,	       U01F7	]	};
+    key <AB09> {	[	     v,	              V						]	}; 
+    key <AB10> {	[	     z,	              Z						]	};
+
+    key <BKSL> {	[    backslash,	            bar						]	};
+};
+
+// Linguist's Dvorak Altai v1.00
+//
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
+// │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// ┃Tab    ┃ " o̅ │ < ‚ │ > ’ │ П   │ Ы   │ Ф   │ Г   │ Ц   │ Р   │ Л   │ ?   │ + ⁓ ┃ |     ┃
+// ┃ ↹     ┃ ' ó │ , „ │ . ” │     │   і │     │   ғ │     │     │     │ /   │ = ‡ ┃ \     ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┻━━━━━━━┫
+// ┃Caps    ┃ А   │ О   │ Е   │ У   │ И   │ Д   │ Ч   │ Т   │ Н   │ С   │ _ — ┃ ⏎          ┃
+// ┃Lock  ⇬ ┃   я │   ӧ │   ё │   ю │   ӱ │     │   Ҹ │     │   ҥ │   § │ - – ┃ Enter      ┃
+// ┣━━━━━━━━┻━━━┱─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┻━━━━━━━━━━━━┫
+// ┃Shift       ┃ : ö │ Э   │ Й   │ к   │ Х   │ Б   │ М   │ Ш   │ В   │ З   ┃Shift         ┃
+// ┃ ⇧          ┃ ; ȯ │     │   ј │   қ │   һ │   ъ │     │   щ │   ь │     ┃ ⇧            ┃
+// ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━┳┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
+// ┃Ctrl   ┃ Meta  ┃Alt    ┃                                   ┃AltGr ┃ R    ┃ Ctxt ┃ Ctrl ┃
+// ┃       ┃       ┃       ┃                                   ┃      ┃ Meta ┃ Menu ┃      ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
+
+default alphanumeric_keys
+xkb_symbols "alt" {
+
+    name[Group1]= "Southern Altay (Dvorak)";
+
+    key <AD02> {	[	   comma,            less,   doublelowquotemark, singlelowquotemark	]	};
+    key <AD03> {	[	  period,         greater, rightdoublequotemark, rightsinglequotemark	]	};
+    key <AD04> {	[    Cyrillic_pe,     Cyrillic_PE						]	};
+    key <AD05> {	[  Cyrillic_yeru,   Cyrillic_YERU,         U0456,      U0406		]	};   // Cyrillic Ii
+    key <AD06> {	[    Cyrillic_ef,     Cyrillic_EF					]	};
+    key <AD07> {	[   Cyrillic_ghe,    Cyrillic_GHE,         U0493,      U0492		]	};   // Ge with stroke
+    key <AD08> {	[   Cyrillic_tse,    Cyrillic_TSE					]	};
+    key <AD09> {	[    Cyrillic_er,     Cyrillic_ER					]	};
+    key <AD10> {	[    Cyrillic_el,     Cyrillic_EL					]	};
+
+    key <AC01> {	[     Cyrillic_a,      Cyrillic_A,   Cyrillic_ya,      Cyrillic_YA	]	};
+    key <AC02> {	[     Cyrillic_o,      Cyrillic_O,         U04E7,      U04E6		]	};   // Cyrillic Ö and ö
+    key <AC03> {	[    Cyrillic_ie,     Cyrillic_IE,   Cyrillic_io,      Cyrillic_IO	]	};
+    key <AC04> {	[     Cyrillic_u,      Cyrillic_U,   Cyrillic_yu,      Cyrillic_YU	]	};
+    key <AC05> {	[     Cyrillic_i,      Cyrillic_I,         U04F1,      U04F0		]	};   // Cyrillic ÿ and Ÿ
+    key <AC06> {	[    Cyrillic_de,     Cyrillic_DE					]	};
+    key <AC07> {	[   Cyrillic_che,    Cyrillic_CHE,         U04B8,      U04B9		]	};   // Che with vertical stroke
+    key <AC08> {	[    Cyrillic_te,     Cyrillic_TE					]	};
+    key <AC09> {	[    Cyrillic_en,     Cyrillic_EN,         U04A5,      U04A4		]	};
+    key <AC10> {	[    Cyrillic_es,     Cyrillic_ES,       section			]	};
+
+    key <AB02> {	[     Cyrillic_e,      Cyrillic_E					]	};
+    key <AB03> {	[Cyrillic_shorti, Cyrillic_SHORTI,         U0458,      U0408		]	};   // J j
+    key <AB04> {	[    Cyrillic_ka,     Cyrillic_KA,         U049B,      U049A		]	};   // Ka with downturn
+    key <AB05> {	[    Cyrillic_ha,     Cyrillic_HA,         U04BB,      U04BA		]	};   // Cyrillic h
+    key <AB06> {	[    Cyrillic_be,     Cyrillic_BE, Cyrillic_hardsign, Cyrillic_HARDSIGN ]	};
+    key <AB07> {	[    Cyrillic_em,     Cyrillic_EM					]	};
+    key <AB08> {	[   Cyrillic_sha,    Cyrillic_SHA,    Cyrillic_shcha, Cyrillic_SHCHA	]	};
+    key <AB09> {	[    Cyrillic_ve,     Cyrillic_VE, Cyrillic_softsign, Cyrillic_SOFTSIGN ]	};
+    key <AB10> {	[    Cyrillic_ze,     Cyrillic_ZE,      Cyrillic_zhe, Cyrillic_ZHE	]	};
+
+};
