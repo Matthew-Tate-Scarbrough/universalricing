@@ -30,7 +30,11 @@
 
 # ===KEYBOARD===
 
-	setxkbmap dvorak &
+	# Custom Dvorak layouts
+	setxkbmap \
+		-layout lingdvorak,lingdvorak \
+		-variant ,alt \
+		-option 'grp:alt_caps_toggle','lv3:ralt_switch' &
 
 
 # ===DWM===
