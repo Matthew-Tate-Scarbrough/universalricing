@@ -12,17 +12,17 @@
 //        </languageList>
 //      </configItem>
 //      <variantList>
-//	<variant>
+//        <variant>
 //          <configItem>
-//	    <name>alt</name>
-//	    <!-- Keyboard Indicator for Southern Altai layouts -->
-//	    <shortDescription>dv(alt)</shortDescription>
-//	    <description>Southern Altai (Dvorak)</description>
-//	    <languageList>
-//	      <iso639Id>alt</iso639Id>
-//	    </languageList>
-//	  </configItem>
-//	</variant>
+//            <name>alt</name>
+//            <!-- Keyboard Indicator for Southern Altai layouts -->
+//            <shortDescription>dv(alt)</shortDescription>
+//            <description>Southern Altai (Dvorak)</description>
+//            <languageList>
+//              <iso639Id>alt</iso639Id>
+//            </languageList>
+//          </configItem>
+//        </variant>
 //      </variantList>
 //    </layout>
 //
