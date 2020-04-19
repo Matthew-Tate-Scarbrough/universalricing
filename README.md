@@ -66,9 +66,11 @@ That said, if I get bored, I will probably write a `sed` script to automatically
 Now, to use it, you have to copy `keyboards/lingdvorak` to `prefix/X11/xkb/symbols/lingdvorak`.
 
 Arch Example:
+
     sudo cp ~/universalricing/keyboards/lingdvorak /usr/share/X11/xkb/symbols/
 
 Then you must add the following to `prefix/X11/xkb/rules/evdev.xml` after the tag `<layoutList>`, then reboot or perform `sudo dpkg-reconfigure xkb-data
+
     <layout>
       <configItem>
         <name>lingdvorak</name>
