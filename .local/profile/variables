@@ -24,6 +24,12 @@
 	export PATH=$PATH:/usr/local/go/bin
 	export GOPATH=$HOME/Documents/Go
 
+
+# ===RUST LANG===
+
+	export PATH=$PATH:$HOME/.local/share/cargo/bin
+
+
 # ===GIT STUFFS===
 
 	export GIT_EDITOR=nvim
