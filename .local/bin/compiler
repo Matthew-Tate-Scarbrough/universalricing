@@ -34,5 +34,6 @@ case "$file" in
 	*\.c) gcc "$file" -o "$base" ;;
 	*\.C) gcc "$file" -o "$base" ;;
 	*\.go) go build "$file" ;;
+	*\.rs) rustc "$file" -o "$base" ;;
 	*) shebangtest ;;
 esac
