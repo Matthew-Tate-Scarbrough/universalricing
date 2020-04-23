@@ -24,9 +24,9 @@
 		echo -e "[1m.config done.[0m"
 
 	if [ -e /usr/bin/sx ] ; then
-		echo -e "[1mI see you're using sx![0m" && mkdir -p $HOME/.config/sx && cp -fa .config/sx/sxrc $HOME/.config/sx/
+		echo -e "[1mI see you're using sx![0m" && mkdir -p $HOME/.config/sx && cp -f .config/sx/sxrc $HOME/.config/sx/
 	else
-		echo -e "[1mI see you're not using sx instead of xorg-startx![0m" && cp -fa .config/sx/sxrc $HOME/.xinitrc
+		echo -e "[1mI see you're not using sx instead of xorg-startx![0m" && cp -f .config/sx/sxrc $HOME/.xinitrc
 	fi
 
 
@@ -48,7 +48,7 @@
 
 	# Linguist's Dvorak
 	if [ -e /usr/bin/doas ] ; then
-		echo -e "[1mI see you're using doas![0m" && doas cp -fa keyboards/lingdvorak /usr/share/X11/xkb/symbols/
+		echo -e "[1mI see you're using doas![0m" && doas cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/
 	else
-		echo -e "[1mI see you're using sudo![0m" && sudo cp -fa keyboards/lingdvorak /usr/share/X11/xkb/symbols/
+		echo -e "[1mI see you're using sudo![0m" && sudo cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/
 	fi
