@@ -27,6 +27,7 @@
 
 # ===RUST LANG===
 
+	export CARGO_HOME=.local/share/cargo
 	export PATH=$PATH:$HOME/.local/share/cargo/bin
 
 
