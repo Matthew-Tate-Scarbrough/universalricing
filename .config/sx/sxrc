@@ -9,8 +9,8 @@
 # ===DWM STATUS BAR===
 
 	while true; do
-		xsetroot -name "[ $( cpu_temp ) | $( battery_check ) | $( date "+🌎%m-%d-%y | 🕓%I:%M%p" )]"
-		sleep 30
+		xsetroot -name "[$( cpu_temp ) | $( battery_check ) | $( date "+🌎%m-%d-%y | 🕓%I:%M%p" )]"
+		sleep 60
 	done &
 
 
