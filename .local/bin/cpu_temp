@@ -1,4 +1,4 @@
 #!/bin/sh
 # Requires `lm-sensors`
 
-sensors | grep temp1 | sed "s/temp1:.*+/🌡️/;s/)//"
+sensors | grep temp1 | sed "s/^temp1:\s\s\s\s\s\s\s\s+/🌡️/;s/\s\s.*//"| cat
