@@ -1,0 +1,10 @@
+#!/bin/sh
+# Requires `ip`, not ifconfig
+
+while true; do
+
+	state=$(ip link | grep wlan0 | sed -e 's/.*state\s//;s/\smode.*$//')
+
+	[ "$state" = "UP" ] && echo "📡 UP" || "📡 DN"
+
+done
