@@ -23,6 +23,14 @@
 //            </languageList>
 //          </configItem>
 //        </variant>
+//        <variant>
+//          <configItem>
+//            <name>arun</name>
+//            <!-- Keyboard Indicator for Anglo-Frisian Runic layouts -->
+//            <shortDescription>dv(arun)</shortDescription>
+//            <description>Anglo-Frisian Runes (Dvorak)</description>
+//          </configItem>
+//        </variant>
 //      </variantList>
 //    </layout>
 //
@@ -135,33 +143,88 @@ xkb_symbols "alt" {
 
     key <AD02> {	[	   comma,            less,   doublelowquotemark, singlelowquotemark	]	};
     key <AD03> {	[	  period,         greater, rightdoublequotemark, rightsinglequotemark	]	};
-    key <AD04> {	[    Cyrillic_pe,     Cyrillic_PE						]	};
-    key <AD05> {	[  Cyrillic_yeru,   Cyrillic_YERU,         U0456,      U0406		]	};   // Cyrillic Ii
+    key <AD04> {	[    Cyrillic_pe,     Cyrillic_PE					]	};
+    key <AD05> {	[  Cyrillic_yeru,   Cyrillic_YERU,         U0456,      U0406		]	}; // Cyrillic Ii
     key <AD06> {	[    Cyrillic_ef,     Cyrillic_EF					]	};
-    key <AD07> {	[   Cyrillic_ghe,    Cyrillic_GHE,         U0493,      U0492		]	};   // Ge with stroke
+    key <AD07> {	[   Cyrillic_ghe,    Cyrillic_GHE,         U0493,      U0492		]	}; // Ge with stroke
     key <AD08> {	[   Cyrillic_tse,    Cyrillic_TSE					]	};
     key <AD09> {	[    Cyrillic_er,     Cyrillic_ER					]	};
     key <AD10> {	[    Cyrillic_el,     Cyrillic_EL					]	};
 
     key <AC01> {	[     Cyrillic_a,      Cyrillic_A,   Cyrillic_ya,      Cyrillic_YA	]	};
-    key <AC02> {	[     Cyrillic_o,      Cyrillic_O,         U04E7,      U04E6		]	};   // Cyrillic Ö and ö
+    key <AC02> {	[     Cyrillic_o,      Cyrillic_O,         U04E7,      U04E6		]	}; // Cyrillic Ö and ö
     key <AC03> {	[    Cyrillic_ie,     Cyrillic_IE,   Cyrillic_io,      Cyrillic_IO	]	};
     key <AC04> {	[     Cyrillic_u,      Cyrillic_U,   Cyrillic_yu,      Cyrillic_YU	]	};
-    key <AC05> {	[     Cyrillic_i,      Cyrillic_I,         U04F1,      U04F0		]	};   // Cyrillic ÿ and Ÿ
+    key <AC05> {	[     Cyrillic_i,      Cyrillic_I,         U04F1,      U04F0		]	}; // Cyrillic ÿ and Ÿ
     key <AC06> {	[    Cyrillic_de,     Cyrillic_DE					]	};
-    key <AC07> {	[   Cyrillic_che,    Cyrillic_CHE,         U04B8,      U04B9		]	};   // Che with vertical stroke
+    key <AC07> {	[   Cyrillic_che,    Cyrillic_CHE,         U04B8,      U04B9		]	}; // Che with vertical stroke
     key <AC08> {	[    Cyrillic_te,     Cyrillic_TE					]	};
     key <AC09> {	[    Cyrillic_en,     Cyrillic_EN,         U04A5,      U04A4		]	};
     key <AC10> {	[    Cyrillic_es,     Cyrillic_ES,       section			]	};
 
     key <AB02> {	[     Cyrillic_e,      Cyrillic_E					]	};
-    key <AB03> {	[Cyrillic_shorti, Cyrillic_SHORTI,         U0458,      U0408		]	};   // J j
-    key <AB04> {	[    Cyrillic_ka,     Cyrillic_KA,         U049B,      U049A		]	};   // Ka with downturn
-    key <AB05> {	[    Cyrillic_ha,     Cyrillic_HA,         U04BB,      U04BA		]	};   // Cyrillic h
+    key <AB03> {	[Cyrillic_shorti, Cyrillic_SHORTI,         U0458,      U0408		]	}; // J j
+    key <AB04> {	[    Cyrillic_ka,     Cyrillic_KA,         U049B,      U049A		]	}; // Ka with downturn
+    key <AB05> {	[    Cyrillic_ha,     Cyrillic_HA,         U04BB,      U04BA		]	}; // Cyrillic h
     key <AB06> {	[    Cyrillic_be,     Cyrillic_BE, Cyrillic_hardsign, Cyrillic_HARDSIGN ]	};
     key <AB07> {	[    Cyrillic_em,     Cyrillic_EM					]	};
     key <AB08> {	[   Cyrillic_sha,    Cyrillic_SHA,    Cyrillic_shcha, Cyrillic_SHCHA	]	};
     key <AB09> {	[    Cyrillic_ve,     Cyrillic_VE, Cyrillic_softsign, Cyrillic_SOFTSIGN ]	};
     key <AB10> {	[    Cyrillic_ze,     Cyrillic_ZE,      Cyrillic_zhe, Cyrillic_ZHE	]	};
+
+};
+
+// Linguist's Dvorak Altai v1.00
+//
+// ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
+// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
+// │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
+// ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
+// ┃Tab    ┃ " o̅ │ < ‚ │ > ’ │ ᛈ   │ ᚣ   │ ᚠ   │ ᚸ   │ ᛢ   │ ᚱ   │ ᛚ   │ ?   │ + ⁓ ┃ |     ┃
+// ┃ ↹     ┃ ' ó │ , „ │ . ” │   ᚦ │     │     │ ᚷ   │ ᚳ   │     │     │ /   │ = ‡ ┃ \     ┃
+// ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┻━━━━━━━┫
+// ┃Caps    ┃ ᚫ   │ ᛟ   │ ᛢ ᛠ │ ᚣ   │ ᛡ ᛢ │ ᛞ   │ ᚻ   │ ᛏ   │ ᛝ   │ ᛥ   │ _ — ┃ ⏎          ┃
+// ┃Lock  ⇬ ┃ ᚪ   │ ᚩ   │ ᛖ   │ ᚢ   │ ᛁ   │     │     │     │ ᚾ   │ ᛋ ᚴ │ - – ┃ Enter      ┃
+// ┣━━━━━━━━┻━━━┱─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┬─┴───┲━┻━━━━━━━━━━━━┫
+// ┃Shift       ┃ : ö │ ᛢ   │ ᛄ   │ ᛤ   │ ᛉ   │ ᛒ   │ ᛗ   │ ᚹ   │ ᛥ   │ ᛠ   ┃Shift         ┃
+// ┃ ⇧          ┃ ; ȯ │     │     │ ᛣ   │     │     │     │     │     │ ᛢ   ┃ ⇧            ┃
+// ┣━━━━━━━┳━━━━┻━━┳━━┷━━━━┱┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━━┷━━━━┳┷━━━━━╈━━━━━┻┳━━━━━━┳━━━━━━┫
+// ┃Ctrl   ┃ Meta  ┃Alt    ┃                                   ┃AltGr ┃ R    ┃ Ctxt ┃ Ctrl ┃
+// ┃       ┃       ┃       ┃                                   ┃      ┃ Meta ┃ Menu ┃      ┃
+// ┗━━━━━━━┻━━━━━━━┻━━━━━━━┹━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┻━━━━━━┛
+
+default alphanumeric_keys
+xkb_symbols "arun" {
+
+    name[Group1]= "Anglo-Frisian Runes (Dvorak)";
+
+    key <AD04> {	[	 U16C8,    U16A6			]	}; // ᛈ ᚦ
+    key <AD05> {	[	 U16A3					]	}; // ᚣ
+    key <AD06> {	[	 U16A0					]	}; // ᚠ
+    key <AD07> {	[	 U16B7,    U16B8			]	}; // ᚷ ᚸ
+    key <AD08> {	[	 U16B3,    U16E2			]	}; // ᚳ ᛢ
+    key <AD09> {	[	 U16B1					]	}; // ᚱ
+    key <AD10> {	[	 U16DA					]	}; // ᛚ
+
+    key <AC01> {	[	 U16AA,    U16AB			]	}; // ᚪ ᚫ
+    key <AC02> {	[	 U16A9,    U16DF			]	}; // ᚩ ᛟ
+    key <AC03> {	[	 U16D6,    U16E2,    U16E0		]	}; // ᛖ ᛢ ᛠ
+    key <AC04> {	[	 U16A2,    U16A3			]	}; // ᚢ ᚣ
+    key <AC05> {	[	 U16C1,    U16BC,    U16E2		]	}; // ᛁ ᛡ ᛢ
+    key <AC06> {	[	 U16DE					]	}; // ᛞ
+    key <AC07> {	[	 U16BB					]	}; // ᚻ
+    key <AC08> {	[	 U16CF					]	}; // ᛏ
+    key <AC09> {	[	 U16BE,    U16DD			]	}; // ᚾ ᛝ
+    key <AC10> {	[	 U16CB,    U16E5,    U16B4		]	}; // ᛋ ᛥ ᚴ
+
+    key <AB02> {	[	 U16E2					]	}; // ᛢ
+    key <AB03> {	[	 U16C4					]	}; // ᛄ
+    key <AB04> {	[	 U16E3,    U16E4			]	}; // ᛣ ᛤ
+    key <AB05> {	[	 U16C9					]	}; // ᛉ
+    key <AB06> {	[	 U16D2					]	}; // ᛒ
+    key <AB07> {	[	 U16D7					]	}; // ᛗ
+    key <AB08> {	[	 U16B9					]	}; // ᚹ
+    key <AB09> {	[	 U16E5					]	}; // ᛥ
+    key <AB10> {	[	 U16E2,    U16E0			]	}; // ᛢ ᛠ
 
 };
