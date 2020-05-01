@@ -10,6 +10,7 @@
 	export READER=zathura
 	export TERM=st-256color
 
+
 # ===SHELL STUFFS===
 
 	# ZSH
@@ -17,6 +18,11 @@
 
 	# Bash
 	export BASHDOTDIR=$HOME/.config/bash	# Custom Variable
+
+
+# ===XDG===
+
+	# export XDG_CONFIG_HOME=$HOME/.config/xdg
 
 
 # ===GO LANG===
