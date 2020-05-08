@@ -6,7 +6,7 @@
 	export EDITOR=nvim
 	export FILE=thunar
 	export PATH=$PATH:$HOME/.local/bin
-	export PAGER=less
+	export PAGER="less -R"
 	export READER=zathura
 	export TERM=st-256color
 
