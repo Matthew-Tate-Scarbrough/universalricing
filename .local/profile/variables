@@ -46,3 +46,8 @@
 # ===XINIT STUFFS===
 
 	export XINITRC=$HOME/.config/xinit
+
+
+# ===EMACS===
+
+	export PATH=$PATH:$HOME/.emacs.d/bin
