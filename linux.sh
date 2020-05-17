@@ -40,7 +40,7 @@
 	cp -fa .config/afterwriting-labs/.	$HOME/.config/afterwriting-labs/
 	cp -fa .config/bash/.			$HOME/.config/bash/
 	cp -fa .config/nvim/.			$HOME/.config/nvim/
-	cp -fa .config/zsh/.			$HOME/zsh/
+	cp -fa .config/zsh/.			$HOME/.config/zsh/
 
 	# .local
 	cp -fa .local/bin/.			$HOME/.local/bin/
