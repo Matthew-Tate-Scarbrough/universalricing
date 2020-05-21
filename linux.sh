@@ -7,21 +7,24 @@
 
 # ===MAKING DIRS===
 
-	mkdir -p $HOME/Downloads/.src				 &&
+	mkdir -p $HOME/Downloads/.src				 && \
 		printf "[1mDownloads done.[0m\n"
 
-	mkdir -p $HOME/Documents/{Rust,C,Go,LaTeX}		 &&
-	mkdir -p $HOME/Documents/LaTeX/{pdflatex,xelatex}	 &&
+	mkdir -p $HOME/Documents/{Rust,C,Go,LaTeX}		 && \
+	mkdir -p $HOME/Documents/LaTeX/{pdflatex,xelatex}	 && \
 		printf "[1mDocuments done.[0m\n"
 
-	mkdir -p $HOME/Pictures/Wallpapers			 &&
+	mkdir -p $HOME/Pictures/Wallpapers			 && \
 		printf "[1mPictures done.[0m\n"
 
-	mkdir -p $HOME/.local/{bin,profile}			 &&
+	mkdir -p $HOME/.local/{bin,profile}			 && \
 		printf "[1m.local done.[0m\n"
 
-	mkdir -p $HOME/.config/{nvim,zsh,bash,afterwriting-labs} &&
+	mkdir -p $HOME/.config/{nvim,zsh,bash,afterwriting-labs} && \
 		printf "[1m.config done.[0m\n"
+
+	mkdir -p $HOME/.cache/zsh && \
+		printf "[1m.cache done.[0m\n"
 
 	if [ -e /usr/bin/sx ] ; then
 		printf "[1mI see you're using sx![0m\n" && mkdir -p $HOME/.config/sx && cp -f .config/sx/sxrc $HOME/.config/sx/ && chmod +x $HOME/.config/sx/sxrc
