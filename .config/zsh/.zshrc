@@ -15,7 +15,7 @@
 
 # ===NEO FETCH G*YNESS, CAUSE MEME===
 
-	echo -e "\r" && neofetch
+	neofetch
 
 
 # ===VIM MODE===

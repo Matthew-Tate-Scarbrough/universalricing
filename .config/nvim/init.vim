@@ -91,4 +91,9 @@
 
 	" Markdown
 
-		au BufRead,BufNewFile *.md,*.txt set filetype=markdown syntax=markdown
+		au BufRead,BufNewFile *.md,*.txt set filetype=markdown syntax=mmarkdown
+
+
+	" M-Markdown
+
+		au BufRead,BufNewFile *.mmd set filetype=mmarkdown syntax=mmarkdown
