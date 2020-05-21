@@ -95,3 +95,5 @@ Then you must add the following to `prefix/X11/xkb/rules/evdev.xml` after the ta
         </variant>
       </variantList>
     </layout>
+
+**NOTE:** This is an excerp--the most uptodate version will be at the top of the Ling Dvorak symbols file
