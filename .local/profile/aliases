@@ -1,1 +1,18 @@
-alias ls='ls --color=auto'
+#!/bin/sh
+
+# Selects either `doas` or `sudo`
+[[ -e /usr/bin/doas && -e /etc/doas.conf ]] ; SUPERU="doas" || SUPERU="sudo"
+
+# ===GENERAL===
+
+	alias ls='ls --color=auto'
+	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
+
+
+# ===POWER OPTIONS===
+
+	alias poweroff="$SUPERU poweroff"
+	alias shutdown="$SUPERU poweroff"
+
+	alias reboot="$SUPERU reboot"
+	alias suspend="$SUPERU systemctl suspend"

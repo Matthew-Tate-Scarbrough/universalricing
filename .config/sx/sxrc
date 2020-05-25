@@ -35,8 +35,8 @@
 
 	# Custom Dvorak layouts
 	setxkbmap \
-		-layout lingdvorak,lingdvorak \
-		-variant ,alt \
+		-layout lingdvorak,lingdvorak,lingdvorak \
+		-variant ,alt,arun \
 		-option 'grp:alt_caps_toggle','lv3:ralt_switch' &
 
 

@@ -44,6 +44,7 @@
 	cp -fa .config/bash/.              $HOME/.config/bash/
 	cp -fa .config/nvim/.              $HOME/.config/nvim/
 	cp -fa .config/zsh/.               $HOME/.config/zsh/
+	cp -fa .config/youtube-dl.conf     $HOME/.config/
 
 	# .local
 	cp -fa .local/bin/.                $HOME/.local/bin/                && chmod +x $HOME/.local/bin/.

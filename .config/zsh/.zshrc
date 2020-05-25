@@ -10,12 +10,12 @@
 # ===PROMPT===
 
 	# [name@host|hh:MM AM]:~% _
-	PROMPT="%B%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f%F{red}|%f%F{white}%t%f%F{red}]%f%F{white}:%f%F{red}%~%f%F{white}%%%f %b"
+	PROMPT="%B%F{red}[%f%F{yellow}%n%f%F{green}@%f%F{blue}%m%f%F{red}|%f%F{white}%t%f%F{red}]%f%F{white}:%f%F{red}%~%f%F{white}%%%f%b "
 
 
 # ===NEO FETCH G*YNESS, CAUSE MEME===
 
-	neofetch
+	printf "\n" && neofetch
 
 
 # ===VIM MODE===
