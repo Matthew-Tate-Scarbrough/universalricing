@@ -11,16 +11,14 @@
 
 # ===DWM STATUS BAR===
 
-	while true; do
-		xsetroot -name "[$( cpu_temp ) | $( battery_check ) | $( wifi_check ) | $( date "+🌎%m-%d-%y | 🕓%I:%M%p" )]"
-		sleep 60
+	while xsetroot -name "[$(wifi_check) | $(battery_check) | $( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
+		sleep 1
 	done &
 
 
 # ===DWM BACKGROUND===
 
-	while true; do
-		feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg
+	while feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg; do
 		sleep 900							# Sleep 15min (900 sec's)
 	done &
 
@@ -28,7 +26,7 @@
 # ===WINDOW TRANSPARCENCY===
 
 	xcompmgr &
-	transset-df .98 &
+#	transset-df .98 &
 
 
 # ===KEYBOARD===

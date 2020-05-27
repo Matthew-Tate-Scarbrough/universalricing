@@ -35,7 +35,7 @@
 //    </layout>
 //
 // Use this to switch:
-//	setxkbmap -layout lingdvorak,lingdvorak -variant ,alt -option 'grp:alt_caps_toggle','lv3:ralt_switch'
+//	setxkbmap -layout lingdvorak,lingdvorak,lingdvorak -variant ,alt,arun -option 'grp:alt_caps_toggle','lv3:ralt_switch'
 //
 //
 //
