@@ -7,6 +7,7 @@
 
 	alias ls='ls --color=auto'
 	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
+	alias gut="git"
 
 
 # ===POWER OPTIONS===
