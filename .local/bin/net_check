@@ -1,0 +1,19 @@
+#!/bin/sh
+
+for NET_DEV in /sys/class/net ; do {
+
+	 ETH=$( ls "$NET_DEV" | grep "en*" ) ||  ETH=""
+	WIFI=$( ls "$NET_DEV" | grep "wl*" ) || WIFI=""
+
+	[[ -e  "$NET_DEV"/"$ETH" ]] &&  ETH_STATE=$( cat "$NET_DEV"/en*/operstate ) ||  ETH_STATE=""
+	[[ -e "$NET_DEV"/"$WIFI" ]] && WIFI_STATE=$( cat "$NET_DEV"/w*/operstate  ) || WIFI_STATE=""
+
+	if [[ "$ETH_STATE"=="up"  ]] ; then {
+		printf "🔗UP\n"
+	} elif [[ "$ETH_STATE"=="down" || "$ETH_STATE"=="unknown" || -z "$ETH_STATE" ]] ; then {
+		[[ "$WIFI_STATE"=="up" ]] && printf "📡UP" || printf "NET !!!\n"
+	} else {
+		printf "⁉️\n"
+	} fi
+
+} done
