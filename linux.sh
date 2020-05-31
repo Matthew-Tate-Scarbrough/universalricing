@@ -26,11 +26,11 @@
 	mkdir -p $HOME/.cache/zsh && \
 		printf "[1m.cache done.[0m\n"
 
-	if [ -e /usr/bin/sx ] ; then
+	if [ -e /usr/bin/sx ] ; then {
 		printf "[1mI see you're using sx![0m\n" && mkdir -p $HOME/.config/sx && cp -f .config/sx/sxrc $HOME/.config/sx/ && chmod +x $HOME/.config/sx/sxrc
-	else
+	} else {
 		printf "[1mI see you're not using sx instead of xorg-startx![0m\n" && cp -f .config/sx/sxrc $HOME/.xinitrc
-	fi
+	} fi
 
 
 # ===OVERWRITING FILES===
@@ -51,8 +51,8 @@
 	cp -fa .local/profile/.            $HOME/.local/profile/
 
 	# Linguist's Dvorak
-	if [ -e /usr/bin/doas ] ; then
+	if [ -e /usr/bin/doas ] ; then {
 		printf "[1mI see you're using doas![0m\n" && doas cp -f root/etc/doas.conf /etc/doas.conf || sudo cp -f root/etc/doas.conf /etc/doas.conf && doas cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/
-	else
+	} else {
 		printf "[1mI see you're using sudo![0m\n" && sudo cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/
-	fi
+	} fi
