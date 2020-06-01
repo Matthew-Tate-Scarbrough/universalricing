@@ -43,12 +43,12 @@
 	cp -fa .config/.          $HOME/.config/.
 
 	# .local
-	cp -f .local/bin/.        $HOME/.local/bin/        && chmod +x $HOME/.local/bin/.
-	cp -f .local/profile/.    $HOME/.local/profile/
+	cp -fa .local/bin/.        $HOME/.local/bin/        && chmod +x $HOME/.local/bin/.
+	cp -fa .local/profile/.    $HOME/.local/profile/
 
 	# Linguist's Dvorak
 	if [ -e /usr/bin/doas ] ; then {
-		printf "[1mI see you're using doas![0m\n" && doas cp -f root/etc/doas.conf /etc/doas.conf || { sudo cp -f root/etc/doas.conf /etc/doas.conf && doas cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/ }
+		printf "[1mI see you're using doas![0m\n" && doas cp -f root/etc/doas.conf /etc/doas.conf || ( sudo cp -f root/etc/doas.conf /etc/doas.conf && doas cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/ )
 	} else {
 		printf "[1mI see you're using sudo![0m\n" && sudo cp -f keyboards/lingdvorak /usr/share/X11/xkb/symbols/
 	} fi
