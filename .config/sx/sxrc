@@ -5,14 +5,14 @@
 	#xrandr --output DVI-D-0 --left-of HDMI-A-0 ;
 	#xrandr --output DVI-D-1 --right-of HDMI-A-0 ;
 
-	#xrandr --output DVI-D-1 --left-of HDMI-1 ;
-	#xrandr --output DVI-D-2 --right-of HDMI-1 ;
+	xrandr --output DVI-D-1  --left-of HDMI-1 ;
+	xrandr --output DVI-D-2 --right-of HDMI-1 ;
 
 
 # ===DWM STATUS BAR===
 
-	while xsetroot -name "[$(wifi_check) | $(battery_check) | $( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
-		sleep 1
+	while xsetroot -name "[$( net_check ) | $(battery_check) | $( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
+		sleep 5
 	done &
 
 
@@ -26,7 +26,6 @@
 # ===WINDOW TRANSPARCENCY===
 
 	xcompmgr &
-#	transset-df .98 &
 
 
 # ===KEYBOARD===

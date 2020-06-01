@@ -2,46 +2,47 @@
 
 #===INDEPENDENT===
 
-	export BROWSER=firefox
-	export EDITOR=nvim
-	export PATH=$PATH:$HOME/.local/bin
+	export BROWSER="firefox"
+	export EDITOR="nvim"
+	export PATH="$PATH:$HOME/.local/bin"
+	export PATH="$PATH:$HOME/.local/bin/statusbar"
 	export PAGER="less -R"
-	export READER=zathura
-	export TERM=st-256color
+	export READER="zathura"
+	export TERM="alacritty"
 
 
 # ===SHELL STUFFS===
 
 	# ZSH
-	export ZDOTDIR=$HOME/.config/zsh
+	export ZDOTDIR="$HOME/.config/zsh"
 
 	# Bash
-	export BASHDOTDIR=$HOME/.config/bash	# Custom Variable
+	export BASHDOTDIR="$HOME/.config/bash"	# Custom Variable
 
 
 # ===GO LANG===
 
-	export PATH=$PATH:/usr/local/go/bin
-	export GOPATH=$HOME/Documents/Go
+	export PATH="$PATH:/usr/local/go/bin"
+	export GOPATH="$HOME/Documents/Go"
 
 
 # ===RUST LANG===
 
-	export CARGO_HOME=$HOME/.local/share/cargo
-	export RUSTUP_HOME=$HOME/.local/share/rustup
-	export PATH=$PATH:$HOME/.local/share/cargo/bin
+	export CARGO_HOME="$HOME/.local/share/cargo"
+	export RUSTUP_HOME="$HOME/.local/share/rustup"
+	export PATH="$PATH:$HOME/.local/share/cargo/bin"
 
 
 # ===GIT STUFFS===
 
-	export GIT_EDITOR=nvim
+	export GIT_EDITOR="nvim"
 
 
 # ===XINIT STUFFS===
 
-	export XINITRC=$HOME/.config/xinit
+	export XINITRC="$HOME/.config/xinit"
 
 
 # ===EMACS===
 
-	export PATH=$PATH:$HOME/.emacs.d/bin
+	export PATH="$PATH:$HOME/.emacs.d/bin"

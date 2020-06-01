@@ -1,4 +1,10 @@
+key_bindings:
+        - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
+
 font:
+        size:
+                10.0
+
         normal:
                 family: freemono
                 style:  Regular
@@ -16,7 +22,6 @@ font:
                 style:  Bold Italic
 
 
-#Focused
 background_opacity:     0.90
 
 
@@ -36,7 +41,7 @@ colors:
                 red:            '#cd0000'
                 green:          '#00cd00'
                 yellow:         '#cdcd00'
-                blue:           '#0000ee'
+                blue:           '#1e90ff'       #dodgerblue
                 magenta:        '#cd00cd'
                 cyan:           '#00cdcd'
                 white:          '#e5e5e5'
@@ -46,7 +51,7 @@ colors:
                 red:            '#ff0000'
                 green:          '#00ff00'
                 yellow:         '#ffff00'
-                blue:           '#5c5cff'
+                blue:           '#6497ed'       #cornflowerblue
                 magenta:        '#ff00ff'
                 cyan:           '#00ffff'
                 white:          '#ffffff'

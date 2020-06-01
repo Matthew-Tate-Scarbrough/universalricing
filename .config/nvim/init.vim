@@ -12,25 +12,26 @@
 
 	let mapleader =";"
 
-"	" toggle goyo -- the logic is that it mimics ctrl+e for centerline
-"		
-"		map <leader>e :Goyo \| set linebreak<CR>
-"
-"	" Shell Scripts
-"
-"		map <leader>s :!clear && shellcheck %<CR>
+	" toggle goyo -- the logic is that it mimics ctrl+e for centerline
+		
+		map <leader>e :Goyo \| set linebreak<CR>
+
+	" Shell Scripts
+
+		map <leader>s :!clear && shellcheck %<CR>
 
 
 " ===PLUGINS===
 
-"	call plug#begin('~/.config/nvim/plugged')
-"
-"		Plug 'junegunn/goyo.vim'
-"
+	call plug#begin('~/.config/nvim/plugged')
+
+		Plug 'junegunn/goyo.vim'
+
 "		Plug 'LaTeX-Box-Team/LaTeX-Box'
-"
-"		Plug 'vimwiki/vimwiki'
-"	call plug#end()
+
+		Plug 'vimwiki/vimwiki'
+
+	call plug#end()
 
 
 " ===UNIVERSAL CONFIGS===
@@ -91,7 +92,7 @@
 
 	" Markdown
 
-		au BufRead,BufNewFile *.md,*.txt set filetype=markdown syntax=mmarkdown
+		au BufRead,BufNewFile *.md  set filetype=markdown syntax=mmarkdown
 
 
 	" M-Markdown

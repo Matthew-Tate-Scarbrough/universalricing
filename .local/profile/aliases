@@ -5,9 +5,27 @@
 
 # ===GENERAL===
 
-	alias ls='ls --color=auto'
+	alias ls="ls --color=auto"
 	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
 	alias gut="git"
+	alias tlmgr="tllocalmgr"
+
+
+# ===PACMAN===
+
+	alias ps="pacman -Ss"
+	alias pi="$SUPERU pacman -S"
+	alias pu="$SUPERU pacman -Syy"
+	alias pupgrade="$SUPERU pacman -Syyu"
+	alias pr="$SUPERU pacman -Rsn"
+
+
+# ===XBPS===
+
+	alias xs="xbps-query -Rs"
+	alias xi="$SUPERU xbps-install -Sy"
+	alias xu="$SUPERU xbps-install -S"
+	alias xupgrade="$SUPERU xbps-install -Su"
 
 
 # ===POWER OPTIONS===
