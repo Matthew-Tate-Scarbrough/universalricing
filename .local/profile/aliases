@@ -28,6 +28,12 @@
 	alias xupgrade="$SUPERU xbps-install -Su"
 
 
+# ===YOUTUBE-DL===
+
+	alias yt="youtube-dl"
+	alias yt\ archive="youtube-dl --download-archive '$YT'"
+
+
 # ===POWER OPTIONS===
 
 	alias poweroff="$SUPERU poweroff"

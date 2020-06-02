@@ -46,3 +46,8 @@
 # ===EMACS===
 
 	export PATH="$PATH:$HOME/.emacs.d/bin"
+
+
+# ===YOUTUBE-DL STUFFS===
+
+	export YT="$HOME/Downloads/.youtube-dl"
