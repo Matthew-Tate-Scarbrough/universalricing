@@ -13,11 +13,11 @@ font:
                 family: freemono
                 style:  Bold
 
-        italic:
+        oblique:
                 family: freemono
                 style:  Italic
 
-        bold_italic:
+        bold_oblique:
                 family: freemono
                 style:  Bold Italic
 

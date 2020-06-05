@@ -20,6 +20,15 @@
 	alias pr="$SUPERU pacman -Rsn"
 
 
+# ===YAY===
+
+	alias ys="yay -Ss"
+	alias yi="yay -S"
+	alias yu="yay -Syy"
+	alias yupgrade="yay -Syyu"
+	alias yr="yay -Rsn"
+
+
 # ===XBPS===
 
 	alias xs="xbps-query -Rs"
@@ -31,7 +40,7 @@
 # ===YOUTUBE-DL===
 
 	alias yt="youtube-dl"
-	alias yt\ archive="youtube-dl --download-archive '$YT'"
+	alias yt-archive="youtube-dl --download-archive"
 
 
 # ===POWER OPTIONS===
