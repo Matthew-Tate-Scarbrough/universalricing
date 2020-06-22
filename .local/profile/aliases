@@ -9,6 +9,7 @@
 	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
 	alias gut="git"
 	alias tlmgr="tllocalmgr"
+	alias spacenavcfg="spnavcfg"
 
 
 # ===PACMAN===
