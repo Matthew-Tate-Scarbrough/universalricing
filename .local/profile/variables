@@ -8,7 +8,7 @@
 	export PATH="$PATH:$HOME/.local/bin/statusbar"
 	export PAGER="less -R"
 	export READER="zathura"
-	export TERM="alacritty"
+	export TERM="xterm-256color"
 
 
 # ===SHELL STUFFS===
