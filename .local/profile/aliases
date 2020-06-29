@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # Selects either `doas` or `sudo`
-[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && ( SUPERU="doas" && alias sudo="doas" ) || SUPERU="sudo"
+[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && { SUPERU="doas" && alias sudo="doas" } || SUPERU="sudo"
 
 # ===GENERAL===
 
