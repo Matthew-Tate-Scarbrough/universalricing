@@ -15,7 +15,7 @@
 
 # ===NEO FETCH MEME===
 
-	printf "\n" && neofetch
+	clear && printf "\n" && neofetch
 
 
 # ===VIM MODE===
