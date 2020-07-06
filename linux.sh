@@ -43,7 +43,7 @@
 	cp -fa .config/.          $HOME/.config/.
 
 	# .local
-	cp -fa .local/bin/.        $HOME/.local/bin/        && chmod +x $HOME/.local/bin/.
+	cp -fa .local/bin/.        $HOME/.local/bin/        && chmod -R +x $HOME/.local/bin/*
 	cp -fa .local/profile/.    $HOME/.local/profile/
 
 	# Linguist's Dvorak

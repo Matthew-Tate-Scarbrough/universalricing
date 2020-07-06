@@ -1,39 +1,40 @@
 #!/bin/sh
 
-file=$(readlink -f "$1")
-dir=$(dirname "$file")
-base="${file%.*}"
-shebang=$(sed -n 1p "$file")
+FILE=$(readlink -f "$1")
+FILE_LOC=$(dirname "$FILE")
+FILE_BASE="${FILE%.*}"
+shebang=$(sed -n 1p "$FILE")
 
-cd "$dir" || exit
+cd "$FILE_LOC" || exit
 
 textype() { \
 	command="pdflatex"
-	( sed 5q "$file" | grep -i -q 'xelatex' ) && command="xelatex"
-	$command --output-directory="$dir" "$base" &&
-	grep -i addbibresource "$file" >/dev/null &&
-	biber --input-directory "$dir" "$base" &&
-	$command --output-directory="$dir" "$base" &&
-	$command --output-directory="$dir" "$base"
+	( sed 5q "$FILE" | grep -i -q 'xelatex' ) && command="xelatex"
+	$command --output-FILE_LOCectory="$FILE_LOC" "$FILE_BASE" &&
+	grep -i addbibresource "$FILE" >/dev/null &&
+	biber --input-FILE_LOCectory "$FILE_LOC" "$FILE_BASE" &&
+	$command --output-FILE_LOCectory="$FILE_LOC" "$FILE_BASE" &&
+	$command --output-FILE_LOCectory="$FILE_LOC" "$FILE_BASE"
 }
-	
+
 
 shebangtest() {
 	case "$shebang" in
-		\#\!*) "$file" ;;
-		*) sent "$file" 2>/dev/null & ;;
+		\#\!*) "$FILE" ;;
+		*) sent "$FILE" 2>/dev/null & ;;
 	esac
 }
 
-case "$file" in
-	*\.tex) textype "$file" ;;
-	*\.md) pandoc -t html5 --css $HOME/.bin/tools/pandoc2pdf.css "$file" -o "$base".html && wkhtmltopdf -s Letter "$base".html "$base".pdf ;;
-	*\.ms) groff -k -ms "$file" -T pdf > "$base".pdf ;;
-	*\.fountain) node $HOME/Downloads/.src/afterwriting-labs/awc.js --source "$file" --pdf "$base".pdf --config $HOME/Downloads/.src/afterwriting-labs/config.json --overwrite ;;
-	*\.ftn) node $HOME/Downloads/.src/afterwriting-labs/awc.js --source "$file" --pdf "$base".pdf --config $HOME/Downloads/.src/afterwriting-labs/config.json --overwrite ;;
-	*\.c) gcc "$file" -o "$base" ;;
-	*\.C) gcc "$file" -o "$base" ;;
-	*\.go) go build "$file" ;;
-	*\.rs) rustc "$file" -o "$base" ;;
-	*) shebangtest ;;
+case "$FILE" in
+	*\.tex)      textype "$FILE" ;;
+	*\.md)       pandoc "$FILE" -t html5 -s > "$FILE_BASE".html && wkhtmltopdf -s Letter -B 1in -T 1in  -L 1in -R 1in "$FILE_BASE".html "$FILE_BASE".pdf;;
+	*\.html)     wkhtmltopdf -s Letter -B 1in -T 1in  -L 1in -R 1in "$FILE" "$FILE_BASE".pdf ;;
+	*\.ms)       groff -k -ms "$FILE" -T pdf > "$FILE_BASE".pdf ;;
+	*\.fountain) node $HOME/Downloads/.src/afterwriting-labs/awc.js --source "$FILE" --pdf "$FILE_BASE".pdf --config $HOME/Downloads/.src/afterwriting-labs/config.json --overwrite ;;
+	*\.ftn)      node $HOME/Downloads/.src/afterwriting-labs/awc.js --source "$FILE" --pdf "$FILE_BASE".pdf --config $HOME/Downloads/.src/afterwriting-labs/config.json --overwrite ;;
+	*\.c)        gcc "$FILE" -o "$FILE_BASE" ;;
+	*\.C)        gcc "$FILE" -o "$FILE_BASE" ;;
+	*\.go)       go build "$FILE" ;;
+	*\.rs)       rustc "$FILE" -o "$FILE_BASE" ;;
+	*)           shebangtest ;;
 esac

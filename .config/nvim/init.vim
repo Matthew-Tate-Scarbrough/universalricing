@@ -75,7 +75,7 @@
 	" Compiling, etc.
 
 		map <leader>c :w! \| !compiler <c-r>%<CR><CR>
-"		map <leader>p :!pdf <c-r>%<CR><CR>
+		map <leader>p :!previewer <c-r>%<CR><CR>
 
 
 " ===FILETYPES===
