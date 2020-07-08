@@ -117,7 +117,7 @@ xkb_symbols "basic" {
     key <BKSL> {	[    backslash,	            bar						]	};
 };
 
-// Linguist's Dvorak Altai v1.02
+// Linguist's Dvorak Altai v1.03
 //
 // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
 // │ ~ ō │ !   │ @ ‚ │ # ’ │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
@@ -139,7 +139,10 @@ xkb_symbols "basic" {
 default alphanumeric_keys
 xkb_symbols "alt" {
 
+    include "lingdvorak(basic)"
     name[Group1]= "Southern Altay (Dvorak)";
+
+    include "level3(ralt_switch)"
 
     key <AE02> {	[              2,              at,   doublelowquotemark, singlelowquotemark     ]       }; // Left-pointing Guillemots
     key <AE03> {        [              3,      numbersign, rightdoublequotemark, rightsinglequotemark   ]       }; // Right-poiting
@@ -177,7 +180,7 @@ xkb_symbols "alt" {
 
 };
 
-// Linguist's Anglo-Frisian Runes v1.00
+// Linguist's Anglo-Frisian Runes v1.01
 //
 // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
 // │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
@@ -199,7 +202,10 @@ xkb_symbols "alt" {
 default alphanumeric_keys
 xkb_symbols "arun" {
 
+    include "lingdvorak(basic)"
     name[Group1]= "Anglo-Frisian Runes (Dvorak)";
+
+    include "level3(ralt_switch)"
 
     key <AD04> {	[	 U16C8,    U16A6			]	}; // ᛈ ᚦ
     key <AD05> {	[	 U16A3					]	}; // ᚣ
