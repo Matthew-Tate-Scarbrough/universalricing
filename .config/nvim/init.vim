@@ -65,17 +65,17 @@
 		" remap direction
 		set splitbelow splitright
 
-		" split navigation
-"		map <C-h> <C-w>h
-"		map <C-j> <C-w>j
-"		map <C-k> <C-w>k
-"		map <C-l> <C-w>l
-
 
 	" Compiling, etc.
 
 		map <leader>c :w! \| !compiler <c-r>%<CR><CR>
-		map <leader>p :!previewer <c-r>%<CR><CR>
+		"TODO: Get `previewer` to work
+		"map <leader>p :!previewer <c-r>%<CR><CR>
+
+
+" ===LINGDVORAK ALTS===
+
+	set langmap=АБЦДЕФГЧИЙКЛМНОПЭРСТУВШХЫЗ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,ᚫBᛢDᛢFᚸHᚼJᛤLMᛝᛟᚦQRᛥTᚣVWXYᛠ;ABCDEFGHIJKLMNOPQRSTUVWXYZ,абцдефгчийклмнопэрстувшхыз;abcdefghijklmnopqrstuvwxyz,ᚪᛒᚳᛞᛖᚠᚷᚻᛁᛄᛣᛚᛗᚾᚩᛈᛢᚱᛋᛏᚢᛥᚹᛉᚣᛢ;abcdefghijklmnopqrstuvwxyz
 
 
 " ===FILETYPES===
