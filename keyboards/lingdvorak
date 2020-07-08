@@ -117,14 +117,14 @@ xkb_symbols "basic" {
     key <BKSL> {	[    backslash,	            bar						]	};
 };
 
-// Linguist's Dvorak Altai v1.00
+// Linguist's Dvorak Altai v1.02
 //
 // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
-// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
-// │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
+// │ ~ ō │ !   │ @ ‚ │ # ’ │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
+// │ ` ò │ 1 ‽ │ 2 „ │ 3 ” │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9 〈│ 0 〉│ [   │ ] ç ┃ ⌫       ┃
 // ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
-// ┃Tab    ┃ " o̅ │ < ‚ │ > ’ │ П   │ Ы   │ Ф   │ Г   │ Ц   │ Р   │ Л   │ ?   │ + ⁓ ┃ |     ┃
-// ┃ ↹     ┃ ' ó │ , „ │ . ” │     │   і │     │   ғ │     │     │     │ /   │ = ‡ ┃ \     ┃
+// ┃Tab    ┃ " o̅ │ < ‹ │ > › │ П   │ Ы   │ Ф   │ Г   │ Ц   │ Р   │ Л   │ ?   │ + ⁓ ┃ |     ┃
+// ┃ ↹     ┃ ' ó │ , « │ . » │     │   і │     │   ғ │     │     │     │ /   │ = ‡ ┃ \     ┃
 // ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┻━━━━━━━┫
 // ┃Caps    ┃ А   │ О   │ Е   │ У   │ И   │ Д   │ Ч   │ Т   │ Н   │ С   │ _ — ┃ ⏎          ┃
 // ┃Lock  ⇬ ┃   я │   ӧ │   ё │   ю │   ӱ │     │   Ҹ │     │   ҥ │   § │ - – ┃ Enter      ┃
@@ -141,8 +141,11 @@ xkb_symbols "alt" {
 
     name[Group1]= "Southern Altay (Dvorak)";
 
-    key <AD02> {	[	   comma,            less,   doublelowquotemark, singlelowquotemark	]	};
-    key <AD03> {	[	  period,         greater, rightdoublequotemark, rightsinglequotemark	]	};
+    key <AE02> {	[              2,              at,   doublelowquotemark, singlelowquotemark     ]       }; // Left-pointing Guillemots
+    key <AE03> {        [              3,      numbersign, rightdoublequotemark, rightsinglequotemark   ]       }; // Right-poiting
+
+    key <AD02> {	[	   comma,            less, guillemotleft,      U2039            ]	};
+    key <AD03> {	[	  period,         greater, guillemotright,     U203A           	]	};
     key <AD04> {	[    Cyrillic_pe,     Cyrillic_PE					]	};
     key <AD05> {	[  Cyrillic_yeru,   Cyrillic_YERU,         U0456,      U0406		]	}; // Cyrillic Ii
     key <AD06> {	[    Cyrillic_ef,     Cyrillic_EF					]	};
@@ -174,14 +177,14 @@ xkb_symbols "alt" {
 
 };
 
-// Linguist's Dvorak Altai v1.00
+// Linguist's Anglo-Frisian Runes v1.00
 //
 // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
 // │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
 // │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
 // ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
-// ┃Tab    ┃ " o̅ │ < ‚ │ > ’ │ ᛈ   │ ᚣ   │ ᚠ   │ ᚸ   │ ᛢ   │ ᚱ   │ ᛚ   │ ?   │ + ⁓ ┃ |     ┃
-// ┃ ↹     ┃ ' ó │ , „ │ . ” │   ᚦ │     │     │ ᚷ   │ ᚳ   │     │     │ /   │ = ‡ ┃ \     ┃
+// ┃Tab    ┃ " o̅ │ < ‘ │ > ’ │ ᛈ   │ ᚣ   │ ᚠ   │ ᚸ   │ ᛢ   │ ᚱ   │ ᛚ   │ ?   │ + ⁓ ┃ |     ┃
+// ┃ ↹     ┃ ' ó │ , “ │ . ” │   ᚦ │     │     │ ᚷ   │ ᚳ   │     │     │ /   │ = ‡ ┃ \     ┃
 // ┣━━━━━━━┻┱────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┬────┴┲━━━━┻━━━━━━━┫
 // ┃Caps    ┃ ᚫ   │ ᛟ   │ ᛢ ᛠ │ ᚣ   │ ᛡ ᛢ │ ᛞ   │ ᚻ   │ ᛏ   │ ᛝ   │ ᛥ   │ _ — ┃ ⏎          ┃
 // ┃Lock  ⇬ ┃ ᚪ   │ ᚩ   │ ᛖ   │ ᚢ   │ ᛁ   │     │     │     │ ᚾ   │ ᛋ ᚴ │ - – ┃ Enter      ┃
