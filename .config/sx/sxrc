@@ -47,4 +47,4 @@
 
 # ===WM===
 
-	exec dwm
+	dbus-launch --exit-with-session dwm
