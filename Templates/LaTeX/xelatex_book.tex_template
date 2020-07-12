@@ -1,6 +1,6 @@
 % xelatex
 
-\documentclass[letterpaper]{article}
+\documentclass[letterpaper]{book}
 
 	% ===MAIN PACKAGES===
 	% - - - - - - - - - - - - - - - -

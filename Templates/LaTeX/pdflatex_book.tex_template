@@ -1,6 +1,6 @@
 % pdflatex
 
-\documentclass[letterpaper]{article}
+\documentclass[letterpaper]{book}
 
 	% ===MAIN PACKAGES===
 	% - - - - - - - - - - - - - - - -
