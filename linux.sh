@@ -10,8 +10,9 @@
 	mkdir -p $HOME/Downloads/.src				 && \
 		printf "[1mDownloads done.[0m\n"
 
-	mkdir -p $HOME/Documents/{Rust,C,Go,LaTeX}		 && \
+	mkdir -p $HOME/Documents/{Assets,C,LaTeX,Go,Rust}	 && \
 	mkdir -p $HOME/Documents/LaTeX/{pdflatex,xelatex}	 && \
+	mkdir -p $HOME/Documents/Assets/LaTeX/Templates		 && \
 		printf "[1mDocuments done.[0m\n"
 
 	mkdir -p $HOME/Pictures/Wallpapers			 && \
@@ -45,6 +46,9 @@
 	# .local
 	cp -fa .local/bin/.        $HOME/.local/bin/        && chmod -R +x $HOME/.local/bin/*
 	cp -fa .local/profile/.    $HOME/.local/profile/
+
+	# Documents
+	cp -f Templates/LaTeX/*   $HOME/Documents/Assets/LaTeX/Templates/
 
 	# Linguist's Dvorak
 	if [ -e /usr/bin/doas ] ; then {

@@ -2,7 +2,7 @@
 
 \begin{document}
 
-	\addcontentsline{toc}{chapter}{Preface}
+	\addcontentsline{toc}{chapter}{\protect\numberline{~}Preface}
 	\chapter*{Preface:}
 
 		% ===INTRO PARAGRAPH===
