@@ -15,7 +15,7 @@ Slowly, I am trying to add comments to my dot files, etc. to explain them.
 TEX-TEMPLATE
 -----------
 
-New! I have gotten tired of having to retype `\*.tex`'s from scratch.
+New! I have gotten tired of having to retype `*.tex`'s from scratch.
 As such, I have written a new script and included my templates in `Templates/LaTeX`.
 
 Basically, the script will check to see if these files exist:
@@ -38,8 +38,8 @@ In order for the script to work right, you should perform either:
 
 * `mkdir -p ~/Documents/Assets/LaTeX/Templates && cp Template/LaTeX/\* ~/Documents/Assets/LaTeX/Templates/`
 
-Basically, the way it works: `textemp \[option\]`.
-You navigate to a new directory you want to start a `\*.tex` file in, and tell it whether you want an article or book.
+Basically, the way it works: `textemp [option]`.
+You navigate to a new directory you want to start a `*.tex` file in, and tell it whether you want an article or book.
 
 It will then copy the appropriate file into the PWD as `main.tex` and command your `$EDITOR` to open it, immediately.
 
