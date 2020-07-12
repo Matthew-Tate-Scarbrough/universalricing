@@ -7,7 +7,7 @@
 
 		\usepackage[USenglish]{babel}
 
-			\addto\captionsenglish{%
+			\addto\captionsUSenglish{%
 				\renewcommand{\contentsname}%
 				{Table of Contents}%
 			}
