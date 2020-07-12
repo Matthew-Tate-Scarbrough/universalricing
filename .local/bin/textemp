@@ -1,0 +1,87 @@
+#!/bin/sh
+
+[[ -e $HOME/Documents/Assets/LaTeX/Templates ]] && {
+	TEX_TEMPLATES="$HOME/Documents/Assets/LaTeX/Templates"
+} || {
+	[[ -e $HOME/Templates/LaTeX ]] && {
+		TEX_TEMPLATES="$HOME/Templates/LaTeX"
+	} || {
+		printf "[1mYeah, there are no LaTeX Templates *I* can see...[0m\n" && exit
+	}
+}
+
+
+textemp_help() {
+	printf "[1mtextemp[0m [option]\n
+\tA simple program that copies files from one location to another;
+\tnote, that it must be used in the directory of which you work.\n
+\t[4mNOTE[0m: Book templates utilise \`\subfiles\` by default.\n\n
+[1;4mOptions[0m:\n
+\t[1m--help[0m|[1m-h[0m                          Prints this help menu\n
+\t[1mlatex[0m|[1marticle[0m|[1mart[0m|[1m-l[0m|[1m-a[0m            Makes an article for pdflatex
+\t[1mbook[0m|[1mb[0m                             Makes a book for pdflatex\n
+\t[1mxetex[0m|[1mxarticle[0m|[1mxart[0m|[1m-x[0m|[1m-xa[0m         Makes an article for xelatex
+\t[1mxbook[0m|[1mxb[0m                           Makes a book for xelatex
+"
+}
+
+
+textemp_book_dirs(){
+	mkdir -p usr/local/{chapters,etc,graphics}
+}
+
+
+textemp_article() {
+	cp "$TEX_TEMPLATES"/pdflatex_article.tex_template main.tex
+}
+
+
+textemp_xearticle() {
+	cp "$TEX_TEMPLATES"/xelatex_article.tex_template main.tex
+}
+
+
+textemp_book() {
+	textemp_book_dirs
+	cp "$TEX_TEMPLATES"/pdflatex_book.tex_template main.tex
+	cp "$TEX_TEMPLATES"/subfile.tex_template usr/local/etc/preface.tex
+}
+
+
+textemp_xebook() {
+	textemp_book_dirs
+	cp "$TEX_TEMPLATES"/xelatex_book.tex_template main.tex
+	cp "$TEX_TEMPLATES"/subfile.tex_template usr/local/etc/preface.tex
+}
+
+
+case "$1" in
+	#
+	# ===HELP===
+	#
+	help)     textemp_help ;;
+	--help)   textemp_help ;;
+	-h)       textemp_help ;;
+	#
+	# ===LaTeX===
+	#
+	latex)    textemp_article && $EDITOR main.tex ;;
+	article)  textemp_article && $EDITOR main.tex ;;
+	art)      textemp_article && $EDITOR main.tex ;;
+	-l)       textemp_article && $EDITOR main.tex ;;
+	-a)       textemp_article && $EDITOR main.tex ;;
+	# Books
+	book)     textemp_book    && $EDITOR main.tex ;;
+	-b)       textemp_book    && $EDITOR main.tex ;;
+	#
+	# ===XeLaTeX===
+	#
+	xetex)    textemp_xearticle && $EDITOR main.tex ;;
+	xarticle) textemp_xearticle && $EDITOR main.tex ;;
+	xart)     textemp_xearticle && $EDITOR main.tex ;;
+	x)        textemp_xearticle && $EDITOR main.tex ;;
+	xa)       textemp_xearticle && $EDITOR main.tex ;;
+	# Books
+	xbook)    textemp_xebook    && $EDITOR main.tex ;;
+	-xb)      textemp_xebook    && $EDITOR main.tex ;;
+esac

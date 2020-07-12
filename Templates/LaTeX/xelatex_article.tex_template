@@ -1,0 +1,70 @@
+% xelatex
+
+\documentclass[letterpaper]{article}
+
+	% ===MAIN PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{polyglossia}
+			\setdefaultlanguage{english}
+
+			\addto\captionsenglish{%
+				\renewcommand*\contentsname{Table of Contents}%
+			}
+
+
+	% ===SECONDARY PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{xcolor}		% HIGHLIGHTING COLOURS
+
+		\usepackage{soul}		% HIGHLIGHTING AND BETTER UNDERLINING 
+
+
+	% ===TITLE===
+	% - - - - - - - - - - - - - - - -
+
+		\title{%
+			<Title>
+		}
+
+		\author{%
+			~Written by:	\\
+			%
+			Mat{\th}ew T. Scarbrough
+		}
+
+		\date{\today}
+
+
+\begin{document}
+
+\pagenumbering{roman} % ===FRONTMATTER===
+
+
+	% ===TITLE===
+	% - - - - - - - - - - - - - - - -
+
+		\maketitle
+
+
+	% ===TABLE OF CONTENTS===
+	% - - - - - - - - - - - - - - - -
+
+		\tableofcontents
+		\newpage
+
+
+\pagenumbering{arabic} % ===MAINMATTER===
+
+
+	% Body 1
+	% - - - - - - - - - - - - - - - -
+
+		\section{<Section>}
+
+		\noindent	% Unnecessary, but I like forcing it...
+		The quick brown fox jumpeth over the lazy dog's back...
+
+
+\end{document}

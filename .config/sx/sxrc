@@ -9,32 +9,13 @@
 	xrandr --output DVI-D-2 --right-of HDMI-1 ;
 
 
-# ===WM STATUS BAR===
-
-	while xsetroot -name "[$( net_check ) | $( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
-		sleep 5
-	done &
-
-
-# ===WM BACKGROUND===
-
-	while feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg; do
-		sleep 900							# Sleep 15min (900 sec's)
-	done &
-
-
-# ===WINDOW TRANSPARCENCY===
-
-	picom &
-
-
 # ===KEYBOARDS & MICE===
 
 	# Custom Dvorak layouts
 	setxkbmap \
 		-layout lingdvorak,lingdvorak,lingdvorak \
 		-variant ,alt,arun \
-		-option 'grp:alt_caps_toggle','lv3:ralt_switch' &
+		-option 'grp:alt_caps_toggle','lv3:ralt_switch' ;
 
 
 	# Natural Scrolling
@@ -42,9 +23,32 @@
 	# Then, type `xinput list-props <mouse-id>`
 	# Find your natural scrolling option; the anatomy is:
 	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>
-	xinput set-prop 11 276 1
+	xinput set-prop 11 276 1 ;
 
 
-# ===WM===
+while true; do
 
-	dbus-launch --exit-with-session dwm
+	# ===WM STATUS BAR===
+
+		while xsetroot -name "[$( net_check ) | $( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
+			sleep 5
+		done &
+
+
+	# ===WM BACKGROUND===
+
+		while feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg; do
+			sleep 900							# Sleep 15min (900 sec's)
+		done &
+
+
+	# ===WINDOW TRANSPARCENCY===
+
+		picom &
+
+
+	# ===WM===
+
+		dbus-launch --exit-with-session dwm
+
+done

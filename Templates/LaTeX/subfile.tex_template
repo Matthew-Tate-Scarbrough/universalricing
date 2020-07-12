@@ -1,0 +1,23 @@
+\documentclass[../../main.tex]{subfile}
+
+\begin{document}
+
+	\addcontentsline{toc}{chapter}{Preface}
+	\chapter*{Preface:}
+
+		% ===INTRO PARAGRAPH===
+		% - - - - - - - - - - - -
+
+			\noindent
+			This is my humble preface---%
+				%
+				I am but a blank canvas!
+			%
+			Oh, alas!
+				%
+				change me as thou desirest!
+
+			% - - - - - - - -
+
+
+\end{document}

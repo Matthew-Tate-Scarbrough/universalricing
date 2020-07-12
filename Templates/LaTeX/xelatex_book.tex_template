@@ -1,0 +1,79 @@
+% xelatex
+
+\documentclass[letterpaper]{article}
+
+	% ===MAIN PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{polyglossia}
+			\setdefaultlanguage{english}
+
+			\addto\captionsenglish{%
+				\renewcommand*\contentsname{Table of Contents}%
+			}
+
+		\usepackage{lettrine}
+
+		\usepackage{import}
+%			\import{usr/local/<insertfile.ext>}{<insertfile.ext>}
+
+
+	% ===SECONDARY PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{xcolor}		% HIGHLIGHTING COLOURS
+
+		\usepackage{soul}		% HIGHLIGHTING AND BETTER UNDERLINING 
+
+
+	% ===SECONDARY PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{subfiles}		% THIS SHOULD GO LAST
+
+
+	% ===TITLE PAGE===
+	% - - - - - - - - - - - - - - - -
+
+		\title{%
+			<Title>
+		}
+
+		\author{%
+			~Written by:	\\
+			%
+			Mat{\th}ew T. Scarbrough
+		}
+
+		\date{\today}
+
+
+\begin{document}
+
+	% ===TITLE PAGE===
+	% - - - - - - - - - - - - - - - -
+
+		\pagenumbering{gobble}
+		\maketitle
+
+
+\frontmatter
+
+
+	% ===TABLE OF CONTENTS===
+	% - - - - - - - - - - - - - - - -
+
+		\tableofcontents
+		\newpage
+
+
+\mainmatter
+
+
+	% ===PREFACE===
+	% - - - - - - - - - - - - - - - -
+
+		\subfile{usr/local/etc/preface.tex}
+
+
+\end{document}
