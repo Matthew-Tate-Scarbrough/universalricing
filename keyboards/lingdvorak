@@ -43,7 +43,7 @@
 // Linguist's Dvorak v1.00
 //
 // ┌─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┬─────┲━━━━━━━━━┓
-// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô   │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
+// │ ~ ō │ !   │ @   │ # ß │ $   │ %   │ ô ˇ │ &   │ *   │ (   │ )   │ {   │ } ǫ ┃Backspace┃
 // │ ` ò │ 1 ‽ │ 2   │ 3 § │ 4   │ 5   │ 6 ^ │ 7   │ 8   │ 9   │ 0   │ [   │ ] ç ┃ ⌫       ┃
 // ┢━━━━━┷━┱───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┴─┬───┺━┳━━━━━━━┫
 // ┃Tab    ┃ " o̅ │ < ‘ │ > ’ │ P   │ Y   │ F   │ G   │ C ¢ │ R ¶ │ L   │ ?   │ + ⁓ ┃ |     ┃
@@ -70,7 +70,7 @@ xkb_symbols "basic" {
     key <AE03> {	[	     3,	     numbersign,	   section,	      ssharp	]	};
     key <AE04> {	[	     4,	         dollar						]	};
     key <AE05> {	[	     5,	        percent						]	};
-    key <AE06> {	[	     6,	dead_circumflex,	asciicircum			]	};
+    key <AE06> {	[	     6,	dead_circumflex,       asciicircum,            U030C	]	};
     key <AE07> {	[	     7,	      ampersand						]	};
     key <AE08> {	[	     8,	       asterisk						]	};
     key <AE09> {	[	     9,	      parenleft,	     U2329			]	};
