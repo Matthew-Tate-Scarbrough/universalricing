@@ -87,7 +87,7 @@
 
 	" LaTeX
 
-		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex set filetype=tex spell! colorcolumn=127
+		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex,*.ldf set filetype=tex spell! colorcolumn=127
 
 
 	" Markdown
