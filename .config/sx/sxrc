@@ -13,8 +13,8 @@
 
 	# Custom Dvorak layouts
 	setxkbmap \
-		-layout lingdvorak,lingdvorak,lingdvorak \
-		-variant ,alt,arun \
+		-layout lingdvorak,lingdvorak \
+		-variant ,alt \
 		-option 'grp:alt_caps_toggle','lv3:ralt_switch' ;
 
 
@@ -23,7 +23,7 @@
 	# Then, type `xinput list-props <mouse-id>`
 	# Find your natural scrolling option; the anatomy is:
 	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>
-	xinput set-prop 11 276 1 ;
+#	xinput set-prop 11 276 1 ;
 
 
 while true; do
