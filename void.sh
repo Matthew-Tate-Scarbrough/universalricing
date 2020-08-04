@@ -325,9 +325,9 @@
 
 		cd universalricing && ./linux.sh && cd ..
 
-		cd mmarkdown && ./linux.sh &&
+		cd mmarkdown && ./linux.sh
 
-		# Exiting su
+		# EXIT SU
 
 	}
 
@@ -354,7 +354,7 @@
 
 		if [ "$TEST2" != "bash" ] ; then {
 
-			[ -z $(xbps-query -s "$USER_SHELL") ] && { xbps-install -Syu ; xbps-install -Syu ; xbps-install -Sy "$USER_SHELL" && } || :
+			[ -z $(xbps-query -s "$USER_SHELL") ] && { xbps-install -Syu ; xbps-install -Syu ; xbps-install -Sy "$USER_SHELL" ; } || :
 
 			useradd -ms /bin/"$USER_SHELL" -G audio,disk,video,wheel,bluetooth -p "$USER_PASSWORD" "$USER_NAME"
 
@@ -374,7 +374,7 @@
 
 		printf "Please note, this assumes you have only one kernel installed, do you want\n"
 		printf "to continue or stop and edit the installer script for a specific kernel?\n"
-		printf "\n[1;4mNote[0;1m:[0m if yes, you can restart at the package installation with `./void_installer --install`\n"
+		printf "\n[1;4mNote[0;1m:[0m if yes, you can restart at the package installation with \`./void_installer --install\`\n"
 		printf "[1m[y]es/[n]o[0m\n> "
 
 		while true ; do
@@ -472,30 +472,30 @@
 
 			case $USER_VIDEO1_INPUT in
 				1)
-					USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
+					export USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
 					break
 					;;
 				2)
-					USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
+					export USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
 					break
 					;;
 				3)
-					USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
+					export USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
 					break
 					;;
 				amd)
-					USER_VIDEO1_INPUT=1
-					USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
+					export USER_VIDEO1_INPUT=1
+					export USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
 					break
 					;;
 				nvidia)
-					USER_VIDEO1_INPUT=2
-					USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
+					export USER_VIDEO1_INPUT=2
+					export USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
 					break
 					;;
 				intel)
-					USER_VIDEO1_INPUT=3
-					USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
+					export USER_VIDEO1_INPUT=3
+					export USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
 					break
 					;;
 				*)
@@ -524,30 +524,30 @@
 
 			case $USER_VIDEO2_INPUT in
 				1)
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS linux-firmware-amd"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux-firmware-amd"
 					break
 					;;
 				2)
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS intel-ucode intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-ucode intel-video-accel"
 					break
 					;;
 				3)
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-video-accel"
 					break
 					;;
 				amd)
-					USER_VIDEO2_INPUT=1
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS linux-firmware-amd"
+					export USER_VIDEO2_INPUT=1
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux-firmware-amd"
 					break
 					;;
 				intel)
-					USER_VIDEO2_INPUT=2
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS intel-ucode intel-video-accel"
+					export USER_VIDEO2_INPUT=2
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-ucode intel-video-accel"
 					break
 					;;
 				intel-free)
-					USER_VIDEO2_INPUT=3
-					USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS intel-video-accel"
+					export USER_VIDEO2_INPUT=3
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-video-accel"
 					break
 					;;
 				*)
@@ -569,17 +569,17 @@
 
 			case $USER_VIDEO3_INPUT in
 				y)
-					if [ $USER_VIDEO1_INPUT = "1" ] ; then {
+					if [ "$USER_VIDEO1_INPUT" = "1" ] ; then {
 
-						$USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit"
+						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit "
 
-					} elif [ $USER_VIDEO1_INPUT = "2" ]; then {
+					} elif [ "$USER_VIDEO1_INPUT" = "2" ]; then {
 
-						$USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit"
+						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit "
 
 					} else {
 
-						$USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-intel-32bit vulkan-loader-32bit"
+						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-intel-32bit vulkan-loader-32bit "
 
 					} fi
 
@@ -609,8 +609,8 @@
 	check_doas() {
 
 		[ ! -e /etc/doas.conf ]  ||
-			{ [ -e /etc/doas.conf ] && [ /etc/doas.conf -ot root/etc/doas.conf ] && }
-				&& cp -f root/etc/doas.conf /etc/
+			{ [ -e /etc/doas.conf ] && [ /etc/doas.conf -ot root/etc/doas.conf ] ; } &&
+				cp -f root/etc/doas.conf /etc/
 
 	}
 
