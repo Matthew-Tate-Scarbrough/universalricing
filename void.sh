@@ -661,3 +661,34 @@
 			void_install_consummation
 
 	}
+
+
+# ===================================================IT==========================================================
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+
+case $1 in
+	--full)
+		main
+		;;
+	-f)
+		main
+		;;
+	--user) make_user
+		;;
+	-u)
+		make_user
+		;;
+	--install-packages)
+		video_drivers &&
+		install_packages &&
+		check_doas
+		;;
+	-i)
+		video_drivers &&
+		install_packages &&
+		check_doas
+		;;
+	*)
+		main
+		;;
+esac
