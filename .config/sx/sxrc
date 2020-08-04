@@ -49,6 +49,11 @@ while true; do
 
 	# ===WM===
 
-		dbus-launch --exit-with-session dwm
+		dbus-launch --exit-with-session dwm &&
+
+
+	# ===BLUEMAN===
+
+		blueman-applet
 
 done
