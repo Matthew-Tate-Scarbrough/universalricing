@@ -224,6 +224,7 @@
 		printf "3. Enabled and disabled services\n\n"
 		printf "    * \`rm /var/service/dhcpcd\`\n"
 		printf "    * \`ln -s /etc/sx/alsa /var/service/\`\n"
+		printf "    * \`ln -s /etc/sx/bluetoothd /var/service/\`\n"
 		printf "    * \`ln -s /etc/sx/dbus /var/service/\`\n"
 		printf "    * \`ln -s /etc/sx/NetworkManager /var/service/\`\n"
 
@@ -356,11 +357,11 @@
 
 			[ -z $(xbps-query -s "$USER_SHELL") ] && { xbps-install -Syu ; xbps-install -Syu ; xbps-install -Sy "$USER_SHELL" ; } || :
 
-			useradd -ms /bin/"$USER_SHELL" -G audio,disk,video,wheel,bluetooth -p "$USER_PASSWORD" "$USER_NAME"
+			useradd -ms /bin/"$USER_SHELL" -G audio,disk,video,wheel -p "$USER_PASSWORD" "$USER_NAME"
 
 		} else {
 
-			useradd -ms /bin/"$USER_SHELL" -G audio,disk,video,wheel,bluetooth -p "$USER_PASSWORD" "$USER_NAME"
+			useradd -ms /bin/"$USER_SHELL" -G audio,disk,video,wheel -p "$USER_PASSWORD" "$USER_NAME"
 
 		} fi
 
@@ -434,6 +435,7 @@
 		# simply comment rm dhcpcd and ln -s NM
 		rm /var/service/dhcpcd
 		ln -s /etc/sx/alsa /var/service/
+		ln -s /etc/sx/bluetoothd /var/service/
 		ln -s /etc/sv/dbus /var/service/
 		ln -s /etc/sv/NetworkManager /var/service/
 
@@ -443,6 +445,8 @@
 
 
 	void_install_consummation() {
+
+		usermod -aG bluetooth "$USER_NAME"
 
 		CURRENT_KERNEL=$(xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+' | grep "[*]" | awk '!_[$0]++' | sed 's/.*\sl/l/;s/-.*//')
 		
@@ -472,30 +476,30 @@
 
 			case $USER_VIDEO1_INPUT in
 				1)
-					export USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
+					export USER_VIDEO_DRIVERS="mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau mesa\-vulkan\-radeon"
 					break
 					;;
 				2)
-					export USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
+					export USER_VIDEO_DRIVERS="linux\-firmware\-nvidia mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau"
 					break
 					;;
 				3)
-					export USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
+					export USER_VIDEO_DRIVERS="linux\-firmware\-intel mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau mesa\-vulkan\-intel vulkan\-loader"
 					break
 					;;
 				amd)
 					export USER_VIDEO1_INPUT=1
-					export USER_VIDEO_DRIVERS="mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-radeon"
+					export USER_VIDEO_DRIVERS="mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau mesa\-vulkan\-radeon"
 					break
 					;;
 				nvidia)
 					export USER_VIDEO1_INPUT=2
-					export USER_VIDEO_DRIVERS="linux-firmware-nvidia mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau"
+					export USER_VIDEO_DRIVERS="linux\-firmware\-nvidia mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau"
 					break
 					;;
 				intel)
 					export USER_VIDEO1_INPUT=3
-					export USER_VIDEO_DRIVERS="linux-firmware-intel mesa mesa-dri mesa-opencl mesa-vaapi mesa-vdpau mesa-vulkan-intel vulkan-loader"
+					export USER_VIDEO_DRIVERS="linux\-firmware\-intel mesa mesa\-dri mesa\-opencl mesa\-vaapi mesa\-vdpau mesa\-vulkan\-intel vulkan\-loader"
 					break
 					;;
 				*)
@@ -524,30 +528,30 @@
 
 			case $USER_VIDEO2_INPUT in
 				1)
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux-firmware-amd"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux\-firmware\-amd"
 					break
 					;;
 				2)
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-ucode intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel\-ucode intel\-video\-accel"
 					break
 					;;
 				3)
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel\-video\-accel"
 					break
 					;;
 				amd)
 					export USER_VIDEO2_INPUT=1
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux-firmware-amd"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" linux\-firmware\-amd"
 					break
 					;;
 				intel)
 					export USER_VIDEO2_INPUT=2
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-ucode intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel\-ucode intel\-video\-accel"
 					break
 					;;
 				intel-free)
 					export USER_VIDEO2_INPUT=3
-					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel-video-accel"
+					export USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" intel\-video\-accel"
 					break
 					;;
 				*)
@@ -571,15 +575,15 @@
 				y)
 					if [ "$USER_VIDEO1_INPUT" = "1" ] ; then {
 
-						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-radeon-32bit "
+						export $USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa\-32bit mesa\-dri\-32bit mesa\-opencl\-32bit mesa\-vaapi\-32bit mesa\-vdpau\-32bit mesa\-vulkan\-radeon\-32bit "
 
 					} elif [ "$USER_VIDEO1_INPUT" = "2" ]; then {
 
-						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit "
+						export $USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa\-32bit mesa\-dri\-32bit mesa\-opencl\-32bit mesa\-vaapi\-32bit mesa\-vdpau\-32bit "
 
 					} else {
 
-						export $USER_VIDEO_DRIVERS=""$USER_VIDEO_DRIVERS" mesa-32bit mesa-dri-32bit mesa-opencl-32bit mesa-vaapi-32bit mesa-vdpau-32bit mesa-vulkan-intel-32bit vulkan-loader-32bit "
+						export $USER_VIDEO_DRIVERS="$USER_VIDEO_DRIVERS mesa\-32bit mesa\-dri\-32bit mesa\-opencl\-32bit mesa\-vaapi\-32bit mesa\-vdpau\-32bit mesa\-vulkan\-intel\-32bit vulkan\-loader\-32bit "
 
 					} fi
 
