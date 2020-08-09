@@ -407,12 +407,12 @@
 
 		xbps-install -Sy	\
 			# Base stuffs 1
-			"$USER_VIDEO_DRIVERS" base-devel git opendoas neovim tmux zsh void-repo-multilib xterm	\
-			# Window Manager basics
-			# note, if I can figure out how to get dbus-broker, this will change
-			alacritty dbus dmenu NetworkManager feh firefox picom sx xorg-minimal xorg-fonts	\
-			xsetroot xfd libXft libXft-devel libX11 libX11-devel libXinerama libXinerama-devel	\
-			xf86-video-vesa setxkbmap xrandr xprop	\
+			 xterm	\
+			alacritty dbus dmenu NetworkManager feh firefox picom
+
+			 sx 	\
+			\
+			xf86-video-vesa setxkbmap xprop	\
 			# XORG FULL -- I gave up trying to do it minimally
 			xorg	\
 				font-libertine-otf font-libertine-ttf freefont-ttf font-unifont-bdf	\
