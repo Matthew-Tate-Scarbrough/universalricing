@@ -32,11 +32,12 @@ printf "[1mLet's make the user:[0m\n"
 	# so it is not necessary to check whether bash is installed.
 	# No body uses Dash, so it is unnecessary to wory about that, either.
 	[ "$USER_SHELL" != "bash" ] && {
-		[ -z "$(xbps-query -s "$USER_SHELL")" ] && {
+		[ -z "$(xbps-query -s "$USER_SHELL")" ] && {	
 			xbps-install -Syu		;
 			xbps-install -Syu		;
 			xbps-install "$USER_SHELL"	;
-		} || :
+		}
+	} || :
 
 
 # ===MAKE USER===
