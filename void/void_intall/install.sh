@@ -192,60 +192,111 @@
 
 	void_install_update
 
+	xbps-install -Sy base-devel					&&
+
+	xbps-install -Sy xorg-minimal					&&
+
+	xbps-install -Sy xorg						&&
+
+	xbps-install -Sy gtk+3						&&
+
+	xbps-install -Sy alsa-utils					&&
+
+	xbps-install -Sy font-libertine-otf				&&
+
+	xbps-install -Sy freshplayerplugin				&&
+
+	xbps-install -Sy gnome						&&
+
+	xbps-install -Sy baobab						&&
+
+	xbps-install -Sy gvfs						&&
+
+	xbps-install -Sy zathura					&&
+
+	xbps-install -Sy okular						&&
+
+	xbps-install -Sy system-config-printer				&&
+
+	xbps-install -Sy libreoffice					&&
+
+	xbps-install -Sy texlive-bin					&&
+
+	xbps-install -Sy pandoc						&&
+
+	xbps-install -Sy blender					&&
+
+	xbps-install -Sy kdenlive					&&
+
+	xbps-install -Sy timeshift					&&
+
 	xbps-install -Sy						\
 		# Base packages
-			base-devel* git opendoas neovim tmux zsh	\
+			###base-devel					\
+			git opendoas neovim tmux zsh			\
 			void-repo-multilib lm_sensors			\
 		# Xorg
 			# Xorg Full (temporary)
-			xorg*						\
+			###xorg*					\
 			# Xorg Rest
-			xorg-minimal* setxkbmap sx xorg-fonts xprop	\
+			###xorg-minimal*				\
+			setxkbmap sx xorg-fonts xprop			\
 			xrandr xsetroot xf86-video-vesa			\
 			libX11 libX11-devel libXft libXft-devel xfd	\
 			libXinerama libXinerama-devel			\
 		# Other Base Stuffs
-			alacritty* dbus dmenu NetworkManager feh firefox \
+			###alacritty					\
+			dbus dmenu NetworkManager feh firefox		\
 			picom xterm					\
 		# GTK
-			gtk+3* gtk+3-32bit lxappearance			\
+			###gtk+3					\
+			gtk+3-32bit lxappearance			\
 			adwaita-icon-theme				\
 		# Audio
-			alsa-utils* alsa-plugins-pulseaudio apulse bluez \
+			###alsa-utils					\
+			alsa-plugins-pulseaudio apulse bluez		\
 			bluez-alsa blueman pavucontrol pulseaudio	\
 		# Fonts
-			font-libertine-otf font-libertine-ttf		\
+			###font-libertine-otf
+			font-libertine-ttf				\
 			freefont-ttf font-unifont-bdf font-fira-otf	\
 			font-fira-ttf font-fira-code			\
 		# ETC
 			freshplayerplugin* vlc ffmpeg obs		\
 		# GNOME FULL (This causes redundancy of the following)
-			gnome* gnome-apps				\
+			###gnome					\
+			gnome-apps					\
 		# GNOME APPS
-			baobab evince gedit gparted gnome-calculator	\
+			###baobab					\
+			evince gedit gparted gnome-calculator		\
 			nautilus simple-scan rhythmbox lbrhythmbox	\
 		# GNOME VIRTUAL FS Stuffs
-			gvfs* gvfs-afc gvfs-afp gvfs-cdda gvfs-goa	\
+			###gvfs						\
+			gvfs-afc gvfs-afp gvfs-cdda gvfs-goa		\
 			gvfs-gphoto2 gvfs-mtp gvfs-smb			\
 		# Zathura (bae #1)
-			zathura* zathura-pdf-poppler zathura-ps		\
+			###zathura					\
+			zathura-pdf-poppler zathura-ps			\
 		# Okular (bae #2)
-			okular*						\
+			###okular*					\
 		# Printer GUI (bae #3)
-			system-config-printer				\
+			###system-config-printer			\
 		# LibreOffice
-			libreoffice*					\
+			###libreoffice*					\
 		# LaTeX (bae #4)
-			texlive-bin* gnupg				\
+			###texlive-bin*					\
+			gnupg						\
 		# Pandoc Stuffs and misc PDF stuffs
 			###ocrad					\
-			pandoc wkhtmltopdf				\
+			###pandoc					\
+			wkhtmltopdf					\
 		# Blender
-			blender* libspnav				\
+			###blender					\
+			libspnav					\
 		# kdenlive
-			kdenlive*					\
+			###kdenlive					\
 		# timeshift (bae #5)
-			timeshift*
+			###timeshift
 
 	# - - - - - - - - - - - -
 
