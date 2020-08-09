@@ -99,4 +99,13 @@ case $1 in
 
 	--r)			./reconfigure.sh
 		;;
+
+	*)		./install.sh		&&
+			./user.sh		&&
+			./userdirs.sh		&&
+			./usergit.sh		&&
+			./logfilegenerate.sh	&&
+			./reconfigure.sh
+		;;
+
 esac

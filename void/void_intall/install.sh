@@ -139,7 +139,7 @@
 			y)	xbps-install -Sy void-repo-multilib
 				void_install_update
 				
-				case USER_GPU_TYPE in
+				case $USER_GPU_TYPE in
 
 					1)    xbps-install -Sy		\
 						  mesa-32bit		\
@@ -188,7 +188,7 @@
 	# - - - - - - - - - - - -
 
 
-	printf "[1mInstalling packages...[0m\n"
+	printf "[1mInstalling packages...[0m\n\n"
 
 	void_install_update
 
@@ -249,7 +249,7 @@
 	# - - - - - - - - - - - -
 
 
-	printf "[1mNow enabling and disabling some services...[0m\n"
+	printf "[1mNow enabling and disabling some services...[0m\n\n"
 
 	# It disables dhcpcd for Gnome NM--if you don't like NM
 	# (it has its issues)
@@ -263,7 +263,7 @@
 	# - - - - - - - - - - - -
 
 
-	printf "[1mNow making a base doas.conf...[0m\n"
+	printf "[1mNow making a base doas.conf...[0m\n\n"
 
 	[ ! -e /etc/doas.conf ] &&
 		printf "permit nopass keepenv :wheel" > /etc/doas.conf ||

@@ -2,7 +2,7 @@
 #
 # This makes a user; it assumes that you have `bluez' installed
 
-printf "[1mLet\'s make the user:[0m\n"
+printf "[1mLet's make the user:[0m\n"
 
 
 # ===INPUTS===
@@ -48,4 +48,4 @@ printf "[1mLet\'s make the user:[0m\n"
 		-p  "$USER_PASSWORD"					\
 		    "$USER_NAME"
 
-	printf "[1mUser done.[0m"
+	printf "[1mUser done.[0m\n\n"
