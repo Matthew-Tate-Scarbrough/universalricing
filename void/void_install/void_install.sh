@@ -546,9 +546,6 @@ void_logfilegenerate() {
 
 	printf "[1mNow making logfile...[0m\n"
 
-	# If the user is *NOT* `root', then continues or `su's
-	[ "$(id -u)" != 0 ] && : || { exec su "$USER_NAME" "$0" "$@" ; }
-
 	mkdir -p "$USER_HOME"/Documents/Logs/"$HOST"
 
 	cd "$USER_HOME"/Documents/Logs/"$HOST"
@@ -808,16 +805,16 @@ case $1 in
 	*)		void_install		&&
 			void_user		||	exit	&&
 			# If the user is `root', then su to $USER_NAME with root's shell
-			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" -s /bin/sh "$@" ; } || :
 			void_userdirs		||	exit	&&
 			# If the user is `root', then su to $USER_NAME with root's shell
-			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" -s /bin/sh "$@" ; } || :
 			void_usergit		||	exit	&&
 			# If the user is `root', then su to $USER_NAME with root's shell
-			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" -s /bin/sh "$@" ; } || :
 			void_logfilegenerate	||	exit	&&
 			# If the user is `root', then su to $USER_NAME with root's shell
-			[ "$USER" != "root" ] && { exec su root "$0" "$@" ; } || :
+			[ "$USER" != "root" ] && { exec su root -s /bin/sh "$@" ; } || :
 			void_reconfigure	||	exit
 		;;
 
