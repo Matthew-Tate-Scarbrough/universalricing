@@ -424,9 +424,6 @@ void_userdirs() {
 
 printf "[1mNow making the user dirs...[0m\n"
 
-# If the user is `root', then su to $USER_NAME with root's shell
-[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
-
 mkdir -p "$USER_HOME"/{Documents,Downloads,Games,Music}
 mkdir -p "$USER_HOME"/{Pictures/Wallpapers,Public,Videos,.config,.local}
 	mkdir -p "$USER_HOME"/Documents/{Audacity,Assets,Blender,Fountain,Godot}
@@ -489,9 +486,6 @@ void_usergit() {
 # /or redoing it. it is confusing, either way.
 
 printf "[1mNow making the user dirs...[0m\n"
-
-# If the user is *NOT* `root', then continues or `su's
-[ "$USER" != "root" ] && : || { exec su "$USER_NAME" "$0" "$@" ; }
 
 # SUCKLESS
 mkdir -p "$USER_HOME"/Downloads/.src/suckless
@@ -717,9 +711,6 @@ void_logfilegenerate() {
 
 void_reconfigure() {
 
-# If the user is *NOT* `root', then `su's to root, or continues
-[ "$USER" != "root" ] && { exec su root "$0" "$@" ; } || :
-
 CURRENT_KERNEL=$(xbps-query --regex -Rs '^linux[0-9.]+-[0-9._]+' | grep "[*]" | awk '!_[$0]++' | sed 's/.*\sl/l/;s/-.*//')
 
 xbps-reconfigure -f "$CURRENT_KERNEL" &&
@@ -816,10 +807,18 @@ case $1 in
 
 	*)		void_install		&&
 			void_user		||	exit	&&
+			# If the user is `root', then su to $USER_NAME with root's shell
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
 			void_userdirs		||	exit	&&
+			# If the user is `root', then su to $USER_NAME with root's shell
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
 			void_usergit		||	exit	&&
+			# If the user is `root', then su to $USER_NAME with root's shell
+			[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
 			void_logfilegenerate	||	exit	&&
-			void_reconfigure	||	exit	
+			# If the user is `root', then su to $USER_NAME with root's shell
+			[ "$USER" != "root" ] && { exec su root "$0" "$@" ; } || :
+			void_reconfigure	||	exit
 		;;
 
 esac
