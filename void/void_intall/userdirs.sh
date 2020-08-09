@@ -6,7 +6,7 @@
 printf "[1mNow making the user dirs...[0m\n"
 
 # If the user is `root', then su to $USER_NAME with root's shell
-[ "$(id -u)" == 0 ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
+[ "$USER" = "root" ] && { exec su "$USER_NAME" "$0" "$@" ; } || :
 
 mkdir -p "$USER_HOME"/{Documents,Downloads,Games,Music}
 mkdir -p "$USER_HOME"/{Pictures/Wallpapers,Public,Videos,.config,.local}

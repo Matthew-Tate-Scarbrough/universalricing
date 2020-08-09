@@ -13,7 +13,7 @@
 printf "[1mNow making the user dirs...[0m\n"
 
 # If the user is *NOT* `root', then continues or `su's
-[ "$(id -u)" != 0 ] && : || { exec su "$USER_NAME" "$0" "$@" ; }
+[ "$USER" != "root" ] && : || { exec su "$USER_NAME" "$0" "$@" ; }
 
 # SUCKLESS
 mkdir -p "$USER_HOME"/Downloads/.src/suckless
