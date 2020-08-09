@@ -198,7 +198,7 @@
 			void-repo-multilib lm_sensors			\
 		# Xorg
 			# Xorg Full (temporary)
-			xorg
+			xorg						\
 			# Xorg Rest
 			xorg-minimal setxkbmap sx xorg-fonts xprop	\
 			xrandr xsetroot xf86-video-vesa			\
