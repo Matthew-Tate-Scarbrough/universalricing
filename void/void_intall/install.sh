@@ -230,53 +230,53 @@
 
 	xbps-install -Sy timeshift					&&
 
-	xbps-install -Sy						\
+
 		# Base packages
 			###base-devel					\
-			git opendoas neovim tmux zsh			\
-			void-repo-multilib lm_sensors			\
+	xbps-install -Sy git opendoas neovim tmux zsh			\
+			void-repo-multilib lm_sensors
 		# Xorg
 			# Xorg Full (temporary)
 			###xorg*					\
 			# Xorg Rest
 			###xorg-minimal*				\
-			setxkbmap sx xorg-fonts xprop			\
+	xbps-install -Sy setxkbmap sx xorg-fonts xprop			\
 			xrandr xsetroot xf86-video-vesa			\
 			libX11 libX11-devel libXft libXft-devel xfd	\
-			libXinerama libXinerama-devel			\
+			libXinerama libXinerama-devel
 		# Other Base Stuffs
 			###alacritty					\
-			dbus dmenu NetworkManager feh firefox		\
-			picom xterm					\
+	xbps-install -Sy dbus dmenu NetworkManager feh firefox		\
+			picom xterm
 		# GTK
 			###gtk+3					\
-			gtk+3-32bit lxappearance			\
-			adwaita-icon-theme				\
+	xbps-install -Sy gtk+3-32bit lxappearance			\
+			adwaita-icon-theme
 		# Audio
 			###alsa-utils					\
-			alsa-plugins-pulseaudio apulse bluez		\
-			bluez-alsa blueman pavucontrol pulseaudio	\
+	xbps-install -Sy alsa-plugins-pulseaudio apulse bluez		\
+			bluez-alsa blueman pavucontrol pulseaudio
 		# Fonts
 			###font-libertine-otf
-			font-libertine-ttf				\
+	xbps-install -Sy font-libertine-ttf				\
 			freefont-ttf font-unifont-bdf font-fira-otf	\
-			font-fira-ttf font-fira-code			\
+			font-fira-ttf font-fira-code
 		# ETC
-			freshplayerplugin* vlc ffmpeg obs		\
+	xbps-install -Sy freshplayerplugin* vlc ffmpeg obs
 		# GNOME FULL (This causes redundancy of the following)
 			###gnome					\
-			gnome-apps					\
+	xbps-install -Sy gnome-apps
 		# GNOME APPS
 			###baobab					\
-			evince gedit gparted gnome-calculator		\
-			nautilus simple-scan rhythmbox lbrhythmbox	\
+	xbps-install -Sy evince gedit gparted gnome-calculator		\
+			nautilus simple-scan rhythmbox lbrhythmbox
 		# GNOME VIRTUAL FS Stuffs
 			###gvfs						\
-			gvfs-afc gvfs-afp gvfs-cdda gvfs-goa		\
-			gvfs-gphoto2 gvfs-mtp gvfs-smb			\
+	xbps-install -Sy gvfs-afc gvfs-afp gvfs-cdda gvfs-goa		\
+			gvfs-gphoto2 gvfs-mtp gvfs-smb
 		# Zathura (bae #1)
 			###zathura					\
-			zathura-pdf-poppler zathura-ps			\
+	xbps-install -Sy zathura-pdf-poppler zathura-ps
 		# Okular (bae #2)
 			###okular*					\
 		# Printer GUI (bae #3)
@@ -285,14 +285,14 @@
 			###libreoffice*					\
 		# LaTeX (bae #4)
 			###texlive-bin*					\
-			gnupg						\
+	xbps-install -Sy gnupg
 		# Pandoc Stuffs and misc PDF stuffs
 			###ocrad					\
 			###pandoc					\
-			wkhtmltopdf					\
+	xbps-install -Sy wkhtmltopdf
 		# Blender
 			###blender					\
-			libspnav					\
+	xbps-install -Sy libspnav
 		# kdenlive
 			###kdenlive					\
 		# timeshift (bae #5)
