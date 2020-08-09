@@ -202,6 +202,8 @@ void_install() {
 
 				esac
 
+				break
+
 				;;
 
 			n)	break
@@ -367,22 +369,22 @@ printf "[1mLet's make the user:[0m\n"
 
 		read USER_NAME
 
-		export -p USER_NAME="$USER_NAME"
+		export USER_NAME="$USER_NAME"
 
-		export -p USER_HOME=/home/"$USER_NAME"
+		export USER_HOME=/home/"$USER_NAME"
 
 	printf "[1mAnd the desired password:[0m "
 
 		read USER_PASSWORD
 
-		export -p USER_PASSWORD="$USER_PASSWORD"
+		export USER_PASSWORD="$USER_PASSWORD"
 
 	printf "[1mWhat about your shell?[0"
 	printf "[2m (bash, fish, zsh, etc.):[0m "
 
 		read USER_SHELL
 
-		export -p USER_SHELL="$USER_SHELL"
+		export USER_SHELL="$USER_SHELL"
 
 
 # ===SHELL CHECK===
@@ -730,27 +732,27 @@ update-grub && printf "Rebooting, now...\n" && reboot
 case $1 in
 
 	--setup-void)	void_install		&&
-			void_user		&&
-			void_userdirs		&&
-			void_usergit		&&
-			void_logfilegenerate	&&
-			void_reconfigure
+			void_user		||	exit	&&
+			void_userdirs		||	exit	&&
+			void_usergit		||	exit	&&
+			void_logfilegenerate	||	exit	&&
+			void_reconfigure	||	exit	
 		;;
 
 	--main)		void_install		&&
-			void_user		&&
-			void_userdirs		&&
-			void_usergit		&&
-			void_logfilegenerate	&&
-			void_reconfigure
+			void_user		||	exit	&&
+			void_userdirs		||	exit	&&
+			void_usergit		||	exit	&&
+			void_logfilegenerate	||	exit	&&
+			void_reconfigure	||	exit	
 		;;
 
 	-m)		void_install		&&
-			void_user		&&
-			void_userdirs		&&
-			void_usergit		&&
-			void_logfilegenerate	&&
-			void_reconfigure
+			void_user		||	exit	&&
+			void_userdirs		||	exit	&&
+			void_usergit		||	exit	&&
+			void_logfilegenerate	||	exit	&&
+			void_reconfigure	||	exit	
 		;;
 
 	--make-user)	void_user		&&
@@ -813,11 +815,11 @@ case $1 in
 		;;
 
 	*)		void_install		&&
-			void_user		&&
-			void_userdirs		&&
-			void_usergit		&&
-			void_logfilegenerate	&&
-			void_reconfigure
+			void_user		||	exit	&&
+			void_userdirs		||	exit	&&
+			void_usergit		||	exit	&&
+			void_logfilegenerate	||	exit	&&
+			void_reconfigure	||	exit	
 		;;
 
 esac
