@@ -203,7 +203,8 @@
 			xorg-minimal setxkbmap sx xorg-fonts xprop	\
 			xrandr xsetroot xf86-video-vesa			\
 			libX11 libX11-devel libXft libXft-devel xfd	\
-			libXinerama libXinerama-devel			\
+			libXinerama libXinerama-devel			&&
+	xbps-install -Sy						\
 		# Other Base Stuffs
 			alacritty dbus dmenu NetworkManager feh firefox	\
 			picom xterm					\
@@ -212,16 +213,18 @@
 			adwaita-icon-theme				\
 		# Audio
 			alsa-utils alsa-plugins-pulseaudio apulse bluez	\
-			bluez-alsa blueman pavucontrol pulseaudio	\
+			bluez-alsa blueman pavucontrol pulseaudio	&&
 		# Fonts
+	xbps-install -Sy						\
 			font-libertine-otf font-libertine-ttf		\
 			freefont-ttf font-unifont-bdf font-fira-otf	\
 			font-fira-ttf font-fira-code			\
 		# ETC
 			freshplayerplugin vlc ffmpeg obs		\
 		# GNOME FULL (This causes redundancy of the following)
-			gnome gnome-apps				\
+			gnome gnome-apps				&&
 		# GNOME APPS
+	xbps-install -Sy						\
 			baobab evince gedit gparted gnome-calculator	\
 			nautilus simple-scan rhythmbox lbrhythmbox	\
 		# GNOME VIRTUAL FS Stuffs
@@ -230,8 +233,9 @@
 		# Zathura (bae #1)
 			zathura zathura-pdf-poppler zathura-ps		\
 		# Okular (bae #2)
-			okular						\
+			okular						&&
 		# Printer GUI (bae #3)
+	xbps-install -Sy						\
 			system-config-printer				\
 		# LibreOffice
 			libreoffice					\
