@@ -1,0 +1,80 @@
+% pdflatex
+
+\documentclass[letterpaper]{article}
+
+	% ===MAIN PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage[USenglish,main=russian]{babel}
+
+			\addto\captionsUSenglish{%
+				\renewcommand{\contentsname}%
+				{Table of Contents}%
+			}
+
+%%%		\usepackage[utf8]{inputenc}	% DEPROCATED IN NEWEST VERSIONS       %
+
+		\usepackage[T1,T2A]{fontenc}
+
+%%%		\usepackage[pass]{geometry}	% ALLOWS DECLARATION OF PAPER SIZE... %
+						% IN SOME INSTANCES, WHERE NEEDED     %
+
+
+	% ===SECONDARY PACKAGES===
+	% - - - - - - - - - - - - - - - -
+
+		\usepackage{xcolor}		% HIGHLIGHTING COLOURS
+
+		\usepackage{soul}		% HIGHLIGHTING AND BETTER UNDERLINING 
+
+
+	% ===TITLE===
+	% - - - - - - - - - - - - - - - -
+
+		\title{%
+			Учимся говорить по-алтайски.	\\%
+			%
+			Урок № 1. Алфавит.%
+		}
+
+
+		\author{%
+			~Typeset by:	\\%
+			%
+			Mat{\th}ew T. Scarbrough%
+		}
+
+		\date{\today}
+
+
+\begin{document}
+
+\pagenumbering{roman} % ===FRONTMATTER===
+
+
+	% ===TITLE===
+	% - - - - - - - - - - - - - - - -
+
+		\maketitle
+
+
+	% ===TABLE OF CONTENTS===
+	% - - - - - - - - - - - - - - - -
+
+		\tableofcontents
+		\newpage
+
+
+\pagenumbering{arabic} % ===MAINMATTER===
+
+
+	% Body 1
+	% - - - - - - - - - - - - - - - -
+
+		\section{<Раздел>}
+
+		\noindent	% Unnecessary, but I like forcing it...
+		Съешь же ещё этих мягких французских булок да выпей чаю...
+
+
+\end{document}

@@ -98,3 +98,8 @@
 	" M-Markdown
 
 		au BufRead,BufNewFile *.mmd,*.md set filetype=markdown syntax=mmarkdown
+
+
+	" SILE
+
+		au BufRead,BufNewFile *.sil,*.sile set filetype=sile syntax=tex expandtab

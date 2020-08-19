@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 #
 # This just manually looks through diffs
 

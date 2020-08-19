@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 # Requires `ip`, not ifconfig
 
 state=$(ip link | grep wlan0 | sed -e 's/.*state\s//;s/\smode.*$//')

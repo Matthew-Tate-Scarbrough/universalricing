@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/bash
 
 # DEPENDENCIES:
 # GNU Sed; github.com/Matthew-Tate-Scarbrough/kjva

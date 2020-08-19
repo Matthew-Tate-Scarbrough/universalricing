@@ -1,0 +1,6 @@
+#!/bin/sh
+# This literally is just an awk script for removing double lines
+# Thanks to this person:
+# <https://www.unix.com/shell-programming-and-scripting/153131-remove-duplicate-lines-using-awk.html>
+
+awk '!x[$0]++'

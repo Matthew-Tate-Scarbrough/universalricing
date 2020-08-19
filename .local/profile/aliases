@@ -8,7 +8,7 @@
 	alias ls="ls --color=auto"
 	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
 	alias gut="git"
-	alias tlmgr="tllocalmgr"
+###	alias tlmgr="tllocalmgr"
 	alias spacenavcfg="spnavcfg"
 
 
@@ -32,10 +32,10 @@
 
 # ===XBPS===
 
-	alias xs="xbps-query -Rs"
-	alias xi="$SUPERU xbps-install -Sy"
-	alias xu="$SUPERU xbps-install -S"
-	alias xupgrade="$SUPERU xbps-install -Su"
+###	alias xs="xbps-query -Rs"
+###	alias xi="$SUPERU xbps-install -Sy"
+###	alias xu="$SUPERU xbps-install -S"
+###	alias xupgrade="$SUPERU xbps-install -Su"
 
 
 # ===YOUTUBE-DL===

@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 
 for NET_DEV in /sys/class/net ; do {
 

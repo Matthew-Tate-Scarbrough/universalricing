@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 #
 # This is a concatenation of the smaller ones. This script will work with a base
 # install of Void, make a user, and install packages, you may want.

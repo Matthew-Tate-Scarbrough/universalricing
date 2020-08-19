@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/bin/dash
 # This is not intended for a fresh install, this is just meant to copy files onto a pre-existing install.
 # I've written this because I am tired of copying all changed files over.
 #

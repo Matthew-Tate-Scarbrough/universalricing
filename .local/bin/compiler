@@ -36,5 +36,7 @@ case "$FILE" in
 	*\.C)        gcc "$FILE" -o "$FILE_BASE" ;;
 	*\.go)       go build "$FILE" ;;
 	*\.rs)       rustc "$FILE" -o "$FILE_BASE" ;;
+	*\.sil)      sile "$FILE" ;;
+	*\.sile)     sile "$FILE" ;;
 	*)           shebangtest ;;
 esac
