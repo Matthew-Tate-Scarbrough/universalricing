@@ -2,18 +2,27 @@ Universal Ricing
 ================
 
 This is my list of configuration files for \*NIX OS's.
-I primarily use GNU/Linux
-(most specifically Pop!\_OS and now Arch),
-but I have an affair with FreeBSD and I am sure, one day, GNU/Hurd.
-Because of this, I am trying to keep all my software cross-platform between FreeBSD and Linux.
+I primarily use GNU/Linux (Void, if you are interested,)
+but I do try to play around with FreeBSD and probably soon OpenBSD.
 
 Now most people would not be interested,
 but if you are now like me, seeing a base may help.
 Slowly, I am trying to add comments to my dot files, etc. to explain them.
 
 
-TEX-TEMPLATE
------------
+TABLE OF CONTENTS
+-----------------
+
+[Directory Structure I am Using](##-layout)
+
+[LaTeX template and relevant shell-script](##-tex-template)
+
+[My custom keyboard layouts](##-"linguist's-dvorak")
+
+[List of Proprietary Fonts and Open Source Copycats](##-font-alternatives)
+
+
+## TEX-TEMPLATE
 
 New! I have gotten tired of having to retype `*.tex`'s from scratch.
 As such, I have written a new script and included my templates in `Templates/LaTeX`.
@@ -58,8 +67,7 @@ The hierarchy is thusly:
 		   \ - chapters/
 
 
-Layout
-------
+## Layout
 
 In short, I am trying to follow the UNIX philosophy as closely as possible in the layout--for
 instance, cleaning out the `/home` directory.
@@ -95,8 +103,8 @@ Incomplete, rough Guide:
                   \---+/vars       #For variables custom and ENV, i.e. EDITOR=NVIM
 
 
-"Linguist's Dvorak"
--------------------
+## "Linguist's Dvorak"
+
 
 Now, this one is rather interesting.
 I have always made my own keyboard layouts, and this is no exception.
@@ -143,3 +151,44 @@ Then you must add the following to `prefix/X11/xkb/rules/evdev.xml` after the ta
     </layout>
 
 **NOTE:** This is an excerpt--the most uptodate version will be at the top of the Ling Dvorak symbols file
+
+
+## Font Alternatives
+
+**Serif Fonts**
+
++ Times New Romas (Times)
+  - Liberation Serif
+  - [FreeSerif](https://www.fontsquirrel.com/fonts/gnu-free-font)
+    (closest of the lot)
++ Gentium
+  - [Linux Libertine](https://www.fontsquirrel.com/fonts/Linux-Libertine)
+    * [Linux Biolinum](https://www.fontsquirrel.com/fonts/linux-biolinum)
+      for a matching *sans* font.
+
+*Courier Fonts*
+
++ Courier Final Draft (Courier)
+  - [Adobe Courier](https://fonts.adobe.com/fonts/courier)
+  - [Courier Prime](https://quoteunquoteapps.com/courierprime/)
+  - [FreeMono](https://www.fontsquirrel.com/fonts/gnu-free-font)
+    * FreeMono looks the most like a “typewriter” of the lot
+    * FreeMono also supports all European languages,
+      supporting over 10.4k glyphs
+
+
+**Sans Fonts**
+
++ Helvetica
+  - [Swansea](https://www.fontspace.com/swansea-font-f5873)
+    * Swansea is public domain
++ San Francisco
+  - [Fira Sans](https://www.fontsquirrel.com/fonts/list/foundry/mozilla)
+
+
+**Old English (Anglo-Saxon) Fonts**
+
+Peter S. Baker has made freely available fonts that _**carefully**_ clone the
+scripts used by the Anglo Saxons.
+
+See them here: <https://www.fontspace.com/old-english-fonts-f9479>
