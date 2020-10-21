@@ -12,13 +12,13 @@ explain them.
 TABLE OF CONTENTS
 -----------------
 
-+ [Directory Structure I am Using](##layout)
++ [Directory Structure I am Using](#layout)
 
-+ [LaTeX template and relevant shell-script](##tex-template)
++ [LaTeX template and relevant shell-script](#tex_template)
 
-+ [My custom keyboard layouts](##"linguist's-dvorak")
++ [My custom keyboard layouts](#"linguist's_dvorak")
 
-+ [List of Proprietary Fonts and Open Source Copycats](##font-alternatives)
++ [List of Proprietary Fonts and Open Source Copycats](#font_alternatives)
 
 
 ## TEX-TEMPLATE
