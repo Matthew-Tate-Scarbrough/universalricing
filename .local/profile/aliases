@@ -1,7 +1,9 @@
 #!/bin/sh
 
 # Selects either `doas` or `sudo`
-[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && { SUPERU="doas" && alias sudo="doas" } || SUPERU="sudo"
+[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && {
+	SUPERU="doas" && alias sudo="doas" ;
+} || SUPERU="sudo"
 
 # ===GENERAL===
 
@@ -23,19 +25,19 @@
 
 # ===YAY===
 
-	alias ys="yay -Ss"
-	alias yi="yay -S"
-	alias yu="yay -Syy"
-	alias yupgrade="yay -Syyu"
-	alias yr="yay -Rsn"
+###	alias ys="yay -Ss"
+###	alias yi="yay -S"
+###	alias yu="yay -Syy"
+###	alias yupgrade="yay -Syyu"
+###	alias yr="yay -Rsn"
 
 
 # ===XBPS===
 
-###	alias xs="xbps-query -Rs"
-###	alias xi="$SUPERU xbps-install -Sy"
-###	alias xu="$SUPERU xbps-install -S"
-###	alias xupgrade="$SUPERU xbps-install -Su"
+	alias xs="xbps-query -Rs"
+	alias xi="$SUPERU xbps-install -Sy"
+	alias xu="$SUPERU xbps-install -S"
+	alias xupgrade="$SUPERU xbps-install -Su"
 
 
 # ===YOUTUBE-DL===
