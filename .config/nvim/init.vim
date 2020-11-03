@@ -23,15 +23,13 @@
 
 " ===PLUGINS===
 
-	call plug#begin('~/.config/nvim/plugged')
-
-		Plug 'junegunn/goyo.vim'
-
-"		Plug 'LaTeX-Box-Team/LaTeX-Box'
-
-		Plug 'vimwiki/vimwiki'
-
-	call plug#end()
+"""	call plug#begin('~/.config/nvim/plugged')
+"""	
+"""		Plug 'junegunn/goyo.vim'
+"""	
+"""		Plug 'vimwiki/vimwiki'
+"""	
+"""	call plug#end()
 
 
 " ===UNIVERSAL CONFIGS===
@@ -49,7 +47,8 @@
 
 	" Columns and Wrapping
 
-		set colorcolumn=114
+"""		set colorcolumn=114
+		set colorcolumn=80
 	
 		set wrap
 		set linebreak
@@ -87,17 +86,21 @@
 
 	" LaTeX
 
-		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex,*.ldf set filetype=tex spell! colorcolumn=127
+		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex,*.ldf set filetype=tex spell!
+		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex,*.ldf set tabstop=4    shiftwidth=4
+		au BufRead,BufNewFile *.tex,*.pdf_tex,*.latex,*.ldf set expandtab
 
 
 	" Markdown
 
-	"	au BufRead,BufNewFile *.md  set filetype=markdown syntax=mmarkdown
+"""		au BufRead,BufNewFile *.md  set filetype=markdown syntax=mmarkdown
 
 
 	" M-Markdown
 
 		au BufRead,BufNewFile *.mmd,*.md set filetype=markdown syntax=mmarkdown
+		au BufRead,BufNewFile *.mmd,*.md set tabstop=4         shiftwidth=4
+		au BufWrite           *.mmd,*.md set expandtab
 
 
 	" SILE

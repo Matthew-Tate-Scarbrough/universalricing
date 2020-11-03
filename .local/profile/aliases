@@ -51,3 +51,11 @@
 
 	alias reboot="$SUPERU reboot"
 	alias suspend="$SUPERU systemctl suspend"
+
+
+# ===APPIMAGES===
+
+	export $OPT
+	alias tutanota="$OPT/tutanota.AppImage"
+	alias minecraft-launcher="$OPT/minecraft-launcher/minecraft-launcher"
+	alias lbry="$OPT/LBRY.AppImage"
