@@ -1,0 +1,10 @@
+# ===DEFAULT PATHS===
+
+	# Start page
+	set home-page=https://www.duckduckgo.com
+
+	# Download path
+	set download-path=~/Downloads
+
+	# Editor
+	set editor-command=alacritty -e "nvim %s"

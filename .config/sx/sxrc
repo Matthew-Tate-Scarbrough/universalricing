@@ -1,14 +1,15 @@
 #!/bin/sh
-#
+
 # ===Monitor Fix===
 
 	# Void and Ubuntu
-	#xrandr --output DVI-D-0 --left-of HDMI-A-0 ;
-	#xrandr --output DVI-D-1 --right-of HDMI-A-0 ;
+	xrandr --output HDMI-A-0 --primary           ;
+	xrandr --output DVI-D-0  --left-of HDMI-A-0  ;
+###	xrandr --output DVI-D-1  --right-of HDMI-A-0 ;
 
 	# Arch
-	xrandr --output HDMI-1   --primary        ;
-	xrandr --output DVI-D-1  --left-of HDMI-1 ;
+###	xrandr --output HDMI-1   --primary        ;
+###	xrandr --output DVI-D-1  --left-of HDMI-1 ;
 ###	xrandr --output DVI-D-2 --right-of HDMI-1 ;
 
 
@@ -21,11 +22,11 @@
 		-option 'grp:alt_caps_toggle','lv3:ralt_switch' ;
 
 
-	# Natural Scrolling
-	# To find this, you type `xinput list` and then find your mouse.
-	# Then, type `xinput list-props <mouse-id>`
-	# Find your natural scrolling option; the anatomy is:
-	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>
+###	# Natural Scrolling
+###	# To find this, you type `xinput list` and then find your mouse.
+###	# Then, type `xinput list-props <mouse-id>`
+###	# Find your natural scrolling option; the anatomy is:
+###	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>
 ###	xinput set-prop 11 276 1 ;
 
 
@@ -41,25 +42,21 @@ while true; do
 	# ===WM BACKGROUND===
 
 		while feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg; do
-			sleep 900							# Sleep 15min (900 sec's)
+			sleep 900		# Sleep 15min (900 sec's)
 		done &
 
 
 	# ===WINDOW TRANSPARCENCY===
 
-###		picom &
-###		compton --backend glx --blur-background --vsync -f -D 5 &
+		# Picom on Void is clunky--I find that this is what is necessary
+		# to be able to get the SAME default experience on Arch-based
+		# distros.
 		picom --backend glx --blur-background --vsync -f -D 5 &
 
 
 	# ===WM===
 
-		#dbus-launch --exit-with-session dwm &&
-		dbus-run-session dwm &&
+		dbus-run-session dwm
 
-
-	# ===BLUEMAN===
-
-		blueman-applet
 
 done
