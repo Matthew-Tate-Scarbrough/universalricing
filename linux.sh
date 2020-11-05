@@ -73,4 +73,4 @@
 
 
 	# DOAS
-	$SUPERU root/etc/doas.conf /etc/
+###	$SUPERU root/etc/doas.conf /etc/

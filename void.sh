@@ -135,7 +135,8 @@
     xbps-install -Sfy 0ad
 
     # MISC SOFTWARE
-    xbps-install -Sfy blender firefox libreoffice Signal-Desktop spectacle vlc
+    xbps-install -Sfy alacritty blender firefox libreoffice Signal-Desktop    \
+	              spectacle vlc
 
 ###    # FLASH							               #
 ###    # TODO: Fix this B.S.                                                   #
