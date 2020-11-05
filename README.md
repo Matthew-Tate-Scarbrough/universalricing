@@ -8,6 +8,12 @@ Now most people would not be interested, but if you are now like me, seeing a
 base may help.  Slowly, I am trying to add comments to my dot files, etc. to
 explain them.
 
+## NOTE:
+
+IDK if I am allowed to host the flashplayer stuff here, nor do I care—it is for
+my own convenience.  As of 4 November 2020, it is current and I would just have
+to download it again later.  I never update flash, anyway.
+
 
 TABLE OF CONTENTS
 -----------------

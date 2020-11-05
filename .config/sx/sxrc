@@ -30,6 +30,16 @@
 ###	xinput set-prop 11 276 1 ;
 
 
+# ===AUTOMOUNTING===
+
+	udiskie &
+
+
+# ===BLUETOOTH===
+
+	blueman-applet &
+
+
 while true; do
 
 	# ===WM STATUS BAR===

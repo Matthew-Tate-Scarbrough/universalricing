@@ -1,1 +1,3 @@
-sx
+sx &
+udiskie &
+blueman-applet &
