@@ -77,12 +77,12 @@
                       vimb
 
     # ZATHURA
-    xbps-install -Sfy mupdf{,-devel,-tools} zathura{,-pdf-mupdf,ps,devel}
+    xbps-install -Sfy mupdf{,-devel,-tools} zathura{,-pdf-mupdf,-ps,-devel}
 
     # GNOME APPS                                                               #
     # The second moves the lib that gstreamer would otherwise call for sndio   #
     xbps-install -Sfy baobab evolution gedit gnome-keyring gparted gvfs       \
-                      gvfs-{afc,afp,cdda,devel,goa,gphoto2,mtp,smb,32bit}     \
+                      gvfs-{afc,afp,cdda,devel,goa,gphoto2,mtp,smb}     \
                       nautilus seahorse rhythmbox 
 
         mv "$GSTLIB"/libgstsndio.so "$GSTLIB"/NOTlibgstsndio.so
@@ -112,11 +112,11 @@
     # create a group and set that group's limits.  The user script will add    #
     # the user to this group.  The only other, sensible alternative was adding #
     # `wheel` to this conf.                                                    #
-    xbps-install -Sfy {giflib,libpng,libldap,gnutls,libopenal,v41-utils}-32bit \
+    xbps-install -Sfy {giflib,libpng,libldap,gnutls,libopenal,v4l-utils}-32bit \
                       {libgpg-error,alsa-plugins,libjpeg-turbo,sqlite}-32bit   \
                       {libXcomposite,libgcrypt,libXinerama,gtk+3}-32bit mpg123 \
-                      gst-plugins-{good1,ugly1,bad1,vaapi} libgstreamerd       \
-                      gst-plugins-{vaapi,bad1}-32bit
+                      gst-plugins-{good1,ugly1,bad1} libgstreamerd lutris      \
+                      gst-plugins-bad1-32bit gstreamer-vaapi{,-32bit}
 
         groupadd gaming &&
         sed -ie 48'a \@gaming\thard\tnofile\t524288' /etc/security/limits.conf
