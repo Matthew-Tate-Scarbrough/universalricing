@@ -26,7 +26,7 @@
 # ===BASE PACKAGES===
 
     # REMOVE `sudo`
-    xbps-remove  -F  sudo
+    xbps-remove  -Fy  sudo
     echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf
 
     # MULTILIB
@@ -137,43 +137,44 @@
     # MISC SOFTWARE
     xbps-install -Sfy blender firefox libreoffice Signal-Desktop spectacle vlc
 
-    # FLASH
-    mkdir -p "$MOZ_PLUGIN_PATH"
-    cp "$FALSHLOC"/libflashplayer "$MOZ_PLUGIN_PATH"/
-    cp "$FALSHLOC"/usr/bin/* /usr/bin/ 
-
-    [[ -e /usr/lib/kde4 ]] && {
-	cp "$FALSHLOC"/usr/lib/kde4/* /usr/lib/kde4/ ;
-    } || cp -r "$FALSHLOC"/usr/lib/kde4 /usr/lib/
-
-    [[ -e /usr/lib64/kde4 ]] && {
-	cp "$FALSHLOC"/usr/lib64/kde4/* /usr/lib64/kde4/ ;
-    } || cp -r "$FALSHLOC"/usr/lib64/kde4 /usr/lib64/
-
-    [[ -e /usr/share/applications ]] && {
-	cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
-    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
-
-    [[ -e /usr/share/applications ]] && {
-	cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
-    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
-
-    [[ -e /usr/share/icons ]] && {
-	cp "$FALSHLOC"/usr/share/icons/* /usr/share/icons/ ;
-    } || cp -r "$FALSHLOC"/usr/share/icons /usr/share/
-
-    [[ -e /usr/share/kde4 ]] && {
-	cp "$FALSHLOC"/usr/share/kde4/* /usr/share/kde4/ ;
-    } || cp -r "$FALSHLOC"/usr/share/kde4 /usr/share/
-
-    [[ -e /usr/share/pixmaps ]] && {
-	cp "$FALSHLOC"/usr/share/pixmaps/* /usr/share/pixmaps/ ;
-    } || cp -r "$FALSHLOC"/usr/share/pixmaps /usr/share/
+###    # FLASH							               #
+###    # TODO: Fix this B.S.                                                   #
+###    mkdir -p "$MOZ_PLUGIN_PATH"
+###    cp "$FALSHLOC"/libflashplayer "$MOZ_PLUGIN_PATH"/
+###    cp "$FALSHLOC"/usr/bin/* /usr/bin/ 
+###    
+###    [[ -e /usr/lib/kde4 ]] && {
+###        cp "$FALSHLOC"/usr/lib/kde4/* /usr/lib/kde4/ ;
+###    } || cp -r "$FALSHLOC"/usr/lib/kde4 /usr/lib/
+###    
+###    [[ -e /usr/lib64/kde4 ]] && {
+###        cp "$FALSHLOC"/usr/lib64/kde4/* /usr/lib64/kde4/ ;
+###    } || cp -r "$FALSHLOC"/usr/lib64/kde4 /usr/lib64/
+###    
+###    [[ -e /usr/share/applications ]] && {
+###        cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
+###    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
+###    
+###    [[ -e /usr/share/applications ]] && {
+###        cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
+###    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
+###    
+###    [[ -e /usr/share/icons ]] && {
+###        cp "$FALSHLOC"/usr/share/icons/* /usr/share/icons/ ;
+###    } || cp -r "$FALSHLOC"/usr/share/icons /usr/share/
+###    
+###    [[ -e /usr/share/kde4 ]] && {
+###        cp "$FALSHLOC"/usr/share/kde4/* /usr/share/kde4/ ;
+###    } || cp -r "$FALSHLOC"/usr/share/kde4 /usr/share/
+###    
+###    [[ -e /usr/share/pixmaps ]] && {
+###        cp "$FALSHLOC"/usr/share/pixmaps/* /usr/share/pixmaps/ ;
+###    } || cp -r "$FALSHLOC"/usr/share/pixmaps /usr/share/
 
 
 # ===MAKE USER===
 
-    printf "\r[1;4mPlease input Username[0;1m:[0m"
+    printf "\r[1;4mPlease input Username[0;1m:[0m\r"
     printf "(Please keep UNIX-compliant): "
 
     read MY_USERNAME
@@ -186,4 +187,4 @@
 
 # ===SERVICES ENABLE===
 
-    ln -s /etc/sv/{dbus,openntpd,crond,alsa,bluezalsa,bluetoothd}
+    ln -s /etc/sv/{dbus,openntpd,crond,alsa,bluez-alsa,bluetoothd} /var/service
