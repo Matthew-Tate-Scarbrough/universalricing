@@ -51,8 +51,8 @@
                       mesa-{dri,vaapi,vulkan-radeon} vulkan-loader sx
 
     # FONT FIX
-    ln -s $USRFONTS/{10-sub-pixel-rgb,11-lcdfilter-default,70-no-bitmaps}.conf \
-          $ETCFONTS/
+    ln -s "$USRFONTS"/{10-sub-pixel-rgb,11-lcdfilter-default,70-no-bitmaps}.conf \
+          "$ETCFONTS"/
     
         xbps-reconfigure -f fontconfig
 
@@ -85,7 +85,7 @@
                       gvfs-{afc,afp,cdda,devel,goa,gphoto2,mtp,smb,32bit}     \
                       nautilus seahorse rhythmbox 
 
-        mv $GSTLIB/libgstsndio.so $GSTLIB/NOTlibgstsndio.so
+        mv "$GSTLIB"/libgstsndio.so "$GSTLIB"/NOTlibgstsndio.so
 
     # FILEMANAGERS
     xbps-install -Sfy ranger
@@ -138,37 +138,37 @@
     xbps-install -Sfy blender firefox libreoffice Signal-Desktop spectacle vlc
 
     # FLASH
-        mkdir -p $MOZ_PLUGIN_PATH
-        cp $FALSHLOC/libflashplayer $MOZ_PLUGIN_PATH/
-        cp $FALSHLOC/usr/bin/* /usr/bin/ 
+    mkdir -p "$MOZ_PLUGIN_PATH"
+    cp "$FALSHLOC"/libflashplayer "$MOZ_PLUGIN_PATH"/
+    cp "$FALSHLOC"/usr/bin/* /usr/bin/ 
 
-            [[ -e /usr/lib/kde4 ]] && {
-                cp $FALSHLOC/usr/lib/kde4/* /usr/lib/kde4/ ;
-            } || cp -r $FALSHLOC/usr/lib/kde4 /usr/lib/
+    [[ -e /usr/lib/kde4 ]] && {
+	cp "$FALSHLOC"/usr/lib/kde4/* /usr/lib/kde4/ ;
+    } || cp -r "$FALSHLOC"/usr/lib/kde4 /usr/lib/
 
-            [[ -e /usr/lib64/kde4 ]] && {
-                cp $FALSHLOC/usr/lib64/kde4/* /usr/lib64/kde4/ ;
-            } || cp -r $FALSHLOC/usr/lib64/kde4 /usr/lib64/
+    [[ -e /usr/lib64/kde4 ]] && {
+	cp "$FALSHLOC"/usr/lib64/kde4/* /usr/lib64/kde4/ ;
+    } || cp -r "$FALSHLOC"/usr/lib64/kde4 /usr/lib64/
 
-            [[ -e /usr/share/applications ]] && {
-                cp $FALSHLOC/usr/share/applications/* /usr/share/applications/ ;
-            } || cp -r $FALSHLOC/usr/share/applications /usr/share/
+    [[ -e /usr/share/applications ]] && {
+	cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
+    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
 
-            [[ -e /usr/share/applications ]] && {
-                cp $FALSHLOC/usr/share/applications/* /usr/share/applications/ ;
-            } || cp -r $FALSHLOC/usr/share/applications /usr/share/
+    [[ -e /usr/share/applications ]] && {
+	cp "$FALSHLOC"/usr/share/applications/* /usr/share/applications/ ;
+    } || cp -r "$FALSHLOC"/usr/share/applications /usr/share/
 
-            [[ -e /usr/share/icons ]] && {
-                cp $FALSHLOC/usr/share/icons/* /usr/share/icons/ ;
-            } || cp -r $FALSHLOC/usr/share/icons /usr/share/
+    [[ -e /usr/share/icons ]] && {
+	cp "$FALSHLOC"/usr/share/icons/* /usr/share/icons/ ;
+    } || cp -r "$FALSHLOC"/usr/share/icons /usr/share/
 
-            [[ -e /usr/share/kde4 ]] && {
-                cp $FALSHLOC/usr/share/kde4/* /usr/share/kde4/ ;
-            } || cp -r $FALSHLOC/usr/share/kde4 /usr/share/
+    [[ -e /usr/share/kde4 ]] && {
+	cp "$FALSHLOC"/usr/share/kde4/* /usr/share/kde4/ ;
+    } || cp -r "$FALSHLOC"/usr/share/kde4 /usr/share/
 
-            [[ -e /usr/share/pixmaps ]] && {
-                cp $FALSHLOC/usr/share/pixmaps/* /usr/share/pixmaps/ ;
-            } || cp -r $FALSHLOC/usr/share/pixmaps /usr/share/
+    [[ -e /usr/share/pixmaps ]] && {
+	cp "$FALSHLOC"/usr/share/pixmaps/* /usr/share/pixmaps/ ;
+    } || cp -r "$FALSHLOC"/usr/share/pixmaps /usr/share/
 
 
 # ===MAKE USER===
@@ -181,7 +181,7 @@
     useradd -Um         \
         -s /bin/zsh     \
         -G audio,bluetooth,disk,gaming,storage,video,wheel  \
-           $MY_USERNAME
+           "$MY_USERNAME"
 
 
 # ===SERVICES ENABLE===
