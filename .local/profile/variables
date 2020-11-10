@@ -9,6 +9,8 @@
 	export PAGER="less -R"
 	export READER="zathura"
 	export TERM="xterm-256color"
+	export TERMINAL="alacritty"
+	export GST_PLUGIN_FEATURE_RANK="sndiosink:0"
 
 
 # ===SHELL STUFFS===

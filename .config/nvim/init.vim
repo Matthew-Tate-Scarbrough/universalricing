@@ -45,6 +45,13 @@
 		set fileencoding=utf-8
 
 
+	" Tab Stop
+
+		set expandtab
+		set tabstop=4
+		set shiftwidth=2
+
+
 	" Columns and Wrapping
 
 """		set colorcolumn=114
@@ -106,3 +113,8 @@
 	" SILE
 
 		au BufRead,BufNewFile *.sil,*.sile set filetype=sile syntax=tex expandtab
+
+
+	" VIM
+
+		au BufRead,BufNewFile *.vim set filetype=vim syntax=vim expandtab!

@@ -16,9 +16,9 @@
 # ===KEYBOARDS & MICE===
 
 	# Custom Dvorak layouts
-	setxkbmap \
-		-layout lingdvorak,lingdvorak \
-		-variant ,alt \
+	setxkbmap   \
+		-layout lingdvorak,lingdvorak   \
+		-variant ,alt                   \
 		-option 'grp:alt_caps_toggle','lv3:ralt_switch' ;
 
 
@@ -28,16 +28,6 @@
 ###	# Find your natural scrolling option; the anatomy is:
 ###	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>
 ###	xinput set-prop 11 276 1 ;
-
-
-# ===AUTOMOUNTING===
-
-	udiskie &
-
-
-# ===BLUETOOTH===
-
-	blueman-applet &
 
 
 while true; do
@@ -66,7 +56,12 @@ while true; do
 
 	# ===WM===
 
-		dbus-run-session dwm
+		dbus-run-session dwm &
+
+
+	# ===AUTOMOUNTING===
+
+		udiskie
 
 
 done

@@ -21,26 +21,30 @@
     USRFONTS="/usr/share/fontconfig/conf.avail"
     ETCFONTS="/etc/fonts/conf.d"
     GSTLIB="/usr/lib64/gstreamer-1.0"
-    FALSHLOC="PROPRIETARY/flashplayer"
+### FALSHLOC="PROPRIETARY/flashplayer"
+    SERVICES_ENABLED="dbus,openntpd,crond,alsa,bluez-alsa,bluetoothd,polkitd"
+    SERVICES_ENABLED="$SERVICES_ENABLED,elogind"
 
 # ===BASE PACKAGES===
 
     # REMOVE `sudo`
     xbps-remove  -Fy  sudo
     echo "ignorepkg=sudo" >> /etc/xbps.d/ignore.conf
+    ln -s /bin/doas /bin/sudo
 
     # MULTILIB
     xbps-install -Sy  void-repo-nonfree void-repo-multilib{,-nonfree}
 
     # BASE PACKAGES                                                            #
     # NOTE: IDK what the heck `autofs` is, but I am sure something needs it.   #
-    xbps-install -SDy base-devel vim opendoas tmux zsh openntpd dbus htop     \
-                      lm_sensors neofetch cronie udisks udiskie autofs polkit \
-                      smartmontools xtools curl wget                          &&
+    # NOTE 2: `libusb-compat` happens to make my USB3 work without iommu=soft  #
+    xbps-install -SDy base-devel vim opendoas tmux zsh openntpd dbus htop curl \
+                      lm_sensors neofetch cronie udisks{,2} udiskie autofs     \
+                      smartmontools xtools wget cmatrix libusb-compat polkit  &&
 
-    xbps-install -fy  base-devel vim opendoas tmux zsh openntpd dbus htop     \
-                      lm_sensors neofetch cronie udisks udiskie autofs polkit \
-                      smartmontools xtools curl wget                          &&
+    xbps-install -fy  base-devel vim opendoas tmux zsh openntpd dbus htop curl \
+                      lm_sensors neofetch cronie udisks{,2} udiskie autofs     \
+                      smartmontools xtools wget cmatrix libusb-compat polkit  &&
 
     # doas.conf
     echo "permit nopass keepenv :wheel"       >> /etc/doas.conf
@@ -72,9 +76,11 @@
     xbps-install -Sfy alsa-{utils,firmware,tools} apulse bluez{,-alsa} ffmpeg \
                     alsa-plugins{,-ffmpeg,-pulseaudio} pulseaudio pavucontrol \
 
-    # EXTRA FOR WINDOW MANAGERS
+
+    # EXTRA FOR WINDOW MANAGERS                                                #
+    # `dzen2` is needed for Herbstluft                                         #
     xbps-install -Sfy adwaita-icon-theme blueman dmenu feh gtk+3 picom tabbed \
-                      vimb
+                      vimb dunst dzen2
 
     # ZATHURA
     xbps-install -Sfy mupdf{,-devel,-tools} zathura{,-pdf-mupdf,-ps,-devel}
@@ -103,9 +109,10 @@
     xbps-install -Sfy cargo
 
     # STEAM
-    xbps-install -Sfy alsa-plugins-{pulseaudio,ffmpeg}-32bit mesa-opencl mono \
-                      mesa-{dri,vaapi,vulkan-radeon,opencl}-32bit steam       \
-                 {vulkan-loader,amdvlk,libgcc,libstdc++,libdrm,libglvnd}-32bit
+    xbps-install -Sfy alsa-plugins-{pulseaudio,ffmpeg}-32bit mesa-opencl mono  \
+                      mesa-{dri,vaapi,vulkan-radeon,opencl}-32bit steam        \
+                 {vulkan-loader,amdvlk,libgcc,libstdc++,libdrm,libglvnd}-32bit \
+                 apulse-32bit alsa-tools-32bit bluez-alsa-32bit sndio alsa-sndio
 
     # LUTRIS                                                                   #
     # Rather than worry about modifying `limits.conf` per-user, this will also #
@@ -116,7 +123,8 @@
                       {libgpg-error,alsa-plugins,libjpeg-turbo,sqlite}-32bit   \
                       {libXcomposite,libgcrypt,libXinerama,gtk+3}-32bit mpg123 \
                       gst-plugins-{good1,ugly1,bad1} libgstreamerd lutris      \
-                      gst-plugins-bad1-32bit gstreamer-vaapi{,-32bit}
+                      gst-plugins-bad1-32bit gstreamer-vaapi{,-32bit}          \
+                      alsa-sndio-32bit sndio-32bit pulseaudio-module-sndio
 
         groupadd gaming &&
         sed -ie 48'a \@gaming\thard\tnofile\t524288' /etc/security/limits.conf
@@ -136,9 +144,18 @@
 
     # MISC SOFTWARE
     xbps-install -Sfy alacritty blender firefox libreoffice Signal-Desktop    \
-	              spectacle vlc
+                      spectacle vlc obs gimp kdenlive inkscape pandoc
 
-###    # FLASH							               #
+    # GAMEMODE                                                                 #
+    # These are utils that you will need to build Gamemode from source; re-    #
+    # member that you need te edit `meson.txt` to use elogind.  Check out this #
+    # thread on the `voidlinux` subreddit:                                     #
+    #                                                                          #
+    # <r/voidlinux/comments/i669yu/any_way_to_compile_gamemode_on_void_linux/> #
+    xbps-install -Sfy meson inih{,-devel} cmake ninja libelogind{,-32bit}     \
+                      AppStream{,-devel}
+
+###    # FLASH                                                                 #
 ###    # TODO: Fix this B.S.                                                   #
 ###    mkdir -p "$MOZ_PLUGIN_PATH"
 ###    cp "$FALSHLOC"/libflashplayer "$MOZ_PLUGIN_PATH"/
@@ -175,7 +192,7 @@
 
 # ===MAKE USER===
 
-    printf "\r[1;4mPlease input Username[0;1m:[0m\r"
+    printf "\n[1;4mPlease input Username[0;1m:[0m\n"
     printf "(Please keep UNIX-compliant): "
 
     read MY_USERNAME
@@ -186,6 +203,12 @@
            "$MY_USERNAME"
 
 
+    printf "\nUser \'%s\' created\n" "$MY_USERNAME"
+
+
 # ===SERVICES ENABLE===
 
-    ln -s /etc/sv/{dbus,openntpd,crond,alsa,bluez-alsa,bluetoothd} /var/service
+    ln -s /etc/sv/{$SERVICES_ENABLED} /var/service
+
+    printf "The following services are enabled by default:\n"
+    printf "%s.\n" "$SERVICES_ENABLED"
