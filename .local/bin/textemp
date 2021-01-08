@@ -12,16 +12,18 @@
 
 
 textemp_help() {
-	printf "[1mtextemp[0m [option]\n
+	printf "[1mtextemp[0m\n
 \tA simple program that copies files from one location to another;
 \tnote, that it must be used in the directory of which you work.\n
 \t[4mNOTE[0m: Book templates utilise \`\subfiles\` by default.\n\n
-[1;4mOptions[0m:\n
-\t[1m--help[0m|[1m-h[0m                          Prints this help menu\n
-\t[1mlatex[0m|[1marticle[0m|[1mart[0m|[1m-l[0m|[1m-a[0m            Makes an article for pdflatex
-\t[1mbook[0m|[1mb[0m                             Makes a book for pdflatex\n
-\t[1mxetex[0m|[1mxarticle[0m|[1mxart[0m|[1m-x[0m|[1m-xa[0m         Makes an article for xelatex
-\t[1mxbook[0m|[1mxb[0m                           Makes a book for xelatex
+[1;4mUsage[0m:[0m\n
+\ttextemp [2m[option][0m\n\n
+[1;4mOptions[0m:[0m\n
+\t[2m--help[0m|[2m-h[0m                          Prints this help menu\n
+\t[2mlatex[0m|[2marticle[0m|[2mart[0m|[2m-l[0m|[2m-a[0m            Makes an article for pdflatex
+\t[2mbook[0m|[2m-b[0m                            Makes a book for pdflatex\n
+\t[2mxetex[0m|[2mxarticle[0m|[2mxart[0m|[2m-x[0m|[2m-xa[0m         Makes an article for xelatex
+\t[2mxbook[0m|[2m-xb[0m                          Makes a book for xelatex
 "
 }
 
@@ -31,27 +33,43 @@ textemp_book_dirs(){
 }
 
 
+textemp_git_init() {
+    git init
+    git add .
+}
+
+
 textemp_article() {
 	cp "$TEX_TEMPLATES"/pdflatex_article.tex_template main.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i main.tex
+    textemp_git_init
 }
 
 
 textemp_xearticle() {
 	cp "$TEX_TEMPLATES"/xelatex_article.tex_template main.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i main.tex
+    textemp_git_init
 }
 
 
 textemp_book() {
 	textemp_book_dirs
 	cp "$TEX_TEMPLATES"/pdflatex_book.tex_template main.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i main.tex
 	cp "$TEX_TEMPLATES"/subfile.tex_template usr/local/etc/preface.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i usr/local/etc/preface.tex
+    textemp_git_init
 }
 
 
 textemp_xebook() {
 	textemp_book_dirs
 	cp "$TEX_TEMPLATES"/xelatex_book.tex_template main.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i main.tex
 	cp "$TEX_TEMPLATES"/subfile.tex_template usr/local/etc/preface.tex
+    sed "s/<DATE>/$(date "+%d %B %Y")/" -i usr/local/etc/preface.tex
+    textemp_git_init
 }
 
 
@@ -76,11 +94,11 @@ case "$1" in
 	#
 	# ===XeLaTeX===
 	#
+	-x)       textemp_xearticle && $EDITOR main.tex ;;
 	xetex)    textemp_xearticle && $EDITOR main.tex ;;
+	-xa)      textemp_xearticle && $EDITOR main.tex ;;
 	xarticle) textemp_xearticle && $EDITOR main.tex ;;
 	xart)     textemp_xearticle && $EDITOR main.tex ;;
-	x)        textemp_xearticle && $EDITOR main.tex ;;
-	xa)       textemp_xearticle && $EDITOR main.tex ;;
 	# Books
 	xbook)    textemp_xebook    && $EDITOR main.tex ;;
 	-xb)      textemp_xebook    && $EDITOR main.tex ;;

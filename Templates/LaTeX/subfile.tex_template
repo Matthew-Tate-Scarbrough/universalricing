@@ -1,6 +1,53 @@
+% pdflatex
+
+% AUTHOR:   Matþew T. Scarbrough
+% CREATED:  <DATE>
+% VERSION:  v1.00
+% REVISION: <DATE>
+
+% ===REVISION COMMENTS===                                                      %
+%                                                                              %
+% Made sure this template is set for 80-char width.                            %
+%                                                                              %
+% `AUTHOR:` should be your name, if more than one author is used, I recommend  %
+%           doing it like this:                                                %
+%                                                                              %
+%     | % AUTHOR:   Matþew T. Scarbrough (author)                              %
+%     | %           Johnathan Dover      (editor)                              %
+%     | %           Jeremiah Bull        (illustrator)                         %
+%     | %           Kenneth Hughes       (revisionist)                         %
+%                                                                              %
+% `CREATED:` This should hold the date the draft was originally made;  I use   %
+%            the '<day> <month> <year>' format.                                %
+%                                                                              %
+% `VERSION:` This will host the actualy 'version-number'.  I use the model     %
+%            <major>.<minor><step>.  Steps are lowercas letters 'a-z'.  I use  %
+%            these for when I am drafting something before I push a commit and %
+%            before and when things only change minor-ly;  i.e. 'spelling'.    %
+%                                                                              %
+% `REVISION:` or `REVISION DATE:` hoists the date of the present version.      %
+%                                                                              %
+% `===REVISION COMMENTS===`                                                    %
+% Hosts a change log for the present version---I recommend keeping important   %
+% tid-bits here, that transcend the revisions.  But you can figure that out... %
+
+%------------------------------------------------------------------------------%
+%                                                                              %
+% This file is a subfile; is two directories away from the `main.tex` file.    %
+% As a result, it gets noted as its parents being two directories backward.    %
+%                                                                              %
+%------------------------------------------------------------------------------%
+
 \documentclass[../../main.tex]{subfile}
 
 \begin{document}
+
+    %--------------------------------------------------------------------------%
+    %                                                                          %
+    % Preface will not be going as an actual numbered chapter, so it is much   %
+    % easier simply to mark it as an unmarked chapter to avoid any hard work.  %
+    %                                                                          %
+    %--------------------------------------------------------------------------%
 
 	\addcontentsline{toc}{chapter}{\protect\numberline{~}Preface}
 	\chapter*{Preface:}
@@ -8,10 +55,17 @@
 		% ===INTRO PARAGRAPH===
 		% - - - - - - - - - - - -
 
-			\noindent
-			I am but a blank canvas, please change this.
+            %------------------------------------------------------------------%
+            %                                                                  %
+            % It is unnecessary to force no `\indent` or even `\noindent` any- %
+            % where in a document beyond if `\section{}` is not called; if     %
+            % you, however, want to insert images via `wrapfig`, you will need %
+            % to force this.                                                   %
+            %                                                                  %
+            %------------------------------------------------------------------%
 
-			% - - - - - - - -
+			\noindent
+			The quick brown fox jumpeth over the lazy dog's back...
 
 
 \end{document}

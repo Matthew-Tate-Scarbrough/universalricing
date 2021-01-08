@@ -1,85 +1,228 @@
 % pdflatex
 
+% AUTHOR:   Matþew T. Scarbrough
+% CREATED:  <DATE>
+% VERSION:  v1.00
+% REVISION: <DATE>
+
+% ===REVISION COMMENTS===                                                      %
+%                                                                              %
+% Made sure this template is set for 80-char width.                            %
+%                                                                              %
+% `AUTHOR:` should be your name, if more than one author is used, I recommend  %
+%           doing it like this:                                                %
+%                                                                              %
+%     | % AUTHOR:   Matþew T. Scarbrough (author)                              %
+%     | %           Johnathan Dover      (editor)                              %
+%     | %           Jeremiah Bull        (illustrator)                         %
+%     | %           Kenneth Hughes       (revisionist)                         %
+%                                                                              %
+% `CREATED:` This should hold the date the draft was originally made;  I use   %
+%            the '<day> <month> <year>' format.                                %
+%                                                                              %
+% `VERSION:` This will host the actualy 'version-number'.  I use the model     %
+%            <major>.<minor><step>.  Steps are lowercas letters 'a-z'.  I use  %
+%            these for when I am drafting something before I push a commit and %
+%            before and when things only change minor-ly;  i.e. 'spelling'.    %
+%                                                                              %
+% `REVISION:` or `REVISION DATE:` hoists the date of the present version.      %
+%                                                                              %
+% `===REVISION COMMENTS===`                                                    %
+% Hosts a change log for the present version---I recommend keeping important   %
+% tid-bits here, that transcend the revisions.  But you can figure that out... %
+
 \documentclass[letterpaper]{book}
 
-	% ===MAIN PACKAGES===
-	% - - - - - - - - - - - - - - - -
+    % ===MAIN PACKAGES===
+    % - - - - - - - - - - - - - - - -
 
-		\usepackage[USenglish]{babel}
+        % ===Babel===                                                          %
+        %                                                                      %
+        % `babel` handles typesetting in other languages, chiefly hyphenation. %
+        % The level of importance is read right-to-left, thus, the `main=`     %
+        % language is set on the right of the secondary language.              %
 
-			\addto\captionsUSenglish{%
-				\renewcommand{\contentsname}%
-				{Table of Contents}%
-			}
+            \usepackage[USenglish]{babel}
 
-		\usepackage[utf8]{inputenc}
+                % RENAMES TOC TO 'Table of Contents'
 
-		\usepackage[T1]{fontenc}
+                \addto\captionsUSenglish{%
+                    \renewcommand{\contentsname}%
+                    {Table of Contents}%
+                }
 
-		\usepackage[pass]{geometry}	% ALLOWS DECLARATION OF PAPER SIZE
 
-		\usepackage{lettrine}
+%%%     % ===Inputenc===                                                       %
+%%%     %                                                                      %
+%%%     % `inputenc` this package tells pdflatex what the input is;  this is   %
+%%%     % only necessary for pre-2018 editions of LaTeX.                       %
+%%%
+%%%         \usepackage[utf8]{inputenc}
 
-		\usepackage{import}
-%			\import{usr/local/<insertfile.ext>}{<insertfile.ext>}
+
+        % ===Fontenc===                                                        %
+        %                                                                      %
+        % `fontenc` is used for typesetting in languages;  this is unneeded    %
+        % for just English---I use thorn (þ) in my name, so I need it.  `T1`   %
+        % is needed for *most* European languages.  `T2A` is needed for most   %
+        % Cyrillic.                                                            %
+        %                                                                      %
+        %     Similar to above, the right-most encoding is the default/pri-    %
+        % mary one.                                                            %
+
+            \usepackage[T1]{fontenc}
+
+
+%%%     % ===Geometry===                                                       %
+%%%     %                                                                      %
+%%%     % `geometry` this is used for many things;  if you have issues using   %
+%%%     % with using a particular page size, then uncomment this, using `pass` %
+%%%     % to change the size.  If you need it for any other purpose, you know. %
+%%%
+%%%         \usepackage[pass]{geometry}
+
+
+        % ===Hyperref===                                                       %
+        %                                                                      %
+        % `hyperref` handles links in the document; it is to be set to hide    %
+        % links.  This is a stylistic choice.  Nevertheless, all links should  %
+        % be put in a footnote, if to a website, so that anyone using a print- %
+        % ed copy may search for them manually.                                %
+        %                                                                      %
+        %     The `hidelinks` option doesn't show the colour boxes around hy-  %
+        % perlinks, etc.                                                       %
+   
+            \usepackage[hidelinks]{hyperref}
+
+
+%%%     % ===Import===                                                         %
+%%%     %                                                                      %
+%%%     % `import` is responsible for importing assets.  This is something you %
+%%%     % may want to use in situations where you may want to easily manage    %
+%%%     % resources, especially ones that may be reüsed.                       %
+%%%     %                                                                      %
+%%%     %     One example is that you are using the `hyphenat` package and     %
+%%%     % need to hyphenate many non-standard or newly-invented words and/or   %
+%%%     % names.  While it might be good to list them all here in the main     %
+%%%     % *.tex file, after more than than ten or so, it would be more conven- %
+%%%     % ient to include them all in their own *.tex file and import it.      %
+%%%     %                                                                      %
+%%%     %     The normal line of code below is an example calling for anything %
+%%%     % in the `./usr/local/` subfile.  You may want to import, `man.png`    %
+%%%     % from `./usr/local/graphics/png` 
+%%%
+%%%         \usepackage{import}
+%%%             \import{usr/local/<assets_file>}{<insertfile.ext>}
+
+
+        % ===Lettrine===                                                       %
+        %                                                                      %
+        % `lettrine` is for typesetting drop caps.  In this project, it is     %
+        % part of a function to write chapter numbers                          %
+
+            \usepackage{lettrine}
 
 
 	% ===SECONDARY PACKAGES===
 	% - - - - - - - - - - - - - - - -
 
-		\usepackage{xcolor}		% HIGHLIGHTING COLOURS
-
-		\usepackage{soul}		% HIGHLIGHTING AND BETTER UNDERLINING 
-
-
-	% ===SECONDARY PACKAGES===
-	% - - - - - - - - - - - - - - - -
-
-		\usepackage{subfiles}		% THIS SHOULD GO LAST
+%%%     % ===Xcolor===                                                         %
+%%%     %                                                                      %
+%%%     % `xcolor` is used for colours;  if using highlighting with `soul`,    %
+%%%     % then you need this also for the colour.                              %
+%%%
+%%%         \usepackage{xcolor}
 
 
-	% ===TITLE PAGE===
-	% - - - - - - - - - - - - - - - -
+        % ===Soul===                                                           %
+        %                                                                      %
+        % `soul` this overall betters textformatting and allows highlighting   %
+        % as well.  For _italics_, **bold**, and underlining, you have now:    %
+        %                                                                      %
+        %     {\it italics} and {\bf bold}; these are not nestible.  But you   %
+        % can nest {\it \textbf{oblique}} and {\bf \textit{italics}}.          %
+        %                                                                      %
+        %     \ul{} will put a big underline under everything, regardless of   %
+        % whether there be a descender in the word(s) or not.                  %
 
-		\title{%
-			<Title>
-		}
+            \usepackage{soul}
 
-		\author{%
-			~Written by:	\\
-			%
-			Mat{\th}ew T. Scarbrough
-		}
 
-		\date{\today}
+    % ===SUBFILES===
+    % - - - - - - - - - - - - - - - -
+
+        % ===Subfiles===                                                       %
+        %                                                                      %
+        % Subfiles allows the document to be broken up across files very ea-   %
+        % sily.  It should be kept last, to save from any errors.              %
+
+            \usepackage{subfiles}
+
+
+    % ===GLOBAL FUNCTIONS===
+    % - - - - - - - - - - - - - - - -
+
+        % ===Real Apostrophe===                                                %
+        %                                                                      %
+        % Real apostrophes are to be used instead of right-single quotes.      %
+        %                                                                      %
+        %     didn't                 -- NOT --           didn’t                %
+        %                                                                      %
+        %     This work also will be using apostrophes to show names and       %
+        % phrases that are not technicall quotes, therefore needing not take   %
+        % commas.                                                              %
+        %                                                                      %
+        %     He called it 'Night'                                             %
+        %                                                                      %
+        %                            -- NOT --                                 %
+        %                                                                      %
+        %     He called it, “Night,” -- or  -- He called it ‘Night’            %
+
+            \newcommand{\apos}{\textquotesingle}
+
+
+    % ===TITLE PAGE===
+    % - - - - - - - - - - - - - - - -
+
+        \title{%
+            <Title>
+        }
+
+        \author{%
+            ~Written by:    \\
+            %
+            Mat{\th}ew T. Scarbrough
+        }
+
+        \date{\today}
 
 
 \begin{document}
 
-	% ===TITLE PAGE===
-	% - - - - - - - - - - - - - - - -
+    % ===TITLE PAGE===
+    % - - - - - - - - - - - - - - - -
 
-		\pagenumbering{gobble}
-		\maketitle
+        \pagenumbering{gobble}
+        \maketitle
 
 
 \frontmatter
 
 
-	% ===TABLE OF CONTENTS===
-	% - - - - - - - - - - - - - - - -
+    % ===TABLE OF CONTENTS===
+    % - - - - - - - - - - - - - - - -
 
-		\tableofcontents
-		\newpage
+        \tableofcontents
+        \newpage
 
 
 \mainmatter
 
 
-	% ===PREFACE===
-	% - - - - - - - - - - - - - - - -
+    % ===PREFACE===
+    % - - - - - - - - - - - - - - - -
 
-		\subfile{usr/local/etc/preface.tex}
+        \subfile{usr/local/etc/preface.tex}
 
 
 \end{document}
