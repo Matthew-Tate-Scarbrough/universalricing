@@ -1,57 +1,94 @@
-key_bindings:
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+#      ___    _       ___     ___    ____    _____   _____   _____  __   __    #
+#     / _ \  | |     / _ \   / _ \  |  _ \  |_   _| |_   _| |_   _| \ \ / /    #
+#    | |_| | | |    | |_| | | | |_| | |_) )   | |     | |     | |    \ V /     #
+#    |  _  | | |    |  _  | | |  _  |    /    | |     | |     | |     | |      #
+#    | | | | | |__  | | | | | |_| | | |\ \   _| |_    | |     | |     | |      #
+#    |_| |_| |____| |_| |_|  \___/  |_| \_\ |_____|   |_|     |_|     |_|      #
+#                                                                              #
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+
+# ===KEY BINDINGS===
+# - - - - - - - - - - - - - - - -
+
+    key_bindings:
         - { key: Return, mods: Control|Shift, action: SpawnNewInstance }
 
-font:
+
+
+# ===MOUSE BINDINGS===
+# - - - - - - - - - - - - - - - -
+
+    mouse_bindings:
+        - { mouse: Middle, action: PasteSelection }
+
+
+# ===FONT===
+# - - - - - - - - - - - - - - - -
+
+    font:
         size:
-                10.0
+            09.0
 
         normal:
-                family: freemono
-                style:  Regular
+            family: freemono
+            style:  Regular
 
         bold:
-                family: freemono
-                style:  Bold
+            family: freemono
+            style:  Bold
 
         oblique:
-                family: freemono
-                style:  Italic
+            family: freemono
+            style:  Italic
 
         bold_oblique:
-                family: freemono
-                style:  Bold Italic
+            family: freemono
+            style:  Bold Italic
 
 
-background_opacity:     0.90
+    background_opacity:     0.90
 
 
-# Xterm Colours
-colors:
+# ===COLOURS===
+# - - - - - - - - - - - - - - - -
 
+    colors:
         primary:
-               background:      '#000000'
-               foreground:      '#ffffff'
+            background:      '#000000'
+            foreground:      '#ffffff'
 
-#        cursor:
-#               text:            ''
-#               cursor:          ''
+###     cursor:
+###         text:            ''
+###         cursor:          ''
 
         normal:
-                black:          '#000000'
-                red:            '#cd0000'
-                green:          '#00cd00'
-                yellow:         '#cdcd00'
-                blue:           '#1e90ff'       #dodgerblue
-                magenta:        '#cd00cd'
-                cyan:           '#00cdcd'
-                white:          '#e5e5e5'
+            black:          '#000000'
+            red:            '#cd0000'
+            green:          '#00cd00'
+            yellow:         '#cdcd00'
+            blue:           '#1e90ff'       #dodgerblue
+            magenta:        '#cd00cd'
+            cyan:           '#00cdcd'
+            white:          '#e5e5e5'
 
         bright:
-                black:          '#7f7f7f'
-                red:            '#ff0000'
-                green:          '#00ff00'
-                yellow:         '#ffff00'
-                blue:           '#6497ed'       #cornflowerblue
-                magenta:        '#ff00ff'
-                cyan:           '#00ffff'
-                white:          '#ffffff'
+            black:          '#7f7f7f'
+            red:            '#ff0000'
+            green:          '#00ff00'
+            yellow:         '#ffff00'
+            blue:           '#6497ed'       #cornflowerblue
+            magenta:        '#ff00ff'
+            cyan:           '#00ffff'
+            white:          '#ffffff'
+
+
+# ===OTHERS===
+# - - - - - - - - - - - - - - - -
+
+    env:
+        TERM: xterm-256color
+
+
+### selection:
+###     semantic_escape_chars: ",|`:\"'()[]{}<>"
