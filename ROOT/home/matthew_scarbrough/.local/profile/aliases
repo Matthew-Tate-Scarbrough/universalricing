@@ -1,0 +1,77 @@
+#!/bin/bash
+
+# Selects either `doas` or `sudo`
+[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && {
+	SUPERU="doas" && alias sudo="doas" ;
+} || SUPERU="sudo"
+
+# ===GENERAL===
+
+	alias ls="ls --color=auto"
+###	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
+	alias gut="git"
+	alias tlmgr="$SUPERU /opt/texlive/2020/bin/x86_64-linux/tlmgr"
+	alias spacenavcfg="spnavcfg"
+### alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
+    alias cat="bat -p --terminal-width=80"
+
+
+# ===TRASH===
+
+    alias rm="trash-put"
+    alias "rm -r"="trash-put"
+    alias "sudo rm"="$SUPERU trash-put"
+    alias "sudo rm -r"="$SUPERU trash-put"
+    alias "doas rm"="$SUPERU trash-put"
+    alias "doas rm -r"="$SUPERU trash-put"
+
+
+# ===PACMAN===
+
+###	alias ps="pacman -Ss"
+###	alias pi="$SUPERU pacman -S"
+###	alias pu="$SUPERU pacman -Syy"
+###	alias pupgrade="$SUPERU pacman -Syyu"
+###	alias pr="$SUPERU pacman -Rsn"
+
+
+# ===YAY===
+
+###	alias ys="yay -Ss"
+###	alias yi="yay -S"
+###	alias yu="yay -Syy"
+###	alias yupgrade="yay -Syyu"
+###	alias yr="yay -Rsn"
+
+
+# ===XBPS===
+
+	alias xs="xbps-query -Rs"
+	alias xi="$SUPERU xbps-install -Sy"
+	alias xu="$SUPERU xbps-install -S"
+	alias xupgrade="$SUPERU xbps-install -Su"
+
+
+# ===YOUTUBE-DL===
+
+	alias yt="youtube-dl -f bestaudio+bestvideo --merge-output-format mp4 -k"
+	alias yt-archive="youtube-dl --download-archive"
+
+
+# ===POWER OPTIONS===
+
+### alias poweroff="$SUPERU poweroff"
+### alias shutdown="$SUPERU shutdown now"
+
+### alias reboot="$SUPERU shutdown -r now"
+###	alias suspend="$SUPERU systemctl suspend"
+
+
+# ===APPIMAGES===
+
+    export OPT="$HOME/.local/opt"
+### alias  tutanota="$OPT/tutanota.AppImage"
+### alias  minecraft-launcher="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
+### alias  minecraft="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
+### alias  Minecraft="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
+### alias  lbry="$OPT/LBRY.AppImage"

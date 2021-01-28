@@ -1,0 +1,119 @@
+#!/bin/sh
+
+#==============================================================================#
+# ===MONITOR FIX===                                                            #
+#==============================================================================#
+
+	# Void and Ubuntu
+	xrandr --output HDMI-A-0 --primary           ;
+    xrandr --output DVI-D-0  --right-of HDMI-A-0  ;
+###	xrandr --output DVI-D-1  --right-of HDMI-A-0 ;
+
+	# Arch
+###	xrandr --output HDMI-1   --primary        ;
+###	xrandr --output DVI-D-1  --left-of HDMI-1 ;
+###	xrandr --output DVI-D-2 --right-of HDMI-1 ;
+
+
+#==============================================================================#
+# ===NETWORK===                                                                #
+#==============================================================================#
+
+    doas ip link add name br0 type bridge
+    doas ip link set br0 up
+    doas ip link set eth0 up
+    doas ip link set eth0 master br0
+    doas ip addr add 192.168.1.32/24 brd + dev br0
+    doas ip route add default via 192.168.1.1
+
+
+#==============================================================================#
+# ===KEYBOARDS & MICE===                                                       #
+#==============================================================================#
+
+    #--------------------------------------------------------------------------#
+	# Custom Dvorak layouts                                                    #
+    #--------------------------------------------------------------------------#
+
+###     setxkbmap   \
+###     	-layout lingdvorak,lingdvorak,lingdvorak    \
+###     	-variant ,alt,arun                          \
+###     	-option 'grp:alt_caps_toggle','lv3:ralt_switch','caps:escape_shifted_capslock' ;
+
+        setxkbmap   \
+        	-layout lingdvorak,lingdvorak   \
+        	-variant ,alt                   \
+        	-option 'grp:alt_shift_toggle','lv3:ralt_switch','caps:escape_shifted_capslock' ;
+
+
+    #--------------------------------------------------------------------------#
+   	# Natural Scrolling                                                        #
+    #                                                                          #
+   	# To find this, you type `xinput list` and then find your mouse.           #
+   	# Then, type `xinput list-props <mouse-id>`                                #
+   	# Find your natural scrolling option; the anatomy is:                      #
+   	# xinput set-prop <mouse-id> <nat-scroll-id> <0 for off; 1 for high>       #
+    #--------------------------------------------------------------------------#
+
+        xinput set-prop                 \
+            "ZLY ZELOTES GAME MOUSE"    \
+            "libinput Natural Scrolling Enabled"    \
+            1                                       ;
+
+
+#==============================================================================#
+# ===LESSKEY===                                                                #
+#==============================================================================#
+
+    #--------------------------------------------------------------------------#
+    # `lesskey` sets the keybindintgs for `less`                               #
+    #--------------------------------------------------------------------------#
+    lesskey $HOME/.config/less/lessrc
+
+
+while true; do
+
+    #--------------------------------------------------------------------------#
+	# ===WM STATUS BAR===                                                      #
+    #--------------------------------------------------------------------------#
+
+		while xsetroot -name "[$( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
+			sleep 5
+		done &
+
+
+    #--------------------------------------------------------------------------#
+	# ===WM BACKGROUND===                                                      #
+    #--------------------------------------------------------------------------#
+
+		while feh --bg-fill --randomize ~/Pictures/Wallpapers/*.jpg; do
+			sleep 900		# Sleep 15min (900 sec's)
+		done &
+
+
+    #--------------------------------------------------------------------------#
+	# ===WINDOW TRANSPARCENCY===                                               #
+    #--------------------------------------------------------------------------#
+
+        #----------------------------------------------------------------------#
+		# Picom on Void is clunky--I find that this is what is necessary to be #
+        # able to get the SAME default experience on Arch-based distros.       #
+        #----------------------------------------------------------------------#
+
+            picom -b &
+
+
+    #--------------------------------------------------------------------------#
+	# ===WM===                                                                 #
+    #--------------------------------------------------------------------------#
+
+		dbus-run-session dwm &
+
+
+    #--------------------------------------------------------------------------#
+	# ===AUTOMOUNTING===                                                       #
+    #--------------------------------------------------------------------------#
+
+		udiskie
+
+done

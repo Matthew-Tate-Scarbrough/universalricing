@@ -1,0 +1,66 @@
+#!/bin/sh
+
+# ===INDEPENDENT===
+
+	export BROWSER="firefox"
+	export EDITOR="nvim"
+	export PATH="$PATH:$HOME/.local/bin"
+	export PATH="$PATH:$HOME/.local/bin/statusbar"
+	export PAGER="less -R"
+	export READER="zathura"
+	export TERM="xterm-256color"
+	export TERMINAL="alacritty"
+	export GST_PLUGIN_FEATURE_RANK="sndiosink:0"
+
+
+# ===FLATPAK===
+
+    export PATH="$PATH:/var/lib/flatpak/exports/bin"
+    export PATH="$PATH:$HOME/.local/share/flatpak/exports/bin"
+
+
+# ===SHELL STUFFS===
+
+	# ZSH
+	export ZDOTDIR="$HOME/.config/zsh"
+
+	# Bash
+	export BASHDOTDIR="$HOME/.config/bash"	# Custom Variable
+
+
+# ===GO LANG===
+
+	export PATH="$PATH:/usr/local/go/bin"
+	export GOPATH="$HOME/Documents/Go"
+
+
+# ===RUST LANG===
+
+	export CARGO_HOME="$HOME/.local/share/cargo"
+	export RUSTUP_HOME="$HOME/.local/share/rustup"
+	export PATH="$PATH:$HOME/.local/share/cargo/bin"
+
+
+# ===GIT STUFFS===
+
+	export GIT_EDITOR="nvim"
+
+
+# ===XINIT STUFFS===
+
+	export XINITRC="$HOME/.config/xinit"
+
+
+# ===EMACS===
+
+	export PATH="$PATH:$HOME/.emacs.d/bin"
+
+
+# ===YOUTUBE-DL STUFFS===
+
+	export YT="$HOME/Downloads/.youtube-dl"
+
+
+# ===TEXLIVE===
+
+	export PATH="$PATH:/opt/texlive/2020/bin/x86_64-linux"

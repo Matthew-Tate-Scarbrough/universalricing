@@ -65,15 +65,15 @@ with `\subfiles`, putting also a file called `preface.tex` into the place I do.
 
 The hierarchy is thusly:
 
-    ./
-     | - main.tex
-     \ - usr/.
-            \ - local/.
-	           | - etc/.
-		   |      \- preface.tex
-		   |
-		   | - graphics/
-		   \ - chapters/
+    ./ROOT/home/<my_username>/
+                             | - main.tex
+                             \ - usr/.
+                                    \ - local/.
+                                       | - etc/.
+                                   |      \- preface.tex
+                                   |
+                                   | - graphics/
+                                   \ - chapters/
 
 
 ## Layout
@@ -223,7 +223,7 @@ The traditional Mongolian writing system is poorly supported, due to its
 vertical nature.  Menksoft has made some lovely fonts that work well with the
 traditional Mongolian script, even if a webpage does not
 
-!["Wikipedia"](mongolian_example.png)
+!["Wikipedia"](ETC/graphics/mongolian_example.png)
 
 At the present time, I do not feel like doing a direct link to their proprietary
 fonts' download button(s) (as you have to download them one-by-one.)  I trust
