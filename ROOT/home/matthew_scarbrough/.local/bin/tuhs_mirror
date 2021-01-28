@@ -1,0 +1,11 @@
+#!/bin/bash
+
+TUHS_DIR="/home/matthew_scarbrough/Downloads/.src/tuhs.org"
+
+mkdir -p $TUHS_DIR/{Applications,Distributions,Documentation,Tools}
+
+rsync -avz minnie.tuhs.org::UA_Root             $TUHS_DIR/
+rsync -avz minnie.tuhs.org::UA_Applications     $TUHS_DIR/Applications
+rsync -avz minnie.tuhs.org::UA_Distributions    $TUHS_DIR/Distributions
+rsync -avz minnie.tuhs.org::UA_Documentation    $TUHS_DIR/Documentation
+rsync -avz minnie.tuhs.org::UA_Tools            $TUHS_DIR/Tools

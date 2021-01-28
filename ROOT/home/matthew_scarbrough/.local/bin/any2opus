@@ -1,0 +1,146 @@
+#!/bin/bash
+
+# v.1.01
+# Matþew T. Scarbrough
+#
+# DEPENDENCIES:
+# ffmpeg bash
+
+# ===FUNCTIONS===
+# - - - - - - - - - - - - - - - -
+
+    get_help() {
+        printf "[1;4many2opus[0m\n\n"
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+
+        printf "usage: any2opus [2m[flags][0m\n\n"
+
+        printf "  [2m-a[0m        creates archive folder and moves "
+        printf                        "*.flac\'s thither\n"
+
+        printf "  [2m-d[0m        deletes *.flac\'s\n"
+        printf "  [2m-f[0m        converts *.opus\'s to *.flac\'s\n"
+        printf "  [2m-h[0m        meta--prints this\n"
+        printf "  [2m-y[0m        skip warning\n\n"
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+
+        printf "  [2m-ao[0m       creates archive folder but no *.opus\'s "
+        printf                        "and *.flac\'s thither\n\n"
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+
+        printf "  [2m--archive[0m creates an archive of the current "
+        printf                        "directory\n"
+
+        printf "  [2m--help[0m    meta--prints this\n\n"
+
+        # - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -#
+
+        printf "[4mNotes[0m:\n\n"
+
+        printf "1. The script works automatically in whatever \$PWD is *ONLY*\n"
+
+        printf "2. [2m--archive[0m will create, if it doesn\'t exist, a "
+        printf "folder called [2m~/Music/Archives[0m.\n"
+        printf "   After this, it will create a copy of the \$PWD there, as "
+        printf "well and move all of\n"
+        printf "   the *.flac's there.  This will convert *.opus's as well.\n"
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    warn_space() {
+        printf "[1mThis will not delete any files and make *.flac\'s[0m\n"
+        printf "[2mContinue (y/n)?[0m > "
+
+        read ANSWER
+
+        [[ $ANSWER != "y" ]] && exit || break
+
+        printf "\n"
+    }
+    
+
+    # - - - - - - - - - - - -
+
+
+    flacify() {
+        for i in *.{mp3,m4a,wav,ogg}; do 
+            ffmpeg -i "$i" "${i%.*}.flac"
+        done
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    opusify() {
+        for i in *.flac; do 
+            ffmpeg -i "$i" "${i%.*}.opus"
+        done
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    opus2flac() {
+        for i in *.opus; do
+            ffmpeg -i "$i" "${i%.*}.flac"
+        done
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    make_archive_dir() {
+        printf "[2m~/Music/Archive[0m will hosts your *.flac\'s.\n"
+
+        ARCHIVEDIR=$(                         \
+            echo -E "$PWD"                  | \
+            sed     's/\/Music/&\/Archive/'   \
+        )
+
+        mkdir -p "$ARCHIVEDIR"
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    mv_flacs() {
+        mv *.flac "$ARCHIVEDIR"/
+    }
+
+
+    # - - - - - - - - - - - -
+
+
+    rm_non_good() {
+        rm *.{mp3,m4a,wav,ogg}
+    }
+
+
+# ===CASES===
+# - - - - - - - - - - - - - - - -
+
+    case "$1" in
+            -a) make_archive_dir && opus2flac ; mv_flacs ; flacify ;           \
+                     rm_non_good  ; opusify   ; mv_flacs           ;;
+     --archive) make_archive_dir && opus2flac ; mv_flacs ; flacify ;           \
+                     rm_non_good  ; opusify   ; mv_flacs           ;;
+           -ao) make_archive_dir && opus2flac ; mv_flacs ; flacify ; mv_flacs ;;
+            -h) get_help                                        ;;
+        --help) get_help                                        ;;
+            -f) warn_space &&           opus2flac               ;;
+            -y)               flacify ; opusify                 ;;
+            -d) warn_space && flacify ; opusify && rm -f *.flac ;;
+           -df)               flacify ; opusify && rm -f *.flac ;;
+           -dy)               flacify ; opusify && rm -f *.flac ;;
+             *) warn_space && flacify ; opusify                 ;;
+    esac
