@@ -77,7 +77,7 @@ while true; do
 	# ===WM STATUS BAR===                                                      #
     #--------------------------------------------------------------------------#
 
-		while xsetroot -name "[$( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%I:%M%p" )]"; do
+		while xsetroot -name "[$( cpu_temp ) | $( date "+🌎%m-%d-%y" ) | $( date "+🕓%l:%M%p" )]"; do
 			sleep 5
 		done &
 
