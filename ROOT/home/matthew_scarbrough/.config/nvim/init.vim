@@ -10,7 +10,7 @@
 
 " ===LEADER AND ITS FOLLOWS===
 
-	let mapleader =";"
+	let mapleader =" "
 
 	" toggle goyo -- the logic is that it mimics ctrl+e for centerline
 		
@@ -37,6 +37,14 @@
 """ noremap S $
 """ noremap <C-s> n
 """ noremap <C-o> J
+""" noremap q @
+""" noremap @ q
+	noremap gj j
+	noremap gk k
+	noremap j gj
+	noremap k gk
+    noremap q q
+    noremap @ @
 
 
 " ===PLUGINS===
@@ -56,7 +64,8 @@
 
 	" Line Numbers
 
-		set nu relativenumber
+		set number
+        set relativenumber
 
 
 	" File/Font Encoding
@@ -67,7 +76,7 @@
 
 	" Tab Stop
 
-		set expandtab
+"""		set expandtab
 		set tabstop=4
 		set shiftwidth=4
 
@@ -75,7 +84,7 @@
 	" Columns and Wrapping
 
 """		set colorcolumn=114
-		set colorcolumn=80
+		set colorcolumn=72
 	
 		set wrap
 		set linebreak
@@ -90,6 +99,13 @@
 
 		" remap direction
 		set splitbelow splitright
+
+
+    " Print Options
+
+        set printfont=FreeMono
+        set printencoding=utf-8
+        set printoptions=paper:letter,syntax:a
 
 
 	" Compiling, etc.
@@ -132,7 +148,7 @@
 
 		au BufRead,BufNewFile *.mmd,*.md set filetype=markdown syntax=mmarkdown
 		au BufRead,BufNewFile *.mmd,*.md set tabstop=4         shiftwidth=4
-		au BufWrite           *.mmd,*.md set expandtab
+"""		au BufWrite           *.mmd,*.md set expandtab
 
 
 	" SILE
@@ -140,6 +156,11 @@
 		au BufRead,BufNewFile *.sil,*.sile set filetype=sile syntax=tex expandtab
 
 
+""" " ANYTHING
+"""
+""" 	au BufRead,BufNewFile * set syntax=off
+
+
 	" VIM
 
-		au BufRead,BufNewFile *.vim set filetype=vim syntax=vim expandtab!
+"""		au BufRead,BufNewFile *.vim set filetype=vim syntax=vim expandtab!
