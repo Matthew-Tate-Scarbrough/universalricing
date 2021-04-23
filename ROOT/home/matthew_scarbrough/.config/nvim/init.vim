@@ -138,4 +138,15 @@
 		augroup MARKDOWN
 			autocmd BufRead,BufNewFile *.md,*.mmd,*.markdown
 				\ set filetype=mmarkdown
+				\     textwidth=72
+		augroup END
+
+	"------------------------------------------------------------------"
+	" Gemini                                                           "
+	"------------------------------------------------------------------"
+
+		augroup GEMINI
+			autocmd BufRead,BufNewFile *.gmi,*.gemini
+				\ set syntax=mmarkdown
+				\     colorcolumn=0
 		augroup END
