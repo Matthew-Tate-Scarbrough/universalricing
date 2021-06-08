@@ -30,12 +30,12 @@
 		:map <leader>c :w! \| !compiler <c-r>%<CR><CR>
 
 		" Keys
-		:noremap gj j
-		:noremap gk k
-		:noremap j gj
-		:noremap k gk
-		:noremap q @
-		:noremap @ q
+"""		:noremap gj j
+"""		:noremap gk k
+"""		:noremap j gj
+"""		:noremap k gk
+"""		:noremap q @
+"""		:noremap @ q
 	
 		" Ling Dvorak lang mapping
 		:set langmap=АБЦДЕФГЧИЙКЛМНОПЭРСТУВШХЫЗ;
@@ -57,13 +57,14 @@
 	" Plugins and Plugin Settings                                      "
 	"------------------------------------------------------------------"
 
-		call plug#begin('~/.config/nvim/plugged')
-			Plug 'junegunn/goyo.vim'
-			Plug 'preservim/nerdtree'
-		call plug#end()
-
-		" Call and set `goyo`
-		:map <leader>e :Goyo 72 \| set linebreak<CR>
+"""		call plug#begin('~/.config/nvim/plugged')
+"""			Plug 'junegunn/goyo.vim'
+"""			Plug 'preservim/nerdtree'
+"""			Plug 'tpope/vim-surround'
+"""		call plug#end()
+"""
+"""		" Call and set `goyo`
+"""		:map <leader>e :Goyo 72 \| set linebreak<CR>
 
 	"------------------------------------------------------------------"
 	" Printer Settings                                                 "
