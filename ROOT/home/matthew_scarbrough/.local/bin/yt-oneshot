@@ -1,0 +1,58 @@
+#!/bin/sh
+
+################################################################################
+#                                                                              #
+#  A simple one-shot wrapper for YouTube-DL.  It assumes best video+audio.     #
+#  There is no need to put quotation marks in the `read`'s.  It is intuitive.  #
+#                                                                              #
+################################################################################
+
+YT="$HOME/Downloads/.youtube-dl"
+
+yt_oneshot_video() {
+	printf "[1mWhat output format would you like for the video?[0m"
+	printf "[2m(mp4, m4a, wav, etc.)[0m: "
+	read YT_ONESHOT_OUTPUT_FORMAT
+
+	youtube-dl \
+		--format bestvideo+bestaudio										   \
+		--merge-output-format "$YT_ONESHOT_OUTPUT_FORMAT"					   \
+		--add-metadata 														   \
+		--keep-video														   \
+		--ignore-errors														   \
+		"$YT_ONESHOT_URL"													   \
+		--output "$YT/$YT_ONESHOT_PATH/%(upload_date)s-%(title)s.%(ext)s"
+}
+
+yt_oneshot() {
+	youtube-dl \
+		--format bestaudio													   \
+		--add-metadata 														   \
+		--extract-audio														   \
+		--ignore-errors														   \
+		"$YT_ONESHOT_URL"													   \
+		--output "$YT/$YT_ONESHOT_PATH/%(upload_date)s-%(title)s.%(ext)s"
+}
+
+printf "[1mInput URL.  (Do not enclose in quotation marks (\").[0m\n"
+printf "[2m>[0m "
+read   YT_ONESHOT_URL
+printf "\n"
+
+printf "[1mWhere would you like it to go[0m "
+printf "[1m(no quotes, escape chars only.)[0m\n"
+printf "[2m(i.e. \$HOME/Downloads/Channel/Playlist):[0m "
+read   YT_ONESHOT_PATH
+printf "\n"
+
+
+printf "[1m\`[a]udio' or \`[v]ideo'?:[0m "
+read   YT_ONESHOT_AV
+printf "\n"
+
+case "$YT_ONESHOT_AV" in
+	audio) yt_oneshot		;;
+		a) yt_oneshot		;;
+	video) yt_oneshot_video	;;
+		v) yt_oneshot_video ;;
+esac

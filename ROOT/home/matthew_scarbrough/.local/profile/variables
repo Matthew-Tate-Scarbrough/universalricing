@@ -64,3 +64,13 @@
 # ===TEXLIVE===
 
 	export PATH="$PATH:/opt/texlive/2020/bin/x86_64-linux"
+
+
+# ===TESSERACT-OCR===
+
+	export TESSDATA_PREFIX="/usr/share/tessdata"
+
+
+# ===PACKETTRACER===
+
+	export PATH="$PATH:/opt/pt"

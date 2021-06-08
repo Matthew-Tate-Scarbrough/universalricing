@@ -5,42 +5,51 @@
 % VERSION:  v1.00
 % REVISION: <DATE>
 
-% ===REVISION COMMENTS===                                                      %
-%                                                                              %
-% Made sure this template is set for 80-char width.                            %
-%                                                                              %
-% `AUTHOR:` should be your name, if more than one author is used, I recommend  %
-%           doing it like this:                                                %
-%                                                                              %
-%     | % AUTHOR:   Matþew T. Scarbrough (author)                              %
-%     | %           Johnathan Dover      (editor)                              %
-%     | %           Jeremiah Bull        (illustrator)                         %
-%     | %           Kenneth Hughes       (revisionist)                         %
-%                                                                              %
-% `CREATED:` This should hold the date the draft was originally made;  I use   %
-%            the '<day> <month> <year>' format.                                %
-%                                                                              %
-% `VERSION:` This will host the actualy 'version-number'.  I use the model     %
-%            <major>.<minor><step>.  Steps are lowercas letters 'a-z'.  I use  %
-%            these for when I am drafting something before I push a commit and %
-%            before and when things only change minor-ly;  i.e. 'spelling'.    %
-%                                                                              %
-% `REVISION:` or `REVISION DATE:` hoists the date of the present version.      %
-%                                                                              %
-% `===REVISION COMMENTS===`                                                    %
-% Hosts a change log for the present version---I recommend keeping important   %
-% tid-bits here, that transcend the revisions.  But you can figure that out... %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ===REVISION COMMENTS===                                              %
+%                                                                      %
+% Made sure this template is set for 80-char width.                    %
+%                                                                      %
+% `AUTHOR:` should be your name, if more than one author is used, I    %
+%           recommend  doing it like this:                             %
+%                                                                      %
+%     | % AUTHOR:   Matþew T. Scarbrough (author)                      %
+%     | %           Johnathan Dover      (editor)                      %
+%     | %           Jeremiah Bull        (illustrator)                 %
+%     | %           Kenneth Hughes       (revisionist)                 %
+%                                                                      %
+% `CREATED:` This should hold the date the draft was originally made;  %
+%            I use the '<day> <month> <year>' format.                  %
+%                                                                      %
+% `VERSION:` This will host the actualy 'version-number'.  I use the   %
+%            model <major>.<minor><step>.  Steps are lowercas letters  %
+%            'a-z'.  I use these for when I am drafting something      %
+%            before I push a commit and before and when things only    %
+%            change minor-ly;  i.e. 'spelling'.                        %
+%                                                                      %
+% `REVISION:` or `REVISION DATE:` hosts the date of the present        %
+%             version                                                  %
+%                                                                      %
+% `===REVISION COMMENTS===` Hosts a change log for the present         %
+%                           version---I recommend keeping important    %
+%                           tid-bits here, that transcend the          %
+%                           revisions.  But you can figure that out... %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \documentclass[letterpaper]{article}
 
-    % ===MAIN PACKAGES===
-    % - - - - - - - - - - - - - - - -
+	%==================================================================%
+	% ===MAIN PACKAGES===                                              %
+	%==================================================================%
 
-        % ===Babel===                                                          %
-        %                                                                      %
-        % `babel` handles typesetting in other languages, chiefly hyphenation. %
-        % The level of importance is read right-to-left, thus, the `main=`     %
-        % language is set on the right of the secondary language.              %
+		%--------------------------------------------------------------%
+		% ===Babel===                                                  %
+		%                                                              %
+		% `babel` handles typesetting in other languages, chiefly      %
+		% hyphenation.  The level of importance is read right-to-left, %
+		% thus, the `main=` language is set on the right of the        %
+		% secondary language.                                          %
+		%--------------------------------------------------------------%
 
             \usepackage[USenglish,main=russian]{babel}
 
@@ -52,32 +61,41 @@
                 }
 
 
-%%%     % ===Inputenc===                                                       %
-%%%     %                                                                      %
-%%%     % `inputenc` this package tells pdflatex what the input is;  this is   %
-%%%     % only necessary for pre-2018 editions of LaTeX.                       %
+%%%		%--------------------------------------------------------------%
+%%%		% ===Inputenc===                                               %
+%%%		%                                                              %
+%%%		% `inputenc` this package tells pdflatex what the input is;    %
+%%%		% this is only necessary for pre-2018 editions of LaTeX.  The  %
+%%%		% encodings are read right-to-left, so the right-most is the   %
+%%%		% primary encoding.                                            %
+%%%		%--------------------------------------------------------------%
 %%%
-%%%         \usepackage[utf8]{inputenc}
+%%%			\usepackage[utf8]{inputenc}
 
 
-        % ===Fontenc===                                                        %
-        %                                                                      %
-        % `fontenc` is used for typesetting in languages;  this is unneeded    %
-        % for just English---I use thorn (þ) in my name, so I need it.  `T1`   %
-        % is needed for *most* European languages.  `T2A` is needed for most   %
-        % Cyrillic.                                                            %
-        %                                                                      %
-        %     Similar to above, the right-most encoding is the default/pri-    %
-        % mary one.  Thus, `T2A` goes second.                                  %
+		%--------------------------------------------------------------%
+		% ===Fontenc===                                                %
+		%                                                              %
+		% `fontenc` is used for typesetting in languages;  this is     %
+		% unneeded for just English---I use thorn (þ) in my name, so I %
+		% need it.  `T1` is needed for *most* European languages.      %
+		% `T2A` is needed for most Cyrillic.                           %
+		%                                                              %
+        %     Similar to above, the right-most encoding is the what is %
+        % default.                                                     %
+		%--------------------------------------------------------------%
 
             \usepackage[T1,T2A]{fontenc}
 
 
-%%%     % ===Geometry===                                                       %
-%%%     %                                                                      %
-%%%     % `geometry` this is used for many things;  if you have issues using   %
-%%%     % with using a particular page size, then uncomment this, using `pass` %
-%%%     % to change the size.  If you need it for any other purpose, you know. %
+%%%		%--------------------------------------------------------------%
+%%%		% ===Geometry===                                               %
+%%%		%                                                              %
+%%%		% `geometry` this is used for many things;  if you have issues %
+%%%		% using with using a particular page size, then uncomment      %
+%%%		% this, using `pass` to change the size.  If you need it for   %
+%%%		% any other purpose, you know.                                 %
+%%%		%--------------------------------------------------------------%
 %%%
 %%%         \usepackage[pass]{geometry}
 
@@ -85,73 +103,125 @@
     % ===SECONDARY PACKAGES===
     % - - - - - - - - - - - - - - - -
 
-%%%     % ===Lettrine===                                                       %
-%%%     %                                                                      %
-%%%     % `lettrine` is for typesetting drop caps.  In this project, it is     %
-%%%     % part of a function to write chapter numbers                          %
+%%%		%--------------------------------------------------------------%
+%%%		% ===Lettrine===                                               %
+%%%		%                                                              %
+%%%		% `lettrine` is for typesetting drop caps.                     %
+%%%		%--------------------------------------------------------------%
 %%%
-%%%         \usepackage{lettrine}
-%%%
-%%%
-%%%     % ===Hyperref===                                                       %
-%%%     %                                                                      %
-%%%     % `hyperref` handles links in the document; it is to be set to hide    %
-%%%     % links.  This is a stylistic choice.  Nevertheless, all links should  %
-%%%     % be put in a footnote, if to a website, so that anyone using a print- %
-%%%     % ed copy may search for them manually.                                %
-%%%     %                                                                      %
-%%%     %     The `hidelinks` option doesn't show the colour boxes around hy-  %
-%%%     % perlinks, etc.                                                       %
-%%%
-%%%         \usepackage[hidelinks]{hyperref}
+%%%			\usepackage{lettrine}
 %%%
 %%%
-%%%     % ===Xcolor===                                                         %
-%%%     %                                                                      %
-%%%     % `xcolor` is used for colours;  if using highlighting with `soul`,    %
-%%%     % then you need this also for the colour.                              %
+%%%		%--------------------------------------------------------------%
+%%%		% ===Hyperref===                                               %
+%%%		%                                                              %
+%%%		% `hyperref` handles links in the document; it is to be set to %
+%%%		% hide links.  This is a stylistic choice.  Nevertheless, all  %
+%%%		% links should be put in a footnote, if to a website, so that  %
+%%%		% anyone using a printed copy may search for them manually.    %
+%%%		%                                                              %
+%%%		%     The `hidelinks` option doesn't show the colour boxes     %
+%%%		% around hyperlinks, etc.                                      %
+%%%		%--------------------------------------------------------------%
 %%%
-%%%         \usepackage{xcolor}
+%%%			\usepackage[hidelinks]{hyperref}
+%%%
+%%%
+%%%		%--------------------------------------------------------------%
+%%%		% ===Xcolor===                                                 %
+%%%		%                                                              %
+%%%		% `xcolor` is used for colours;  if using highlighting with    %
+%%%		% `soul`, then you need this also for the colour.              %
+%%%		%--------------------------------------------------------------%
+%%%
+%%%			\usepackage{xcolor}
+%%%
+%%%
+%%%		%--------------------------------------------------------------%
+%%%		% ===Soul===                                                   %
+%%%		%                                                              %
+%%%		% `soul` this overall betters textformatting and allows        %
+%%%		% highlighting as well.  For _italics_, **bold**, and          %
+%%%		% underlining, you have now:                                   %
+%%%		%                                                              %
+%%%		%     {\it italics} and {\bf bold}; these are not nestible.    %
+%%%		% But you can nest {\it \textbf{oblique}} and                  %
+%%%		%{\bf \textit{italics}}.                                       %
+%%%		%                                                              %
+%%%		%     \ul{} will put a low underline under everything,         %
+%%%		% regardless of whether there be a descender in the word(s) or %
+%%%		% not.                                                         %
+%%%		%--------------------------------------------------------------%
+%%%
+%%%			\usepackage{soul}
 
 
-        % ===Soul===                                                           %
-        %                                                                      %
-        % `soul` this overall betters textformatting and allows highlighting   %
-        % as well.  For _italics_, **bold**, and underlining, you have now:    %
-        %                                                                      %
-        %     {\it italics} and {\bf bold}; these are not nestible.  But you   %
-        % can nest {\it \textbf{oblique}} and {\bf \textit{italics}}.          %
-        %                                                                      %
-        %     \ul{} will put a big underline under everything, regardless of   %
-        % whether there be a descender in the word(s) or not.                  %
+	%==================================================================%
+	% ===GLOBAL FUNCTIONS===                                           %
+	%==================================================================%
 
-            \usepackage{soul}
+		%--------------------------------------------------------------%
+		% ===Real Apostrophe===                                        %
+		%                                                              %
+		% Real apostrophes are to be used instead of right-single      %
+		% quotes.                                                      %
+		%                                                              %
+		%     didn't                 -- NOT --           didn’t        %
+		%                                                              %
+		%     This work also will be using apostrophes to show names   %
+		% and phrases that are not technicall quotes, therefore        %
+		% needing not take commas.                                     %
+		%                                                              %
+		%     He called it 'Night'                                     %
+		%                                                              %
+		%                            -- NOT --                         %
+		%                                                              %
+		%     He called it, “Night,” -- or  -- He called it ‘Night’    %
+		%--------------------------------------------------------------%
 
-
-    % ===GLOBAL FUNCTIONS===
-    % - - - - - - - - - - - - - - - -
-
-        % ===Real Apostrophe===                                                %
-        %                                                                      %
-        % Real apostrophes are to be used instead of right-single quotes.      %
-        %                                                                      %
-        %     didn't                 -- NOT --           didn’t                %
-        %                                                                      %
-        %     This work also will be using apostrophes to show names and       %
-        % phrases that are not technicall quotes, therefore needing not take   %
-        % commas.                                                              %
-        %                                                                      %
-        %     He called it 'Night'                                             %
-        %                                                                      %
-        %                            -- NOT --                                 %
-        %                                                                      %
-        %     He called it, “Night,” -- or  -- He called it ‘Night’            %
-
-            \newcommand{\apos}{\textquotesingle}
+			\newcommand{\apos}{\textquotesingle}
 
 
-    % ===TITLE===
-    % - - - - - - - - - - - - - - - -
+	%==================================================================%
+	% ===STYLING NOTES===                                              %
+	%==================================================================%
+
+		%--------------------------------------------------------------%
+		% ===Emphasis and Italics===                                   %
+		%                                                              %
+		% If you have a background in HTML, this is a common-sense,    %
+		% but note that {\em } and \textit{} are not the same thing.   %
+		%                                                              %
+		% For this, let `_text_` be italics of either type:            %
+		%                                                              %
+		%    Viz. you mentioned how to another friend how a particular %
+		% friend can stole your wallet.  Word goes out to another      %
+		% friend of whom you did not speak.  This one comes to you     %
+		% angered and you simply abate trouble by saying:              %
+		%                                                              %
+		%    > I didn't say _you_ stole my wallet...                   %
+		%                                                              %
+		%    This is italics as a matter of emphasis.  Suppose the     %
+		% entire sentence were italicised, then you would need to      %
+		% modify how you might format emphasized text to allow it to   %
+		% stand-out.  You might do this by underlighting or            %
+		% emboldening.                                                 %
+		%                                                              %
+		%    Now, suppose you were mentioning to that first friend of  %
+		% your favourite movie:                                        %
+		%                                                              %
+		%    > Did you go see _Doctor Strange_?                        %
+		%                                                              %
+		%    It is part of proper modern standard english to always    %
+		% italicise the titles of books are movies.  However, in an    %
+		% instance where you cannot use italics, you must underline    %
+		% it, but that is neither here-nor-there.                      %
+		%--------------------------------------------------------------%
+
+
+	%==================================================================%
+	% ===TITLE===                                                      %
+	%==================================================================%
 
         \title{%
             <Заглавие>
@@ -172,36 +242,40 @@
 % FRONTMATTER
 \pagenumbering{roman}
 
-    % ===TITLE===
-    % - - - - - - - - - - - - - - - -
+	%==================================================================%
+	% ===TITLE===                                                      %
+	%==================================================================%
 
-        \maketitle
+		\maketitle
 
 
-    % ===TABLE OF CONTENTS===
-    % - - - - - - - - - - - - - - - -
+	%==================================================================%
+	% ===TABLE OF CONTENTS===                                          %
+	%==================================================================%
 
-        \tableofcontents
-        \newpage
+		\tableofcontents
+		\cleardoublepage
 
 
 % MAINMATTER
 \pagenumbering{arabic}
 
-    % Body 1
-    % - - - - - - - - - - - - - - - -
+	%==================================================================%
+	% Body 1                                                           %
+	%==================================================================%
 
         \section{<Раздел>}
 
-        %----------------------------------------------------------------------%
-        %                                                                      %
-        % It is unnecessary to force no `\indent` or even `\noindent` anywhere %
-        % in a document beyond if `\section{}` is not called; if you, however, %
-        % want to insert images via `wrapfig`, you will need to force this.    %
-        %                                                                      %
-        %----------------------------------------------------------------------%
+		%--------------------------------------------------------------%
+		%                                                              %
+		% It is unnecessary to force no `\indent` or even `\noindent`  %
+		% anywhere in a document beyond if `\section{}` is not called; %
+		% if you, however, want to insert images via `wrapfig`, you    %
+		% will need to force this.                                     %
+		%                                                              %
+		%--------------------------------------------------------------%
 
-        \noindent
+        \indent
         Съешь же ещё этих мягких французских булок да выпей чаю...
 
 

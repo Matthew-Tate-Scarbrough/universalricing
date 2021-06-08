@@ -1,77 +1,188 @@
-#!/bin/bash
+#!/bin/sh
+# Tabstop   = 4
+# Linewidth = 72
 
-# Selects either `doas` or `sudo`
-[[ -e /usr/bin/doas && -e /etc/doas.conf ]] && {
-	SUPERU="doas" && alias sudo="doas" ;
-} || SUPERU="sudo"
+#======================================================================#
+# ===SUPERU===                                                         #
+#                                                                      #
+# Will select either `doas` or `sudo`.                                 #
+#                                                                      #
+#======================================================================#
 
-# ===GENERAL===
+	if [ -x /usr/bin/doas ] && [ -s /etc/doas.conf ] ; then
+		export SUPERU="doas" && alias sudo="doas"
+	else
+		export SUPERU="sudo" && alias doas="sudo"
+	fi
 
-	alias ls="ls --color=auto"
-###	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
-	alias gut="git"
-	alias tlmgr="$SUPERU /opt/texlive/2020/bin/x86_64-linux/tlmgr"
+#======================================================================#
+# ===PACKAGE MANAGEMENT===                                             #
+#                                                                      #
+# Will define simple, common-sense packagemanagement terms, based upon #
+# what your package manager is.  You should ideally have only one in-  #
+# stalled, of course, but with a case such as Nix, Snaps, or Flatpak,  #
+# this is not a consideration to care about.                           #
+#                                                                      #
+#     The idea here is to use simple terms:                            #
+#                                                                      #
+#       + distupgrade --- This is ideally just a throw-away to upgrade #
+#                         the entire system.  It should ask for con-   #
+#                         firmation, just-in-case.                     #
+#       + force       --- This is to force an install.                 #
+#       + install     --- This is just to auto-install any packages.   #
+#       + query       --- List manually installed packages.            #
+#                                                                      #
+# TODO: Fix per OS as needed.                                          #
+#======================================================================#
+
+	if [ -x /usr/bin/xbps-install ] ; then
+		# X-Binary Pkg Manager Suite
+		alias distupgrade="$SUPERU xbps-install -S"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU xbps-install -Sy"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="xbps-query -Rs"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	elif [ -x /usr/bin/pacman ] ; then
+		# Pacman
+		# Do not update Arch packages on there own.  Always run `up-   #
+		# date` then `upgrade` to be anal, or merely `upgrade`.        #
+		alias distupgrade="$SUPERU pacman -Syyu"
+		alias     install="$SUPERU pacman -S --noconfirm"
+		alias         o66="$SUPERU pacman -Qtdq | pacman -Rns -"
+		alias     order66="$SUPERU pacman -Qtdq | pacman -Rns -"
+		alias       query="pacman -Qe"
+		alias      search="pacman -Ss"
+		alias        show="pacman -Q"
+		alias      update="$SUPERU pacman -Syy --noconfirm"
+		alias     upgrade="$SUPERU pacman -Syyu"
+		# Phonetic shorts
+		alias           pi="$SUPERU pacman -S"
+		alias           pr="$SUPERU pacman -Rsn"
+		alias           ps="pacman -Ss"
+		alias           pu="$SUPERU pacman -Syy"
+		alias     pupgrade="$SUPERU pacman -Syyu"
+		# TODO: Replace with whatever that new AUR helper is.
+		###	alias yi="yay -S"
+		###	alias yr="yay -Rsn"
+		###	alias ys="yay -Ss"
+		###	alias yu="yay -Syy"
+		###	alias yupgrade="yay -Syyu"
+	elif [ -x /usr/bin/pkg_add ] ; then
+		# OpenBSD"s Pkg Manager
+		alias distupgrade="$SUPERU xbps-install -Su"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU pkg_add"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="pkg_info -Q"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	elif [ -x /usr/bin/dnf ] ; then
+		# Dandified Yum
+		alias distupgrade="$SUPERU xbps-install -Su"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU xbps-install -Sy"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="dnf search"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	elif [ -x /usr/bin/zypper ] ; then
+		# ZYpp Sys Managment Library
+		alias distupgrade="$SUPERU xbps-install -Su"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU xbps-install -Sy"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="zypper search"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	elif [ -x /usr/bin/pkg ] ; then
+		# FreeBSD"s Pkg Manager
+		alias distupgrade="$SUPERU xbps-install -Su"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU xbps-install -Sy"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="pkg search"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	else
+		# Apt
+		alias distupgrade="$SUPERU xbps-install -Su"
+		alias       force="$SUPERU xbps-install -Sfy"
+		alias     install="$SUPERU xbps-install -Sy"
+		alias         o66="$SUPERU xbps-remove -o"
+		alias     order66="$SUPERU xbps-remove -o"
+		alias       query="xbps-query -m"
+		alias      search="apt search"
+		alias        show="xbps-query"
+		alias      update="$SUPERU xbps-install -Syu"
+		alias     upgrade="$SUPERU xbps-install -Syu"
+	fi
+
+#======================================================================#
+# ===GENERAL===                                                        #
+#======================================================================#
+
+	alias         cat="bat -p --terminal-width=80"
+	alias         gut="git"
+	alias          ip="ip --color=auto"
+	alias         kak="kak -c 1"
+	alias          ls="ls --color=auto"
+	alias          ll="ls --color=auto -al"
 	alias spacenavcfg="spnavcfg"
-### alias tmux="tmux -f $HOME/.config/tmux/tmux.conf"
-    alias cat="bat -p --terminal-width=80"
+	alias       tlmgr="$SUPERU /opt/texlive/2020/bin/x86_64-linux/tlmgr"
+	alias        tmux="tmux -u -f $HOME/.config/tmux/tmux.conf"
+###	alias update-grub="$SUPERU grub-mkconfig -o /boot/grub/grub.cfg"
 
 
-# ===TRASH===
+#======================================================================#
+# ===TRASH===                                                          #
+#======================================================================#
 
-    alias rm="trash-put"
-    alias "rm -r"="trash-put"
-    alias "sudo rm"="$SUPERU trash-put"
-    alias "sudo rm -r"="$SUPERU trash-put"
-    alias "doas rm"="$SUPERU trash-put"
-    alias "doas rm -r"="$SUPERU trash-put"
-
-
-# ===PACMAN===
-
-###	alias ps="pacman -Ss"
-###	alias pi="$SUPERU pacman -S"
-###	alias pu="$SUPERU pacman -Syy"
-###	alias pupgrade="$SUPERU pacman -Syyu"
-###	alias pr="$SUPERU pacman -Rsn"
+	alias           rm="trash-put"
+	alias      "rm -r"="trash-put"
+	alias    "sudo rm"="$SUPERU trash-put"
+	alias "sudo rm -r"="$SUPERU trash-put"
+	alias    "doas rm"="$SUPERU trash-put"
+	alias "doas rm -r"="$SUPERU trash-put"
 
 
-# ===YAY===
 
-###	alias ys="yay -Ss"
-###	alias yi="yay -S"
-###	alias yu="yay -Syy"
-###	alias yupgrade="yay -Syyu"
-###	alias yr="yay -Rsn"
+#======================================================================#
+# ===XBPS===                                                           #
+#======================================================================#
 
-
-# ===XBPS===
-
-	alias xs="xbps-query -Rs"
-	alias xi="$SUPERU xbps-install -Sy"
-	alias xu="$SUPERU xbps-install -S"
+	alias       xi="$SUPERU xbps-install -Sy"
+	alias       xs="xbps-query -Rs"
+	alias       xu="$SUPERU xbps-install -S"
 	alias xupgrade="$SUPERU xbps-install -Su"
 
 
-# ===YOUTUBE-DL===
+#======================================================================#
+# ===YOUTUBE-DL===                                                     #
+#======================================================================#
 
-	alias yt="youtube-dl -f bestaudio+bestvideo --merge-output-format mp4 -k"
+	alias         yt="youtube-dl -f bestaudio+bestvideo --merge-output-format mp4 -k"
 	alias yt-archive="youtube-dl --download-archive"
 
 
-# ===POWER OPTIONS===
+#======================================================================#
+# ===DOCKER IMAGES===                                                  #
+#======================================================================#
 
-### alias poweroff="$SUPERU poweroff"
-### alias shutdown="$SUPERU shutdown now"
-
-### alias reboot="$SUPERU shutdown -r now"
-###	alias suspend="$SUPERU systemctl suspend"
-
-
-# ===APPIMAGES===
-
-    export OPT="$HOME/.local/opt"
-### alias  tutanota="$OPT/tutanota.AppImage"
-### alias  minecraft-launcher="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
-### alias  minecraft="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
-### alias  Minecraft="$HOME/Games/Minecraft/minecraft-launcher/minecraft-launcher"
-### alias  lbry="$OPT/LBRY.AppImage"
+	alias webgoat="doas docker run -p 8080:8080 -t webgoat/webgoat-8.0 & disown"

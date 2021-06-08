@@ -1,0 +1,2 @@
+add-highlighter global/ wrap -indent -width 72
+add-highlighter global/ column 73 black,red

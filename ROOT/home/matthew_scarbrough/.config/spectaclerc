@@ -1,0 +1,8 @@
+[General]
+showMagnifier=true
+
+[GuiConfig]
+captureDelay=4
+captureMode=1
+onClickChecked=true
+window-position=772,298

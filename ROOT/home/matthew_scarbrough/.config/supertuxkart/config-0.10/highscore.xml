@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<highscores version="4">
+  <highscore track-name    ="abyss"
+             number-karts  ="4"
+             difficulty    ="1"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="3"
+             reverse       ="false">
+             <entry time    ="198.666"
+                    name    ="MrRichBOB"
+                    kartname="puffy"/>
+             <entry time    ="200.49"
+                    name    ="MrRichBOB"
+                    kartname="puffy"/>
+  </highscore>
+  <highscore track-name    ="cornfield_crossing"
+             number-karts  ="7"
+             difficulty    ="2"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="3"
+             reverse       ="false">
+             <entry time    ="160.43"
+                    name    ="MrRichBOB"
+                    kartname="puffy"/>
+             <entry time    ="170.247"
+                    name    ="MrRichBOB"
+                    kartname="puffy"/>
+  </highscore>
+  <highscore track-name    ="volcano_island"
+             number-karts  ="6"
+             difficulty    ="2"
+             hscore-type   ="HST_STANDARD"
+             number-of-laps="2"
+             reverse       ="false">
+             <entry time    ="177.147"
+                    name    ="MrRichBOB"
+                    kartname="puffy"/>
+  </highscore>
+</highscores>

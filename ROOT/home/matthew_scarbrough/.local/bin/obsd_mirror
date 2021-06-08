@@ -1,0 +1,16 @@
+#!/bin/bash
+
+OBSD_DIR="/home/matthew_scarbrough/Downloads/.src/obsd"
+
+mkdir -p $OBSD_DIR/6.8/{amd64,packages/amd64,packages-stable/amd64}
+
+###rsync -avz mirror.planetunix.net::OpenBSD      --progress $OBSD_DIR/
+###rsync -avz mirror.planetunix.net::OpenBSD/path --progress $OBSD_DIR/path
+
+# OpenBSD 6.8 - AMD64 - Mirror
+rsync -av mirror.planetunix.net::OpenBSD/6.8/amd64				   --progress  \
+		  $OBSD_DIR/6.8
+rsync -av mirror.planetunix.net::OpenBSD/6.8/packages-stable/amd64 --progress  \
+		  $OBSD_DIR/6.8/packages-stable
+rsync -av mirror.planetunix.net::OpenBSD/6.8/packages/amd64 	   --progress  \
+		  $OBSD_DIR/6.8/packages
